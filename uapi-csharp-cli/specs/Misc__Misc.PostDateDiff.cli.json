@@ -1,0 +1,57 @@
+{
+  "source": "Misc/Misc.PostDateDiff.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Misc/Misc.PostDateDiff.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Misc"
+      ],
+      "method": "PostDateDiff",
+      "methodFullName": "UAPI.Misc.PostDateDiff",
+      "returnType": "UAPI.Type.DateDiffType",
+      "rawReturnType": "DateDiffType",
+      "returnsBytes": false,
+      "summary": "计算两个时间/日期之间的差值",
+      "returnsSummary": "DateDiffType 对象",
+      "path": [
+        "misc",
+        "date-diff"
+      ],
+      "params": [
+        {
+          "name": "start_date",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "start-date",
+          "summary": "开始时间/日期",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "end_date",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "end-date",
+          "summary": "结束时间/日期",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "format",
+          "type": "string",
+          "default": "\"YYYY-MM-DD\"",
+          "required": false,
+          "cliName": "format",
+          "summary": "时间格式, 默认为 YYYY-MM-DD",
+          "qualifiedType": "string",
+          "qualifiedDefault": "\"YYYY-MM-DD\""
+        }
+      ],
+      "usesGlobalAuthentication": false
+    }
+  ]
+}

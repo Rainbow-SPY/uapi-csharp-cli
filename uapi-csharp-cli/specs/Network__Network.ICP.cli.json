@@ -1,0 +1,45 @@
+{
+  "source": "Network/Network.ICP.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Network/Network.ICP.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Network"
+      ],
+      "method": "GetICPInfo",
+      "methodFullName": "UAPI.Network.GetICPInfo",
+      "returnType": "UAPI.Type.ICPType",
+      "rawReturnType": "ICPType",
+      "returnsBytes": false,
+      "summary": "查询ICP备案信息",
+      "returnsSummary": "ICPType 对象",
+      "path": [
+        "network",
+        "icp-info"
+      ],
+      "params": [
+        {
+          "name": "domain",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "domain",
+          "summary": "要查询的主机",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

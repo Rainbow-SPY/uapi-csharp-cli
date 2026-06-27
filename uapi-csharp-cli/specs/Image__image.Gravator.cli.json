@@ -1,0 +1,85 @@
+{
+  "source": "Image/image.Gravator.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Image/image.Gravator.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Image"
+      ],
+      "method": "GetGravatorImage",
+      "methodFullName": "UAPI.Image.GetGravatorImage",
+      "returnType": "byte[]",
+      "rawReturnType": "byte[]",
+      "returnsBytes": true,
+      "summary": "获取Gravatar头像",
+      "returnsSummary": "图像二进制",
+      "path": [
+        "image",
+        "gravator-image"
+      ],
+      "params": [
+        {
+          "name": "email",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "email",
+          "summary": "用户的 Email 地址。如果未提供 hash 参数，则此参数为必需",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "hash",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "hash",
+          "summary": "用户 Email 地址的小写 MD5 哈希值。如果提供此参数，将忽略 email 参数",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "s",
+          "type": "int",
+          "default": null,
+          "required": true,
+          "cliName": "s",
+          "summary": "头像的尺寸，单位为像素, 有效范围是 1 到 2048",
+          "qualifiedType": "int",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "d",
+          "type": "dType",
+          "default": "dType.None",
+          "required": false,
+          "cliName": "d",
+          "summary": "当用户没有自己的 Gravatar 头像时，显示的默认头像类型",
+          "qualifiedType": "UAPI.Type.GravatorType.dType",
+          "qualifiedDefault": "UAPI.Type.GravatorType.dType.None"
+        },
+        {
+          "name": "r",
+          "type": "rType",
+          "default": "rType.None",
+          "required": false,
+          "cliName": "r",
+          "summary": "头像分级",
+          "qualifiedType": "UAPI.Type.GravatorType.rType",
+          "qualifiedDefault": "UAPI.Type.GravatorType.rType.None"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

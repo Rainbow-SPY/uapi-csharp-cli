@@ -1,0 +1,185 @@
+{
+  "source": "Weather.GetWeather.cs",
+  "commandCount": 2,
+  "commands": [
+    {
+      "source": "Weather.GetWeather.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Weather"
+      ],
+      "method": "GetWeatherDataJson",
+      "methodFullName": "UAPI.Weather.GetWeatherDataJson",
+      "returnType": "UAPI.Type.WeatherType",
+      "rawReturnType": "WeatherType",
+      "returnsBytes": false,
+      "summary": "获取天气信息",
+      "returnsSummary": "WeatherType 类型的 Json 对象",
+      "path": [
+        "weather",
+        "data-json"
+      ],
+      "params": [
+        {
+          "name": "city",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "city",
+          "summary": "城市名称",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "extended",
+          "type": "bool",
+          "default": "false",
+          "required": false,
+          "cliName": "extended",
+          "summary": "是否返回扩展气象字段(体感温度、能见度、气压、紫外线指数、空气质量、降水量、云量)。",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "false"
+        },
+        {
+          "name": "indices",
+          "type": "bool",
+          "default": "false",
+          "required": false,
+          "cliName": "indices",
+          "summary": "是否返回生活指数(穿衣、紫外线、洗车、晾晒、空调、感冒、运动、舒适度)。",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "false"
+        },
+        {
+          "name": "forecast",
+          "type": "bool",
+          "default": "false",
+          "required": false,
+          "cliName": "forecast",
+          "summary": "是否返回预报数据(当日最高/最低气温及未来3天天气预报)。",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "false"
+        },
+        {
+          "name": "hourly",
+          "type": "bool",
+          "default": "false",
+          "required": false,
+          "cliName": "hourly",
+          "summary": "逐小时预报 (24小时)，含温度、天气、风向风速、湿度、降水概率等",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "false"
+        },
+        {
+          "name": "minutely",
+          "type": "bool",
+          "default": "false",
+          "required": false,
+          "cliName": "minutely",
+          "summary": "分钟级降水预报 (仅国内城市)，每5分钟一个数据点，共24个",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "false"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token"
+        }
+      ]
+    },
+    {
+      "source": "Weather.GetWeather.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Weather"
+      ],
+      "method": "GetWeatherDataJson",
+      "methodFullName": "UAPI.Weather.GetWeatherDataJson",
+      "returnType": "UAPI.Type.WeatherType",
+      "rawReturnType": "WeatherType",
+      "returnsBytes": false,
+      "summary": "获取天气信息",
+      "returnsSummary": "WeatherType 类型的 Json 对象",
+      "path": [
+        "weather",
+        "data-json",
+        "by-adcode"
+      ],
+      "params": [
+        {
+          "name": "adcode",
+          "type": "int",
+          "default": null,
+          "required": true,
+          "cliName": "adcode",
+          "summary": "高德地图的6位数字城市编码",
+          "qualifiedType": "int",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "extended",
+          "type": "bool",
+          "default": "false",
+          "required": false,
+          "cliName": "extended",
+          "summary": "是否返回扩展气象字段(体感温度、能见度、气压、紫外线指数、空气质量、降水量、云量)。",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "false"
+        },
+        {
+          "name": "indices",
+          "type": "bool",
+          "default": "false",
+          "required": false,
+          "cliName": "indices",
+          "summary": "是否返回生活指数(穿衣、紫外线、洗车、晾晒、空调、感冒、运动、舒适度)。",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "false"
+        },
+        {
+          "name": "forecast",
+          "type": "bool",
+          "default": "false",
+          "required": false,
+          "cliName": "forecast",
+          "summary": "是否返回预报数据(当日最高/最低气温及未来3天天气预报)。",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "false"
+        },
+        {
+          "name": "hourly",
+          "type": "bool",
+          "default": "false",
+          "required": false,
+          "cliName": "hourly",
+          "summary": "逐小时预报 (24小时)，含温度、天气、风向风速、湿度、降水概率等",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "false"
+        },
+        {
+          "name": "minutely",
+          "type": "bool",
+          "default": "false",
+          "required": false,
+          "cliName": "minutely",
+          "summary": "分钟级降水预报 (仅国内城市)，每5分钟一个数据点，共24个",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "false"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token"
+        }
+      ]
+    }
+  ]
+}

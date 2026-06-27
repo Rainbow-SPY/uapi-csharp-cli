@@ -1,0 +1,245 @@
+{
+  "source": "Image/Image.DecodeForOtherDevices.cs",
+  "commandCount": 2,
+  "commands": [
+    {
+      "source": "Image/Image.DecodeForOtherDevices.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Image"
+      ],
+      "method": "PostImageDecode",
+      "methodFullName": "UAPI.Image.PostImageDecode",
+      "returnType": "byte[]",
+      "rawReturnType": "byte[]",
+      "returnsBytes": true,
+      "summary": "解码并缩放图片 (POST)，通过图片二进制数据",
+      "returnsSummary": "解码后的图像二进制数据 (BMP 或原始像素流)",
+      "path": [
+        "image",
+        "decode"
+      ],
+      "params": [
+        {
+          "name": "image",
+          "type": "byte[]",
+          "default": null,
+          "required": true,
+          "cliName": "image",
+          "summary": "图片的二进制数据",
+          "qualifiedType": "byte[]",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "format",
+          "type": "DecodeFormat",
+          "default": "DecodeFormat.bmp",
+          "required": false,
+          "cliName": "format",
+          "summary": "输出格式 (默认 bmp)",
+          "qualifiedType": "UAPI.Type.DecodeForOtherDevicesType.DecodeFormat",
+          "qualifiedDefault": "UAPI.Type.DecodeForOtherDevicesType.DecodeFormat.bmp"
+        },
+        {
+          "name": "colorMode",
+          "type": "ColorMode",
+          "default": "ColorMode.rgb888",
+          "required": false,
+          "cliName": "color-mode",
+          "summary": "色彩模式 (默认 rgb888)，仅在 format=rgb565/rgb888 时生效",
+          "qualifiedType": "UAPI.Type.DecodeForOtherDevicesType.ColorMode",
+          "qualifiedDefault": "UAPI.Type.DecodeForOtherDevicesType.ColorMode.rgb888"
+        },
+        {
+          "name": "width",
+          "type": "int?",
+          "default": "null",
+          "required": false,
+          "cliName": "width",
+          "summary": "目标宽度 (像素)，不传则保持原图比例",
+          "qualifiedType": "int?",
+          "qualifiedDefault": "null"
+        },
+        {
+          "name": "height",
+          "type": "int?",
+          "default": "null",
+          "required": false,
+          "cliName": "height",
+          "summary": "目标高度 (像素)，不传则保持原图比例",
+          "qualifiedType": "int?",
+          "qualifiedDefault": "null"
+        },
+        {
+          "name": "maxWidth",
+          "type": "int?",
+          "default": "null",
+          "required": false,
+          "cliName": "max-width",
+          "summary": "最大宽度 (像素)",
+          "qualifiedType": "int?",
+          "qualifiedDefault": "null"
+        },
+        {
+          "name": "maxHeight",
+          "type": "int?",
+          "default": "null",
+          "required": false,
+          "cliName": "max-height",
+          "summary": "最大高度 (像素)",
+          "qualifiedType": "int?",
+          "qualifiedDefault": "null"
+        },
+        {
+          "name": "fit",
+          "type": "FitMode",
+          "default": "FitMode.contain",
+          "required": false,
+          "cliName": "fit",
+          "summary": "缩放模式 (默认 contain)",
+          "qualifiedType": "UAPI.Type.DecodeForOtherDevicesType.FitMode",
+          "qualifiedDefault": "UAPI.Type.DecodeForOtherDevicesType.FitMode.contain"
+        },
+        {
+          "name": "background",
+          "type": "string",
+          "default": "\"black\"",
+          "required": false,
+          "cliName": "background",
+          "summary": "填充背景色 (默认 black)，仅 fit=contain 时生效",
+          "qualifiedType": "string",
+          "qualifiedDefault": "\"black\""
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Image/Image.DecodeForOtherDevices.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Image"
+      ],
+      "method": "PostImageDecode",
+      "methodFullName": "UAPI.Image.PostImageDecode",
+      "returnType": "byte[]",
+      "rawReturnType": "byte[]",
+      "returnsBytes": true,
+      "summary": "解码并缩放图片 (POST)，通过图片链接",
+      "returnsSummary": "解码后的图像二进制数据 (BMP 或原始像素流)",
+      "path": [
+        "image",
+        "decode",
+        "by-image-url"
+      ],
+      "params": [
+        {
+          "name": "imageUrl",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "image-url",
+          "summary": "图片的公开访问链接",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "format",
+          "type": "DecodeFormat",
+          "default": "DecodeFormat.bmp",
+          "required": false,
+          "cliName": "format",
+          "summary": "输出格式 (默认 bmp)",
+          "qualifiedType": "UAPI.Type.DecodeForOtherDevicesType.DecodeFormat",
+          "qualifiedDefault": "UAPI.Type.DecodeForOtherDevicesType.DecodeFormat.bmp"
+        },
+        {
+          "name": "colorMode",
+          "type": "ColorMode",
+          "default": "ColorMode.rgb888",
+          "required": false,
+          "cliName": "color-mode",
+          "summary": "色彩模式 (默认 rgb888)",
+          "qualifiedType": "UAPI.Type.DecodeForOtherDevicesType.ColorMode",
+          "qualifiedDefault": "UAPI.Type.DecodeForOtherDevicesType.ColorMode.rgb888"
+        },
+        {
+          "name": "width",
+          "type": "int?",
+          "default": "null",
+          "required": false,
+          "cliName": "width",
+          "summary": "目标宽度 (像素)",
+          "qualifiedType": "int?",
+          "qualifiedDefault": "null"
+        },
+        {
+          "name": "height",
+          "type": "int?",
+          "default": "null",
+          "required": false,
+          "cliName": "height",
+          "summary": "目标高度 (像素)",
+          "qualifiedType": "int?",
+          "qualifiedDefault": "null"
+        },
+        {
+          "name": "maxWidth",
+          "type": "int?",
+          "default": "null",
+          "required": false,
+          "cliName": "max-width",
+          "summary": "最大宽度 (像素)",
+          "qualifiedType": "int?",
+          "qualifiedDefault": "null"
+        },
+        {
+          "name": "maxHeight",
+          "type": "int?",
+          "default": "null",
+          "required": false,
+          "cliName": "max-height",
+          "summary": "最大高度 (像素)",
+          "qualifiedType": "int?",
+          "qualifiedDefault": "null"
+        },
+        {
+          "name": "fit",
+          "type": "FitMode",
+          "default": "FitMode.contain",
+          "required": false,
+          "cliName": "fit",
+          "summary": "缩放模式 (默认 contain)",
+          "qualifiedType": "UAPI.Type.DecodeForOtherDevicesType.FitMode",
+          "qualifiedDefault": "UAPI.Type.DecodeForOtherDevicesType.FitMode.contain"
+        },
+        {
+          "name": "background",
+          "type": "string",
+          "default": "\"black\"",
+          "required": false,
+          "cliName": "background",
+          "summary": "填充背景色 (默认 black)",
+          "qualifiedType": "string",
+          "qualifiedDefault": "\"black\""
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

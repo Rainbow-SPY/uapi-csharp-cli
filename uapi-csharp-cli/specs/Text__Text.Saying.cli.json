@@ -1,0 +1,33 @@
+{
+  "source": "Text/Text.Saying.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Text/Text.Saying.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Saying"
+      ],
+      "method": "GetSaying",
+      "methodFullName": "UAPI.Saying.GetSaying",
+      "returnType": "UAPI.Saying.SayingType",
+      "rawReturnType": "SayingType",
+      "returnsBytes": false,
+      "summary": "获取随心一言",
+      "returnsSummary": "SayingType对象",
+      "path": [
+        "saying"
+      ],
+      "params": [ ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "AuthenticationAPITokenKey",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

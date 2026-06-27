@@ -1,0 +1,85 @@
+{
+  "source": "bilibili/bilibili.GetArchives.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "bilibili/bilibili.GetArchives.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "bilibili"
+      ],
+      "method": "GetArchives",
+      "methodFullName": "UAPI.bilibili.GetArchives",
+      "returnType": "UAPI.Type.ArchiveType",
+      "rawReturnType": "ArchiveType",
+      "returnsBytes": false,
+      "summary": "查询B站用户的稿件",
+      "returnsSummary": "ArchiveType 对象",
+      "path": [
+        "bilibili",
+        "archives"
+      ],
+      "params": [
+        {
+          "name": "mid",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "mid",
+          "summary": "用户的 UID",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "orderby",
+          "type": "ArchivesSearchType",
+          "default": "ArchivesSearchType.Pubdate",
+          "required": false,
+          "cliName": "orderby",
+          "summary": "以何种方式排列",
+          "qualifiedType": "UAPI.bilibili.ArchivesSearchType",
+          "qualifiedDefault": "UAPI.bilibili.ArchivesSearchType.Pubdate"
+        },
+        {
+          "name": "keywords",
+          "type": "string",
+          "default": "\"\"",
+          "required": false,
+          "cliName": "keywords",
+          "summary": "查询关键字",
+          "qualifiedType": "string",
+          "qualifiedDefault": "\"\""
+        },
+        {
+          "name": "ps",
+          "type": "int",
+          "default": "20",
+          "required": false,
+          "cliName": "ps",
+          "summary": "每页的条数,默认20",
+          "qualifiedType": "int",
+          "qualifiedDefault": "20"
+        },
+        {
+          "name": "pn",
+          "type": "int",
+          "default": "1",
+          "required": false,
+          "cliName": "pn",
+          "summary": "页码,默认1",
+          "qualifiedType": "int",
+          "qualifiedDefault": "1"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token"
+        }
+      ]
+    }
+  ]
+}

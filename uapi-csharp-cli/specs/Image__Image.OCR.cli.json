@@ -1,0 +1,125 @@
+{
+  "source": "Image/Image.OCR.cs",
+  "commandCount": 2,
+  "commands": [
+    {
+      "source": "Image/Image.OCR.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Image"
+      ],
+      "method": "PostImageOCR",
+      "methodFullName": "UAPI.Image.PostImageOCR",
+      "returnType": "UAPI.Type.OCRType",
+      "rawReturnType": "Type.OCRType",
+      "returnsBytes": false,
+      "summary": "通用 OCR 文字识别 (POST)，通过图片二进制数据",
+      "returnsSummary": "Type.OCRType 对象",
+      "path": [
+        "image",
+        "ocr"
+      ],
+      "params": [
+        {
+          "name": "image",
+          "type": "byte[]",
+          "default": null,
+          "required": true,
+          "cliName": "image",
+          "summary": "图片的二进制数据",
+          "qualifiedType": "byte[]",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "needLocation",
+          "type": "bool",
+          "default": "true",
+          "required": false,
+          "cliName": "need-location",
+          "summary": "是否返回坐标信息（默认 true）",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "true"
+        },
+        {
+          "name": "enableCls",
+          "type": "bool",
+          "default": "false",
+          "required": false,
+          "cliName": "enable-cls",
+          "summary": "是否启用方向预校正（默认 false，适用于手机拍摄的旋转/倾斜图片）",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "false"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Image/Image.OCR.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Image"
+      ],
+      "method": "PostImageOCR",
+      "methodFullName": "UAPI.Image.PostImageOCR",
+      "returnType": "UAPI.Type.OCRType",
+      "rawReturnType": "Type.OCRType",
+      "returnsBytes": false,
+      "summary": "通用 OCR 文字识别 (POST)，通过图片 URL",
+      "returnsSummary": "Type.OCRType 对象",
+      "path": [
+        "image",
+        "ocr",
+        "by-image-url"
+      ],
+      "params": [
+        {
+          "name": "imageUrl",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "image-url",
+          "summary": "图片的 URL 地址",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "needLocation",
+          "type": "bool",
+          "default": "true",
+          "required": false,
+          "cliName": "need-location",
+          "summary": "是否返回坐标信息（默认 true）",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "true"
+        },
+        {
+          "name": "enableCls",
+          "type": "bool",
+          "default": "false",
+          "required": false,
+          "cliName": "enable-cls",
+          "summary": "是否启用方向预校正（默认 false，适用于手机拍摄的旋转/倾斜图片）",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "false"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "source": "Image/Image.Compress.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Image/Image.Compress.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Image"
+      ],
+      "method": "PostImageCompress",
+      "methodFullName": "UAPI.Image.PostImageCompress",
+      "returnType": "byte[]",
+      "rawReturnType": "byte[]",
+      "returnsBytes": true,
+      "summary": "图片无损压缩 (POST)，通过图片二进制数据",
+      "returnsSummary": "压缩后的图像二进制 byte[]",
+      "path": [
+        "image",
+        "compress"
+      ],
+      "params": [
+        {
+          "name": "image",
+          "type": "byte[]",
+          "default": null,
+          "required": true,
+          "cliName": "image",
+          "summary": "图片的二进制数据",
+          "qualifiedType": "byte[]",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "level",
+          "type": "int",
+          "default": "3",
+          "required": false,
+          "cliName": "level",
+          "summary": "压缩等级 (1-5)，数字越小压缩率越高 1: 极限压缩（推荐，体积最小，画质优异） 2: 高效压缩 3: 智能均衡（默认） 4: 画质优先 5: 专业保真",
+          "qualifiedType": "int",
+          "qualifiedDefault": "3"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

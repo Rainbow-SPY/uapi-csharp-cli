@@ -1,0 +1,34 @@
+{
+  "source": "Hotboard.NeteaseMusic.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Hotboard.NeteaseMusic.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Hotboard"
+      ],
+      "method": "GetNeteaseMusicHotboard",
+      "methodFullName": "UAPI.Hotboard.GetNeteaseMusicHotboard",
+      "returnType": "UAPI.Hotboard.NeteaseType",
+      "rawReturnType": "NeteaseType",
+      "returnsBytes": false,
+      "summary": "获取网易云音乐歌曲的热榜",
+      "returnsSummary": "",
+      "path": [
+        "hotboard",
+        "netease-music-hotboard"
+      ],
+      "params": [ ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": ""
+        }
+      ]
+    }
+  ]
+}

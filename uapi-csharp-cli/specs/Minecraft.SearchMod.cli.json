@@ -1,0 +1,85 @@
+{
+  "source": "Minecraft.SearchMod.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Minecraft.SearchMod.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Minecraft"
+      ],
+      "method": "SearchMods",
+      "methodFullName": "UAPI.Minecraft.SearchMods",
+      "returnType": "UAPI.Type.MinecraftSearchMods",
+      "rawReturnType": "Type.MinecraftSearchMods",
+      "returnsBytes": false,
+      "summary": "搜索 MC Mod/插件",
+      "returnsSummary": "Type.MinecraftSearchMods",
+      "path": [
+        "minecraft",
+        "search-mods"
+      ],
+      "params": [
+        {
+          "name": "query",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "query",
+          "summary": "搜索关键词，也可使用别名 q。",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "source",
+          "type": "Type.MinecraftSearchMods.Source",
+          "default": "Type.MinecraftSearchMods.Source.all",
+          "required": false,
+          "cliName": "source",
+          "summary": "搜索来源，默认 all。",
+          "qualifiedType": "UAPI.Type.MinecraftSearchMods.Source",
+          "qualifiedDefault": "UAPI.Type.MinecraftSearchMods.Source.all"
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "default": "\"\"",
+          "required": false,
+          "cliName": "type",
+          "summary": "资源类型过滤，例如 mod 或 plugin。",
+          "qualifiedType": "string",
+          "qualifiedDefault": "\"\""
+        },
+        {
+          "name": "limit",
+          "type": "int",
+          "default": "10",
+          "required": false,
+          "cliName": "limit",
+          "summary": "每个来源返回的最大条数，默认 10，最大 50。",
+          "qualifiedType": "int",
+          "qualifiedDefault": "10"
+        },
+        {
+          "name": "entich",
+          "type": "bool",
+          "default": "true",
+          "required": false,
+          "cliName": "entich",
+          "summary": "是否补全下载直链与作者名，默认 true；传 false 可降低延迟。",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "true"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "source": "Text/Text.CheckSensitiveWords.Fast.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Text/Text.CheckSensitiveWords.Fast.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "SensitiveWords"
+      ],
+      "method": "CheckFast",
+      "methodFullName": "UAPI.Text.SensitiveWords.CheckFast",
+      "returnType": "UAPI.Type.FastType",
+      "rawReturnType": "FastType",
+      "returnsBytes": false,
+      "summary": "快速检测审查敏感词 (POST)",
+      "returnsSummary": "FastType 对象",
+      "path": [
+        "text",
+        "sensitive-words",
+        "fast"
+      ],
+      "params": [
+        {
+          "name": "text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要审查的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "AuthenticationAPITokenKey",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

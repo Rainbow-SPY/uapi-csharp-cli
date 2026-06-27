@@ -1,0 +1,58 @@
+{
+  "source": "Minecraft.Version.cs",
+  "commandCount": 2,
+  "commands": [
+    {
+      "source": "Minecraft.Version.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Minecraft",
+        "GetLatestVersion"
+      ],
+      "method": "FromMojang",
+      "methodFullName": "UAPI.Minecraft.GetLatestVersion.FromMojang",
+      "returnType": "UAPI.Type.MinecraftVerFromMojang",
+      "rawReturnType": "Type.MinecraftVerFromMojang",
+      "returnsBytes": false,
+      "summary": "通过 Mojang API 获取Minecraft Java 最新快照和正式版",
+      "returnsSummary": "Type.MinecraftVerFromMojang 对象",
+      "path": [
+        "minecraft",
+        "latest-version",
+        "from-mojang"
+      ],
+      "params": [ ],
+      "usesGlobalAuthentication": false
+    },
+    {
+      "source": "Minecraft.Version.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Minecraft",
+        "GetLatestVersion"
+      ],
+      "method": "FromUAPI",
+      "methodFullName": "UAPI.Minecraft.GetLatestVersion.FromUAPI",
+      "returnType": "UAPI.Type.MinecraftVerFromUAPI",
+      "rawReturnType": "Type.MinecraftVerFromUAPI",
+      "returnsBytes": false,
+      "summary": "通过 Mojang API 获取Minecraft Java 最新快照和正式版",
+      "returnsSummary": "Type.MinecraftVerFromMojang 对象",
+      "path": [
+        "minecraft",
+        "latest-version",
+        "from-uapi"
+      ],
+      "params": [ ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": ""
+        }
+      ]
+    }
+  ]
+}

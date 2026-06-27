@@ -1,0 +1,127 @@
+{
+  "source": "minecraft.GetServerStatus.cs",
+  "commandCount": 3,
+  "commands": [
+    {
+      "source": "minecraft.GetServerStatus.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Minecraft"
+      ],
+      "method": "GetServerStatus",
+      "methodFullName": "UAPI.Minecraft.GetServerStatus",
+      "returnType": "UAPI.Type.ServerType",
+      "rawReturnType": "ServerType",
+      "returnsBytes": false,
+      "summary": "查询Minecraft游戏服务器",
+      "returnsSummary": "ServerType 对象",
+      "path": [
+        "minecraft",
+        "server-status"
+      ],
+      "params": [
+        {
+          "name": "server",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "server",
+          "summary": "服务器的IP地址或域名",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token"
+        }
+      ]
+    },
+    {
+      "source": "minecraft.GetServerStatus.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Minecraft"
+      ],
+      "method": "GetServerStatus",
+      "methodFullName": "UAPI.Minecraft.GetServerStatus",
+      "returnType": "UAPI.Type.ServerType",
+      "rawReturnType": "ServerType",
+      "returnsBytes": false,
+      "summary": "查询Minecraft游戏服务器",
+      "returnsSummary": "ServerType 对象",
+      "path": [
+        "minecraft",
+        "server-status",
+        "by-server"
+      ],
+      "params": [
+        {
+          "name": "server",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "server",
+          "summary": "服务器的IP地址或域名",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": false
+    },
+    {
+      "source": "minecraft.GetServerStatus.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Minecraft"
+      ],
+      "method": "GetServerStatus",
+      "methodFullName": "UAPI.Minecraft.GetServerStatus",
+      "returnType": "UAPI.Type.ServerType",
+      "rawReturnType": "ServerType",
+      "returnsBytes": false,
+      "summary": "查询Minecraft游戏服务器",
+      "returnsSummary": "ServerType 对象",
+      "path": [
+        "minecraft",
+        "server-status",
+        "by-server"
+      ],
+      "params": [
+        {
+          "name": "server",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "server",
+          "summary": "服务器的IP地址或域名",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "port",
+          "type": "int",
+          "default": "25565",
+          "required": false,
+          "cliName": "port",
+          "summary": "端口号",
+          "qualifiedType": "int",
+          "qualifiedDefault": "25565"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token"
+        }
+      ]
+    }
+  ]
+}

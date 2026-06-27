@@ -1,0 +1,184 @@
+{
+  "source": "Misc/Misc.GetRandomNumberList.cs",
+  "commandCount": 2,
+  "commands": [
+    {
+      "source": "Misc/Misc.GetRandomNumberList.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Misc"
+      ],
+      "method": "GetRandomNumberList",
+      "methodFullName": "UAPI.Misc.GetRandomNumberList",
+      "returnType": "UAPI.Type.RandomNumberType",
+      "rawReturnType": "RandomNumberType",
+      "returnsBytes": false,
+      "summary": "获取一组随机数字",
+      "returnsSummary": "RandomNumberType Object",
+      "path": [
+        "misc",
+        "random-number-list"
+      ],
+      "params": [
+        {
+          "name": "min",
+          "type": "int",
+          "default": "0",
+          "required": false,
+          "cliName": "min",
+          "summary": "生成随机数的最小值(包含)。",
+          "qualifiedType": "int",
+          "qualifiedDefault": "0"
+        },
+        {
+          "name": "max",
+          "type": "int",
+          "default": "0",
+          "required": false,
+          "cliName": "max",
+          "summary": "生成随机数的最大值(包含)。",
+          "qualifiedType": "int",
+          "qualifiedDefault": "0"
+        },
+        {
+          "name": "count",
+          "type": "int",
+          "default": "0",
+          "required": false,
+          "cliName": "count",
+          "summary": "需要生成的随机数的数量。",
+          "qualifiedType": "int",
+          "qualifiedDefault": "0"
+        },
+        {
+          "name": "allow_repeat",
+          "type": "bool",
+          "default": "false",
+          "required": false,
+          "cliName": "allow-repeat",
+          "summary": "是否允许生成的多个数字中出现重复值。",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "false"
+        },
+        {
+          "name": "allow_decimal",
+          "type": "bool",
+          "default": "false",
+          "required": false,
+          "cliName": "allow-decimal",
+          "summary": "是否生成小(浮点)数。如果为 false，则只生成整数。",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "false"
+        },
+        {
+          "name": "decimal_places",
+          "type": "int",
+          "default": "0",
+          "required": false,
+          "cliName": "decimal-places",
+          "summary": "如果 allow_decimal=true，这里可以指定小数的位数。",
+          "qualifiedType": "int",
+          "qualifiedDefault": "0"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token"
+        }
+      ]
+    },
+    {
+      "source": "Misc/Misc.GetRandomNumberList.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Random"
+      ],
+      "method": "GetNumberList",
+      "methodFullName": "UAPI.Random.GetNumberList",
+      "returnType": "UAPI.Type.RandomNumberType",
+      "rawReturnType": "RandomNumberType",
+      "returnsBytes": false,
+      "summary": "",
+      "returnsSummary": "",
+      "path": [
+        "random",
+        "number-list"
+      ],
+      "params": [
+        {
+          "name": "min",
+          "type": "int",
+          "default": "0",
+          "required": false,
+          "cliName": "min",
+          "summary": "",
+          "qualifiedType": "int",
+          "qualifiedDefault": "0"
+        },
+        {
+          "name": "max",
+          "type": "int",
+          "default": "0",
+          "required": false,
+          "cliName": "max",
+          "summary": "",
+          "qualifiedType": "int",
+          "qualifiedDefault": "0"
+        },
+        {
+          "name": "count",
+          "type": "int",
+          "default": "0",
+          "required": false,
+          "cliName": "count",
+          "summary": "",
+          "qualifiedType": "int",
+          "qualifiedDefault": "0"
+        },
+        {
+          "name": "allow_repeat",
+          "type": "bool",
+          "default": "false",
+          "required": false,
+          "cliName": "allow-repeat",
+          "summary": "",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "false"
+        },
+        {
+          "name": "allow_decimal",
+          "type": "bool",
+          "default": "false",
+          "required": false,
+          "cliName": "allow-decimal",
+          "summary": "",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "false"
+        },
+        {
+          "name": "decimal_places",
+          "type": "int",
+          "default": "0",
+          "required": false,
+          "cliName": "decimal-places",
+          "summary": "",
+          "qualifiedType": "int",
+          "qualifiedDefault": "0"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": ""
+        }
+      ]
+    }
+  ]
+}

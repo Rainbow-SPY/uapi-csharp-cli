@@ -1,0 +1,55 @@
+{
+  "source": "Network/Network.DNS.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Network/Network.DNS.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Network"
+      ],
+      "method": "LookUpDNS",
+      "methodFullName": "UAPI.Network.LookUpDNS",
+      "returnType": "UAPI.Type.DNSType",
+      "rawReturnType": "DNSType",
+      "returnsBytes": false,
+      "summary": "DNS解析查询",
+      "returnsSummary": "DNSType 对象",
+      "path": [
+        "network",
+        "look-up-dns"
+      ],
+      "params": [
+        {
+          "name": "domain",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "domain",
+          "summary": "指定要查询的主机",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "DNSRecordType",
+          "type": "DNSRecordType",
+          "default": null,
+          "required": true,
+          "cliName": "dns-record-type",
+          "summary": "选择查询DNS的类型",
+          "qualifiedType": "UAPI.Network.DNSRecordType",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

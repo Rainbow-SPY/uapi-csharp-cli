@@ -1,0 +1,75 @@
+{
+  "source": "bilibili/bilibili.GetRepliesList.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "bilibili/bilibili.GetRepliesList.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "bilibili"
+      ],
+      "method": "GetRepliesList",
+      "methodFullName": "UAPI.bilibili.GetRepliesList",
+      "returnType": "UAPI.Type.RepliesListType",
+      "rawReturnType": "RepliesListType",
+      "returnsBytes": false,
+      "summary": "获取 bilibili 视频评论区",
+      "returnsSummary": "RepliesListType 对象",
+      "path": [
+        "bilibili",
+        "replies-list"
+      ],
+      "params": [
+        {
+          "name": "oid",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "oid",
+          "summary": "目标评论区的ID。对于视频，这通常就是它的 aid/bvid",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "sort",
+          "type": "string",
+          "default": "\"0\"",
+          "required": false,
+          "cliName": "sort",
+          "summary": "排序方式。支持 0/time(按时间)、1/like(按点赞)、2/reply(按回复数)、3/hot/hottest/最热(按最热)。默认为 0/time。",
+          "qualifiedType": "string",
+          "qualifiedDefault": "\"0\""
+        },
+        {
+          "name": "ps",
+          "type": "int",
+          "default": "20",
+          "required": false,
+          "cliName": "ps",
+          "summary": "每页获取的评论数量，范围是1到20。默认为 20。",
+          "qualifiedType": "int",
+          "qualifiedDefault": "20"
+        },
+        {
+          "name": "pn",
+          "type": "int",
+          "default": "1",
+          "required": false,
+          "cliName": "pn",
+          "summary": "要获取的页码，从1开始。默认为 1。",
+          "qualifiedType": "int",
+          "qualifiedDefault": "1"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token"
+        }
+      ]
+    }
+  ]
+}

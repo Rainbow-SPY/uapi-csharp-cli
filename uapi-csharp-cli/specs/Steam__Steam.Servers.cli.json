@@ -1,0 +1,65 @@
+{
+  "source": "Steam/Steam.Servers.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Steam/Steam.Servers.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Steam"
+      ],
+      "method": "FindServers",
+      "methodFullName": "UAPI.Steam.FindServers",
+      "returnType": "UAPI.Type.SteamServers",
+      "rawReturnType": "SteamServers",
+      "returnsBytes": false,
+      "summary": "查询 Steam 游戏服务器",
+      "returnsSummary": "SteamServers 对象",
+      "path": [
+        "steam",
+        "find-servers"
+      ],
+      "params": [
+        {
+          "name": "appid",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "appid",
+          "summary": "指定要进行查询的Steam AppID",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "query",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "query",
+          "summary": "查询的关键词",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "count",
+          "type": "int",
+          "default": null,
+          "required": true,
+          "cliName": "count",
+          "summary": "根据关键词返回的服务器数量",
+          "qualifiedType": "int",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

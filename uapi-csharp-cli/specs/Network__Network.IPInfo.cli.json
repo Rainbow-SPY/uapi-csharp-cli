@@ -1,0 +1,55 @@
+{
+  "source": "Network/Network.IPInfo.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Network/Network.IPInfo.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Network"
+      ],
+      "method": "GetIPInfo",
+      "methodFullName": "UAPI.Network.GetIPInfo",
+      "returnType": "UAPI.Type.IPInfoType",
+      "rawReturnType": "IPInfoType",
+      "returnsBytes": false,
+      "summary": "查询IP的相关信息",
+      "returnsSummary": "IPInfoType 对象",
+      "path": [
+        "network",
+        "ip-info"
+      ],
+      "params": [
+        {
+          "name": "ip",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "ip",
+          "summary": "指定要查询的IP地址",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "IsUseCommercial",
+          "type": "bool",
+          "default": "false",
+          "required": false,
+          "cliName": "is-use-commercial",
+          "summary": "是否使用商业数据源",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "false"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

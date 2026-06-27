@@ -1,0 +1,45 @@
+{
+  "source": "Misc/Misc.ConvertTimestamp.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Misc/Misc.ConvertTimestamp.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Misc"
+      ],
+      "method": "CovertTimestamp",
+      "methodFullName": "UAPI.Misc.CovertTimestamp",
+      "returnType": "UAPI.Type.TimestampType",
+      "rawReturnType": "TimestampType",
+      "returnsBytes": false,
+      "summary": "",
+      "returnsSummary": "",
+      "path": [
+        "misc",
+        "covert-timestamp"
+      ],
+      "params": [
+        {
+          "name": "ts",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "ts",
+          "summary": "",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": ""
+        }
+      ]
+    }
+  ]
+}

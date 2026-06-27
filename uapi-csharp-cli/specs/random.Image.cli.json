@@ -1,0 +1,55 @@
+{
+  "source": "random.Image.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "random.Image.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Random"
+      ],
+      "method": "GetImage",
+      "methodFullName": "UAPI.Random.GetImage",
+      "returnType": "byte[]",
+      "rawReturnType": "byte[]",
+      "returnsBytes": true,
+      "summary": "获取随机图片, 302重定向到图像",
+      "returnsSummary": "二进制 image/jpeg 数据",
+      "path": [
+        "random",
+        "image"
+      ],
+      "params": [
+        {
+          "name": "_category",
+          "type": "RandomImage",
+          "default": "RandomImage.None",
+          "required": false,
+          "cliName": "category",
+          "summary": "指定图像的主类别",
+          "qualifiedType": "UAPI.Type.RandomImage",
+          "qualifiedDefault": "UAPI.Type.RandomImage.None"
+        },
+        {
+          "name": "_type",
+          "type": "WallpaperType",
+          "default": "WallpaperType.None",
+          "required": false,
+          "cliName": "type",
+          "summary": "指定图像的子类别, 仅 Uapi-Pro 服务器图床支持",
+          "qualifiedType": "UAPI.Type.WallpaperType",
+          "qualifiedDefault": "UAPI.Type.WallpaperType.None"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

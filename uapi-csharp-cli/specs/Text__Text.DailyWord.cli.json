@@ -1,0 +1,105 @@
+{
+  "source": "Text/Text.DailyWord.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Text/Text.DailyWord.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text"
+      ],
+      "method": "GetDailyWord",
+      "methodFullName": "UAPI.Text.GetDailyWord",
+      "returnType": "UAPI.Type.DailyWord",
+      "rawReturnType": "DailyWord",
+      "returnsBytes": false,
+      "summary": "每日单词",
+      "returnsSummary": "DailyWord 对象",
+      "path": [
+        "text",
+        "daily-word"
+      ],
+      "params": [
+        {
+          "name": "lang",
+          "type": "string",
+          "default": "\"en\"",
+          "required": false,
+          "cliName": "lang",
+          "summary": "语种，目前支持 en，默认 en。",
+          "qualifiedType": "string",
+          "qualifiedDefault": "\"en\""
+        },
+        {
+          "name": "cat",
+          "type": "DailyWord.CategoryEnum",
+          "default": "DailyWord.CategoryEnum.all",
+          "required": false,
+          "cliName": "cat",
+          "summary": "词库范围：all/cet4/cet6/ielts/toefl/gre，默认 all。",
+          "qualifiedType": "UAPI.Type.DailyWord.CategoryEnum",
+          "qualifiedDefault": "UAPI.Type.DailyWord.CategoryEnum.all"
+        },
+        {
+          "name": "count",
+          "type": "int",
+          "default": "1",
+          "required": false,
+          "cliName": "count",
+          "summary": "返回数量，1-20，默认 1。",
+          "qualifiedType": "int",
+          "qualifiedDefault": "1"
+        },
+        {
+          "name": "date",
+          "type": "string",
+          "default": "\"\"",
+          "required": false,
+          "cliName": "date",
+          "summary": "日期，格式 YYYY-MM-DD，作为每日单词的种子基准。",
+          "qualifiedType": "string",
+          "qualifiedDefault": "\"\""
+        },
+        {
+          "name": "seed",
+          "type": "int",
+          "default": "0",
+          "required": false,
+          "cliName": "seed",
+          "summary": "固定种子，结果可复现；不可与 date 同时使用。",
+          "qualifiedType": "int",
+          "qualifiedDefault": "0"
+        },
+        {
+          "name": "example",
+          "type": "bool",
+          "default": "true",
+          "required": false,
+          "cliName": "example",
+          "summary": "是否返回例句，默认 true。",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "true"
+        },
+        {
+          "name": "phonetic",
+          "type": "bool",
+          "default": "true",
+          "required": false,
+          "cliName": "phonetic",
+          "summary": "是否返回音标，默认 true。",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "true"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

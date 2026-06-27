@@ -1,0 +1,45 @@
+{
+  "source": "Misc/Misc.DetectTrackingCarrier.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Misc/Misc.DetectTrackingCarrier.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Misc"
+      ],
+      "method": "DetectTrackingCarrier",
+      "methodFullName": "UAPI.Misc.DetectTrackingCarrier",
+      "returnType": "UAPI.Type.DetectedCarrierType",
+      "rawReturnType": "DetectedCarrierType",
+      "returnsBytes": false,
+      "summary": "识别快递公司 不确定手里的快递单号属于哪家快递公司？这个接口专门做识别，不查物流。",
+      "returnsSummary": "DetectedCarrierType 对象",
+      "path": [
+        "misc",
+        "detect-tracking-carrier"
+      ],
+      "params": [
+        {
+          "name": "tracking_number",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "tracking-number",
+          "summary": "快递单号",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token"
+        }
+      ]
+    }
+  ]
+}

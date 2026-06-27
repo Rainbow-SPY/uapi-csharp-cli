@@ -1,0 +1,293 @@
+{
+  "source": "Image/Image.BingDaily.cs",
+  "commandCount": 5,
+  "commands": [
+    {
+      "source": "Image/Image.BingDaily.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Image"
+      ],
+      "method": "GetBingDailyMetaJsonData",
+      "methodFullName": "UAPI.Image.GetBingDailyMetaJsonData",
+      "returnType": "UAPI.Type.BingDailyType",
+      "rawReturnType": "BingDailyType",
+      "returnsBytes": false,
+      "summary": "获取必应每日壁纸",
+      "returnsSummary": "BingDailyType对象",
+      "path": [
+        "image",
+        "bing-daily-meta-json-data"
+      ],
+      "params": [
+        {
+          "name": "date",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "date",
+          "summary": "指定获取日期的当天壁纸, 为空则返回今天的壁纸",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "resolutions",
+          "type": "BingDailyType.Resolutions",
+          "default": "BingDailyType.Resolutions._4K",
+          "required": false,
+          "cliName": "resolutions",
+          "summary": "指定返回图像的分辨率, 默认4K, 可选 1080P",
+          "qualifiedType": "UAPI.Type.BingDailyType.Resolutions",
+          "qualifiedDefault": "UAPI.Type.BingDailyType.Resolutions._4K"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Image/Image.BingDaily.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Image"
+      ],
+      "method": "GetBingDailyMetaJsonData",
+      "methodFullName": "UAPI.Image.GetBingDailyMetaJsonData",
+      "returnType": "UAPI.Type.BingDailyType",
+      "rawReturnType": "BingDailyType",
+      "returnsBytes": false,
+      "summary": "获取必应每日壁纸",
+      "returnsSummary": "BingDailyType对象",
+      "path": [
+        "image",
+        "bing-daily-meta-json-data",
+        "by-2"
+      ],
+      "params": [
+        {
+          "name": "random",
+          "type": "bool",
+          "default": "false",
+          "required": false,
+          "cliName": "random",
+          "summary": "指定是否每次请求随机返回一张历史壁纸。false则默认返回今天的壁纸",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "false"
+        },
+        {
+          "name": "resolutions",
+          "type": "BingDailyType.Resolutions",
+          "default": "BingDailyType.Resolutions._4K",
+          "required": false,
+          "cliName": "resolutions",
+          "summary": "指定返回图像的分辨率, 默认4K, 可选 1080P",
+          "qualifiedType": "UAPI.Type.BingDailyType.Resolutions",
+          "qualifiedDefault": "UAPI.Type.BingDailyType.Resolutions._4K"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Image/Image.BingDaily.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Image"
+      ],
+      "method": "GetBingDailyImage",
+      "methodFullName": "UAPI.Image.GetBingDailyImage",
+      "returnType": "byte[]",
+      "rawReturnType": "byte[]",
+      "returnsBytes": true,
+      "summary": "获取必应每日壁纸",
+      "returnsSummary": "BingDailyType对象",
+      "path": [
+        "image",
+        "bing-daily-image"
+      ],
+      "params": [
+        {
+          "name": "date",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "date",
+          "summary": "指定获取日期的当天壁纸, 为空则返回今天的壁纸",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "resolutions",
+          "type": "BingDailyType.Resolutions",
+          "default": "BingDailyType.Resolutions._4K",
+          "required": false,
+          "cliName": "resolutions",
+          "summary": "指定返回图像的分辨率, 默认4K, 可选 1080P",
+          "qualifiedType": "UAPI.Type.BingDailyType.Resolutions",
+          "qualifiedDefault": "UAPI.Type.BingDailyType.Resolutions._4K"
+        },
+        {
+          "name": "_format",
+          "type": "BingDailyType.Format",
+          "default": "BingDailyType.Format.image",
+          "required": false,
+          "cliName": "format",
+          "summary": "指定返回的格式, 默认二进制byte[], 可选302重定向后的图片URL的二进制byte[]",
+          "qualifiedType": "UAPI.Type.BingDailyType.Format",
+          "qualifiedDefault": "UAPI.Type.BingDailyType.Format.image"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Image/Image.BingDaily.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Image"
+      ],
+      "method": "GetBingDailyImage",
+      "methodFullName": "UAPI.Image.GetBingDailyImage",
+      "returnType": "byte[]",
+      "rawReturnType": "byte[]",
+      "returnsBytes": true,
+      "summary": "获取必应每日壁纸",
+      "returnsSummary": "BingDailyType对象",
+      "path": [
+        "image",
+        "bing-daily-image",
+        "by-2"
+      ],
+      "params": [
+        {
+          "name": "random",
+          "type": "bool",
+          "default": "false",
+          "required": false,
+          "cliName": "random",
+          "summary": "指定是否每次请求随机返回一张历史壁纸。false则默认返回今天的壁纸",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "false"
+        },
+        {
+          "name": "resolutions",
+          "type": "BingDailyType.Resolutions",
+          "default": "BingDailyType.Resolutions._4K",
+          "required": false,
+          "cliName": "resolutions",
+          "summary": "指定返回图像的分辨率, 默认4K, 可选 1080P",
+          "qualifiedType": "UAPI.Type.BingDailyType.Resolutions",
+          "qualifiedDefault": "UAPI.Type.BingDailyType.Resolutions._4K"
+        },
+        {
+          "name": "_format",
+          "type": "BingDailyType.Format",
+          "default": "BingDailyType.Format.image",
+          "required": false,
+          "cliName": "format",
+          "summary": "指定返回的格式, 默认二进制byte[], 可选302重定向后的图片URL的二进制byte[]",
+          "qualifiedType": "UAPI.Type.BingDailyType.Format",
+          "qualifiedDefault": "UAPI.Type.BingDailyType.Format.image"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Image/Image.BingDaily.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Image"
+      ],
+      "method": "GetBingDailyHistory",
+      "methodFullName": "UAPI.Image.GetBingDailyHistory",
+      "returnType": "UAPI.Type.BingDailyHistoryType",
+      "rawReturnType": "BingDailyHistoryType",
+      "returnsBytes": false,
+      "summary": "获取必应每日壁纸历史列表",
+      "returnsSummary": "BingDailyHistoryType 对象",
+      "path": [
+        "image",
+        "bing-daily-history"
+      ],
+      "params": [
+        {
+          "name": "date",
+          "type": "string",
+          "default": "\"\"",
+          "required": false,
+          "cliName": "date",
+          "summary": "指定日期精确查询 (YYYY-MM-DD)，传此参数时 page/pageSize 不生效",
+          "qualifiedType": "string",
+          "qualifiedDefault": "\"\""
+        },
+        {
+          "name": "resolution",
+          "type": "BingDailyType.Resolutions",
+          "default": "BingDailyType.Resolutions._4K",
+          "required": false,
+          "cliName": "resolution",
+          "summary": "指定返回图像的分辨率，默认 4K",
+          "qualifiedType": "UAPI.Type.BingDailyType.Resolutions",
+          "qualifiedDefault": "UAPI.Type.BingDailyType.Resolutions._4K"
+        },
+        {
+          "name": "page",
+          "type": "int",
+          "default": "1",
+          "required": false,
+          "cliName": "page",
+          "summary": "页码，默认 1",
+          "qualifiedType": "int",
+          "qualifiedDefault": "1"
+        },
+        {
+          "name": "pageSize",
+          "type": "int",
+          "default": "30",
+          "required": false,
+          "cliName": "page-size",
+          "summary": "每页数量，默认 30，最大 100",
+          "qualifiedType": "int",
+          "qualifiedDefault": "30"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

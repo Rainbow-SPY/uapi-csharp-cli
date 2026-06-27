@@ -1,0 +1,34 @@
+{
+  "source": "EpicGames.GetFreeGames.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "EpicGames.GetFreeGames.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "EpicGames"
+      ],
+      "method": "GetDataJson",
+      "methodFullName": "UAPI.EpicGames.GetDataJson",
+      "returnType": "UAPI.Type.EpicType",
+      "rawReturnType": "EpicType",
+      "returnsBytes": false,
+      "summary": "请求Epic Games 当前免费游戏的方法",
+      "returnsSummary": "EpicType 对象",
+      "path": [
+        "epic-games",
+        "data-json"
+      ],
+      "params": [ ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "AuthenticationAPITokenKey",
+          "type": "string",
+          "default": "\"\"",
+          "summary": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "source": "Image/Image.ToBase64.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Image/Image.ToBase64.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Image"
+      ],
+      "method": "ToBase64",
+      "methodFullName": "UAPI.Image.ToBase64",
+      "returnType": "UAPI.Type.Base64Type",
+      "rawReturnType": "Type.Base64Type",
+      "returnsBytes": false,
+      "summary": "图片转 Base64",
+      "returnsSummary": "Type.Base64Type对象",
+      "path": [
+        "image",
+        "to-base64"
+      ],
+      "params": [
+        {
+          "name": "url",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "url",
+          "summary": "指定要转换Base 64 的 图像 Url 地址",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

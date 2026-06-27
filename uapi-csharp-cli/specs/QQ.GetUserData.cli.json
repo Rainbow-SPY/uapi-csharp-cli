@@ -1,0 +1,45 @@
+{
+  "source": "QQ.GetUserData.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "QQ.GetUserData.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "QQ"
+      ],
+      "method": "GetUserData",
+      "methodFullName": "UAPI.QQ.GetUserData",
+      "returnType": "UAPI.Type.QQUserType",
+      "rawReturnType": "QQUserType",
+      "returnsBytes": false,
+      "summary": "获取QQ用户公开摘要",
+      "returnsSummary": "QQUserType 对象",
+      "path": [
+        "qq",
+        "user-data"
+      ],
+      "params": [
+        {
+          "name": "qq",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "qq",
+          "summary": "QQ号",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token"
+        }
+      ]
+    }
+  ]
+}

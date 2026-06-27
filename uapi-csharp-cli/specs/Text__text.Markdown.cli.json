@@ -1,0 +1,173 @@
+{
+  "source": "Text/text.Markdown.cs",
+  "commandCount": 3,
+  "commands": [
+    {
+      "source": "Text/text.Markdown.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "Markdown",
+        "ToHTML"
+      ],
+      "method": "ReturnedJson",
+      "methodFullName": "UAPI.Text.Markdown.ToHTML.ReturnedJson",
+      "returnType": "UAPI.Type.MarkdownType",
+      "rawReturnType": "MarkdownType",
+      "returnsBytes": false,
+      "summary": "把 Markdown 文本转换成带样式的 HTML",
+      "returnsSummary": "Type.MarkdownType对象",
+      "path": [
+        "text",
+        "markdown",
+        "to-html",
+        "ed-json"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "原始 Markdown 字符串，最大不超过 1MB。",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "_sanitize",
+          "type": "bool",
+          "default": "true",
+          "required": false,
+          "cliName": "sanitize",
+          "summary": "是否开启安全模式，过滤掉用户输入中的风险脚本。默认是 true。",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "true"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Text/text.Markdown.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "Markdown",
+        "ToHTML"
+      ],
+      "method": "ReturnedHTMLCode",
+      "methodFullName": "UAPI.Text.Markdown.ToHTML.ReturnedHTMLCode",
+      "returnType": "string",
+      "rawReturnType": "string",
+      "returnsBytes": false,
+      "summary": "把 Markdown 文本转换成带样式的 HTML",
+      "returnsSummary": "HTML 源代码",
+      "path": [
+        "text",
+        "markdown",
+        "to-html",
+        "ed-html-code"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "_sanitize",
+          "type": "bool",
+          "default": "true",
+          "required": false,
+          "cliName": "sanitize",
+          "summary": "",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "true"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Text/text.Markdown.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "Markdown"
+      ],
+      "method": "ToPDF",
+      "methodFullName": "UAPI.Text.Markdown.ToPDF",
+      "returnType": "byte[]",
+      "rawReturnType": "byte[]",
+      "returnsBytes": true,
+      "summary": "转换为可下载的二进制 PDF 文档",
+      "returnsSummary": "",
+      "path": [
+        "text",
+        "markdown",
+        "to-pdf"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "_theme",
+          "type": "MarkdownType.Theme",
+          "default": "MarkdownType.Theme.github",
+          "required": false,
+          "cliName": "theme",
+          "summary": "",
+          "qualifiedType": "UAPI.Type.MarkdownType.Theme",
+          "qualifiedDefault": "UAPI.Type.MarkdownType.Theme.github"
+        },
+        {
+          "name": "size",
+          "type": "MarkdownType.Size",
+          "default": "MarkdownType.Size.A4",
+          "required": false,
+          "cliName": "size",
+          "summary": "",
+          "qualifiedType": "UAPI.Type.MarkdownType.Size",
+          "qualifiedDefault": "UAPI.Type.MarkdownType.Size.A4"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": ""
+        }
+      ]
+    }
+  ]
+}

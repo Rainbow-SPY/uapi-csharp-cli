@@ -1,0 +1,55 @@
+{
+  "source": "Misc/Misc.GetLunarTime.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Misc/Misc.GetLunarTime.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Misc"
+      ],
+      "method": "GetLunarTime",
+      "methodFullName": "UAPI.Misc.GetLunarTime",
+      "returnType": "UAPI.Type.LunarTimeType",
+      "rawReturnType": "LunarTimeType",
+      "returnsBytes": false,
+      "summary": "查询农历时间",
+      "returnsSummary": "LunarTimeType 对象",
+      "path": [
+        "misc",
+        "lunar-time"
+      ],
+      "params": [
+        {
+          "name": "ts",
+          "type": "string",
+          "default": "\"\"",
+          "required": false,
+          "cliName": "ts",
+          "summary": "Unix 时间戳，支持 10 位秒级或 13 位毫秒级。默认以当前时间。",
+          "qualifiedType": "string",
+          "qualifiedDefault": "\"\""
+        },
+        {
+          "name": "timezone",
+          "type": "string",
+          "default": "\"Asia/Shanghai\"",
+          "required": false,
+          "cliName": "timezone",
+          "summary": "时区名称。支持 IANA 时区(如 Asia/Shanghai)和别名(Shanghai、Beijing)。默认 Asia/Shanghai。",
+          "qualifiedType": "string",
+          "qualifiedDefault": "\"Asia/Shanghai\""
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token"
+        }
+      ]
+    }
+  ]
+}

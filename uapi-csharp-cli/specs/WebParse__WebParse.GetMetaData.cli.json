@@ -1,0 +1,45 @@
+{
+  "source": "WebParse/WebParse.GetMetaData.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "WebParse/WebParse.GetMetaData.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "WebParse"
+      ],
+      "method": "GetWebPageMetadata",
+      "methodFullName": "UAPI.WebParse.GetWebPageMetadata",
+      "returnType": "UAPI.Type.WebParseMetaDataType",
+      "rawReturnType": "WebParseMetaDataType",
+      "returnsBytes": false,
+      "summary": "提取网页元数据 (GET)",
+      "returnsSummary": "WebParseMetaDataType 对象",
+      "path": [
+        "web-parse",
+        "web-page-metadata"
+      ],
+      "params": [
+        {
+          "name": "url",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "url",
+          "summary": "网页 URL",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

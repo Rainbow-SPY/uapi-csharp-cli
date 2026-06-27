@@ -1,0 +1,45 @@
+{
+  "source": "Github.GetRepoData.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Github.GetRepoData.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Github"
+      ],
+      "method": "GetReposData",
+      "methodFullName": "UAPI.Github.GetReposData",
+      "returnType": "UAPI.Type.ReposType",
+      "rawReturnType": "ReposType",
+      "returnsBytes": false,
+      "summary": "获取github仓库数据",
+      "returnsSummary": "ReposType 对象",
+      "path": [
+        "github",
+        "repos-data"
+      ],
+      "params": [
+        {
+          "name": "owner_and_repo",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "owner-and-repo",
+          "summary": "所有者+仓库(owner/repo)",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token"
+        }
+      ]
+    }
+  ]
+}

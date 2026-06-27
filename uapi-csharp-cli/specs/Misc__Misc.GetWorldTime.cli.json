@@ -1,0 +1,45 @@
+{
+  "source": "Misc/Misc.GetWorldTime.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Misc/Misc.GetWorldTime.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Misc"
+      ],
+      "method": "GetWorldTime",
+      "methodFullName": "UAPI.Misc.GetWorldTime",
+      "returnType": "UAPI.Type.WorldTimeType",
+      "rawReturnType": "WorldTimeType",
+      "returnsBytes": false,
+      "summary": "请求获取全球时区的时间",
+      "returnsSummary": "WorldTimeType 对象",
+      "path": [
+        "misc",
+        "world-time"
+      ],
+      "params": [
+        {
+          "name": "region",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "region",
+          "summary": "指定要查询的地区时间, 格式为 七大洲之一/地区或直接输入地区 例: Asia/Shanghai, America/Newyork, Tokyo",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token"
+        }
+      ]
+    }
+  ]
+}

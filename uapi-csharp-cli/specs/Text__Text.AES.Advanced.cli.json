@@ -1,0 +1,350 @@
+{
+  "source": "Text/Text.AES.Advanced.cs",
+  "commandCount": 4,
+  "commands": [
+    {
+      "source": "Text/Text.AES.Advanced.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "AES"
+      ],
+      "method": "AdvancedEncrypt",
+      "methodFullName": "UAPI.Text.AES.AdvancedEncrypt",
+      "returnType": "UAPI.Type.AESAdvancedType",
+      "rawReturnType": "AESAdvancedType",
+      "returnsBytes": false,
+      "summary": "使用AES 高级加密加密指定的文本",
+      "returnsSummary": "AESAdvancedType对象",
+      "path": [
+        "text",
+        "aes",
+        "advanced-encrypt"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要加密的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "_key",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "key",
+          "summary": "加密密钥（支持任意长度）",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "_mode",
+          "type": "EncryptMode",
+          "default": "GCM",
+          "required": false,
+          "cliName": "mode",
+          "summary": "加密方式, 可选 GCM 或 CBC 或 ECB 或 CTR 或 OFB 或 CFB, 默认为 GCM",
+          "qualifiedType": "UAPI.Type.AESAdvancedType.EncryptMode",
+          "qualifiedDefault": "UAPI.Type.AESAdvancedType.EncryptMode.GCM"
+        },
+        {
+          "name": "_padding",
+          "type": "padding",
+          "default": "PKCS7",
+          "required": false,
+          "cliName": "padding",
+          "summary": "填充方式, 可选 PKCS7 或 ZERO 或 NONE, 默认 PKCS7",
+          "qualifiedType": "UAPI.Type.AESAdvancedType.padding",
+          "qualifiedDefault": "UAPI.Type.AESAdvancedType.padding.PKCS7"
+        },
+        {
+          "name": "_iv",
+          "type": "string",
+          "default": "\"\"",
+          "required": false,
+          "cliName": "iv",
+          "summary": "自定义IV（可选，Base64编码，16字节）。GCM模式无需此参数",
+          "qualifiedType": "string",
+          "qualifiedDefault": "\"\""
+        },
+        {
+          "name": "_format",
+          "type": "format",
+          "default": "base64",
+          "required": false,
+          "cliName": "format",
+          "summary": "输出格式, 可选 base64 或 hex, 默认 base64",
+          "qualifiedType": "UAPI.Type.AESAdvancedType.format",
+          "qualifiedDefault": "UAPI.Type.AESAdvancedType.format.base64"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Text/Text.AES.Advanced.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "AES"
+      ],
+      "method": "ReturnedAdvancedEncryptedText",
+      "methodFullName": "UAPI.Text.AES.ReturnedAdvancedEncryptedText",
+      "returnType": "string",
+      "rawReturnType": "string",
+      "returnsBytes": false,
+      "summary": "使用 AES 高级加密加密指定的文本, 直接返回加密完的文本, 可等待",
+      "returnsSummary": "加密完的文本",
+      "path": [
+        "text",
+        "aes",
+        "ed-advanced-encrypted-text"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要加密的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "_key",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "key",
+          "summary": "加密密钥（支持任意长度）",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "_mode",
+          "type": "EncryptMode",
+          "default": "GCM",
+          "required": false,
+          "cliName": "mode",
+          "summary": "加密方式, 可选 GCM 或 CBC 或 ECB 或 CTR 或 OFB 或 CFB, 默认为 GCM",
+          "qualifiedType": "UAPI.Type.AESAdvancedType.EncryptMode",
+          "qualifiedDefault": "UAPI.Type.AESAdvancedType.EncryptMode.GCM"
+        },
+        {
+          "name": "_padding",
+          "type": "padding",
+          "default": "PKCS7",
+          "required": false,
+          "cliName": "padding",
+          "summary": "填充方式, 可选 PKCS7 或 ZERO 或 NONE, 默认 PKCS7",
+          "qualifiedType": "UAPI.Type.AESAdvancedType.padding",
+          "qualifiedDefault": "UAPI.Type.AESAdvancedType.padding.PKCS7"
+        },
+        {
+          "name": "_iv",
+          "type": "string",
+          "default": "\"\"",
+          "required": false,
+          "cliName": "iv",
+          "summary": "自定义IV（可选，Base64编码，16字节）。GCM模式无需此参数",
+          "qualifiedType": "string",
+          "qualifiedDefault": "\"\""
+        },
+        {
+          "name": "_format",
+          "type": "format",
+          "default": "base64",
+          "required": false,
+          "cliName": "format",
+          "summary": "输出格式, 可选 base64 或 hex, 默认 base64",
+          "qualifiedType": "UAPI.Type.AESAdvancedType.format",
+          "qualifiedDefault": "UAPI.Type.AESAdvancedType.format.base64"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Text/Text.AES.Advanced.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "AES"
+      ],
+      "method": "AdvancedDecrypt",
+      "methodFullName": "UAPI.Text.AES.AdvancedDecrypt",
+      "returnType": "UAPI.Type.AESDecryptType",
+      "rawReturnType": "AESDecryptType",
+      "returnsBytes": false,
+      "summary": "使用 AES 高级加密解密指定的文本",
+      "returnsSummary": "AESDecryptType对象",
+      "path": [
+        "text",
+        "aes",
+        "advanced-decrypt"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要解密的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "_key",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "key",
+          "summary": "加密密钥（支持任意长度, 必须与加密时相同）",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "_mode",
+          "type": "EncryptMode",
+          "default": "GCM",
+          "required": false,
+          "cliName": "mode",
+          "summary": "加密方式, 可选, 必须与加密时相同 GCM 或 CBC 或 ECB 或 CTR 或 OFB 或 CFB, 默认为 GCM",
+          "qualifiedType": "UAPI.Type.AESAdvancedType.EncryptMode",
+          "qualifiedDefault": "UAPI.Type.AESAdvancedType.EncryptMode.GCM"
+        },
+        {
+          "name": "_padding",
+          "type": "padding",
+          "default": "PKCS7",
+          "required": false,
+          "cliName": "padding",
+          "summary": "填充方式, 可选, 必须与加密时相同 PKCS7 或 ZERO 或 NONE, 默认 PKCS7",
+          "qualifiedType": "UAPI.Type.AESAdvancedType.padding",
+          "qualifiedDefault": "UAPI.Type.AESAdvancedType.padding.PKCS7"
+        },
+        {
+          "name": "_iv",
+          "type": "string",
+          "default": "\"\"",
+          "required": false,
+          "cliName": "iv",
+          "summary": "自定义IV（可选，Base64编码，16字节）。GCM模式无需此参数",
+          "qualifiedType": "string",
+          "qualifiedDefault": "\"\""
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Text/Text.AES.Advanced.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "AES"
+      ],
+      "method": "ReturnedAdvancedDecryptText",
+      "methodFullName": "UAPI.Text.AES.ReturnedAdvancedDecryptText",
+      "returnType": "string",
+      "rawReturnType": "string",
+      "returnsBytes": false,
+      "summary": "使用 AES 高级加密解密指定的文本, 直接返回解密后的文本, 可等待",
+      "returnsSummary": "解密后的文本",
+      "path": [
+        "text",
+        "aes",
+        "ed-advanced-decrypt-text"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要解密的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "_key",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "key",
+          "summary": "加密密钥（支持任意长度, 必须与加密时相同）",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "_mode",
+          "type": "EncryptMode",
+          "default": "GCM",
+          "required": false,
+          "cliName": "mode",
+          "summary": "加密方式, 可选, 必须与加密时相同 GCM 或 CBC 或 ECB 或 CTR 或 OFB 或 CFB, 默认为 GCM",
+          "qualifiedType": "UAPI.Type.AESAdvancedType.EncryptMode",
+          "qualifiedDefault": "UAPI.Type.AESAdvancedType.EncryptMode.GCM"
+        },
+        {
+          "name": "_padding",
+          "type": "padding",
+          "default": "PKCS7",
+          "required": false,
+          "cliName": "padding",
+          "summary": "填充方式, 可选, 必须与加密时相同 PKCS7 或 ZERO 或 NONE, 默认 PKCS7",
+          "qualifiedType": "UAPI.Type.AESAdvancedType.padding",
+          "qualifiedDefault": "UAPI.Type.AESAdvancedType.padding.PKCS7"
+        },
+        {
+          "name": "_iv",
+          "type": "string",
+          "default": "\"\"",
+          "required": false,
+          "cliName": "iv",
+          "summary": "自定义IV（可选，Base64编码，16字节）。GCM模式无需此参数",
+          "qualifiedType": "string",
+          "qualifiedDefault": "\"\""
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

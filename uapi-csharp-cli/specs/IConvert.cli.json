@@ -1,0 +1,946 @@
+{
+  "source": "IConvert.cs",
+  "commandCount": 16,
+  "commands": [
+    {
+      "source": "IConvert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "IConvert",
+        "Image"
+      ],
+      "method": "PostSVGConvertToBitImage",
+      "methodFullName": "UAPI.IConvert.Image.PostSVGConvertToBitImage",
+      "returnType": "byte[]",
+      "rawReturnType": "byte[]",
+      "returnsBytes": true,
+      "summary": "",
+      "returnsSummary": "",
+      "path": [
+        "i-convert",
+        "image",
+        "svg-convert-to-bit-image"
+      ],
+      "params": [
+        {
+          "name": "svg",
+          "type": "byte[]",
+          "default": null,
+          "required": true,
+          "cliName": "svg",
+          "summary": "",
+          "qualifiedType": "byte[]",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "format",
+          "type": "SVGConvertType.SVGFormat",
+          "default": "SVGConvertType.SVGFormat.png",
+          "required": false,
+          "cliName": "format",
+          "summary": "",
+          "qualifiedType": "UAPI.Type.SVGConvertType.SVGFormat",
+          "qualifiedDefault": "UAPI.Type.SVGConvertType.SVGFormat.png"
+        },
+        {
+          "name": "width",
+          "type": "int?",
+          "default": "null",
+          "required": false,
+          "cliName": "width",
+          "summary": "",
+          "qualifiedType": "int?",
+          "qualifiedDefault": "null"
+        },
+        {
+          "name": "height",
+          "type": "int?",
+          "default": "null",
+          "required": false,
+          "cliName": "height",
+          "summary": "",
+          "qualifiedType": "int?",
+          "qualifiedDefault": "null"
+        },
+        {
+          "name": "quality",
+          "type": "int",
+          "default": "90",
+          "required": false,
+          "cliName": "quality",
+          "summary": "",
+          "qualifiedType": "int",
+          "qualifiedDefault": "90"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": ""
+        }
+      ]
+    },
+    {
+      "source": "IConvert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "IConvert",
+        "Text"
+      ],
+      "method": "Converter",
+      "methodFullName": "UAPI.IConvert.Text.Converter",
+      "returnType": "UAPI.Type.ConvertType",
+      "rawReturnType": "ConvertType",
+      "returnsBytes": false,
+      "summary": "",
+      "returnsSummary": "",
+      "path": [
+        "i-convert",
+        "text",
+        "converter"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "From",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "from",
+          "summary": "",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "To",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "to",
+          "summary": "",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "option",
+          "type": "object",
+          "default": "null",
+          "required": false,
+          "cliName": "option",
+          "summary": "",
+          "qualifiedType": "object",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": ""
+        }
+      ]
+    },
+    {
+      "source": "IConvert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "IConvert",
+        "Text"
+      ],
+      "method": "AnyToText",
+      "methodFullName": "UAPI.IConvert.Text.AnyToText",
+      "returnType": "string",
+      "rawReturnType": "string",
+      "returnsBytes": false,
+      "summary": "",
+      "returnsSummary": "",
+      "path": [
+        "i-convert",
+        "text",
+        "any-to-text"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "From",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "from",
+          "summary": "",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "option",
+          "type": "object",
+          "default": "null",
+          "required": false,
+          "cliName": "option",
+          "summary": "",
+          "qualifiedType": "object",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": ""
+        }
+      ]
+    },
+    {
+      "source": "IConvert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "IConvert",
+        "Text"
+      ],
+      "method": "AnyToBase64",
+      "methodFullName": "UAPI.IConvert.Text.AnyToBase64",
+      "returnType": "string",
+      "rawReturnType": "string",
+      "returnsBytes": false,
+      "summary": "",
+      "returnsSummary": "",
+      "path": [
+        "i-convert",
+        "text",
+        "any-to-base64"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "From",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "from",
+          "summary": "",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "option",
+          "type": "object",
+          "default": "null",
+          "required": false,
+          "cliName": "option",
+          "summary": "",
+          "qualifiedType": "object",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": ""
+        }
+      ]
+    },
+    {
+      "source": "IConvert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "IConvert",
+        "Text"
+      ],
+      "method": "AnyToHex",
+      "methodFullName": "UAPI.IConvert.Text.AnyToHex",
+      "returnType": "string",
+      "rawReturnType": "string",
+      "returnsBytes": false,
+      "summary": "",
+      "returnsSummary": "",
+      "path": [
+        "i-convert",
+        "text",
+        "any-to-hex"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "From",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "from",
+          "summary": "",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "option",
+          "type": "object",
+          "default": "null",
+          "required": false,
+          "cliName": "option",
+          "summary": "",
+          "qualifiedType": "object",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": ""
+        }
+      ]
+    },
+    {
+      "source": "IConvert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "IConvert",
+        "Text"
+      ],
+      "method": "AnyToURL",
+      "methodFullName": "UAPI.IConvert.Text.AnyToURL",
+      "returnType": "string",
+      "rawReturnType": "string",
+      "returnsBytes": false,
+      "summary": "",
+      "returnsSummary": "",
+      "path": [
+        "i-convert",
+        "text",
+        "any-to-url"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "From",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "from",
+          "summary": "",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "option",
+          "type": "object",
+          "default": "null",
+          "required": false,
+          "cliName": "option",
+          "summary": "",
+          "qualifiedType": "object",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": ""
+        }
+      ]
+    },
+    {
+      "source": "IConvert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "IConvert",
+        "Text"
+      ],
+      "method": "AnyToUnicode",
+      "methodFullName": "UAPI.IConvert.Text.AnyToUnicode",
+      "returnType": "string",
+      "rawReturnType": "string",
+      "returnsBytes": false,
+      "summary": "",
+      "returnsSummary": "",
+      "path": [
+        "i-convert",
+        "text",
+        "any-to-unicode"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "From",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "from",
+          "summary": "",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "option",
+          "type": "object",
+          "default": "null",
+          "required": false,
+          "cliName": "option",
+          "summary": "",
+          "qualifiedType": "object",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": ""
+        }
+      ]
+    },
+    {
+      "source": "IConvert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "IConvert",
+        "Text"
+      ],
+      "method": "AnyToBinaryBytes",
+      "methodFullName": "UAPI.IConvert.Text.AnyToBinaryBytes",
+      "returnType": "byte[]",
+      "rawReturnType": "byte[]",
+      "returnsBytes": true,
+      "summary": "",
+      "returnsSummary": "",
+      "path": [
+        "i-convert",
+        "text",
+        "any-to-binary-bytes"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "From",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "from",
+          "summary": "",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "option",
+          "type": "object",
+          "default": "null",
+          "required": false,
+          "cliName": "option",
+          "summary": "",
+          "qualifiedType": "object",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": ""
+        }
+      ]
+    },
+    {
+      "source": "IConvert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "IConvert",
+        "Text"
+      ],
+      "method": "AnyToBinaryString",
+      "methodFullName": "UAPI.IConvert.Text.AnyToBinaryString",
+      "returnType": "string",
+      "rawReturnType": "string",
+      "returnsBytes": false,
+      "summary": "",
+      "returnsSummary": "",
+      "path": [
+        "i-convert",
+        "text",
+        "any-to-binary-string"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "From",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "from",
+          "summary": "",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "option",
+          "type": "object",
+          "default": "null",
+          "required": false,
+          "cliName": "option",
+          "summary": "",
+          "qualifiedType": "object",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": ""
+        }
+      ]
+    },
+    {
+      "source": "IConvert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "IConvert",
+        "Text"
+      ],
+      "method": "AnyToMD5",
+      "methodFullName": "UAPI.IConvert.Text.AnyToMD5",
+      "returnType": "string",
+      "rawReturnType": "string",
+      "returnsBytes": false,
+      "summary": "",
+      "returnsSummary": "",
+      "path": [
+        "i-convert",
+        "text",
+        "any-to-md5"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "From",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "from",
+          "summary": "",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "option",
+          "type": "object",
+          "default": "null",
+          "required": false,
+          "cliName": "option",
+          "summary": "",
+          "qualifiedType": "object",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": ""
+        }
+      ]
+    },
+    {
+      "source": "IConvert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "IConvert",
+        "Text"
+      ],
+      "method": "AnyToSHA1",
+      "methodFullName": "UAPI.IConvert.Text.AnyToSHA1",
+      "returnType": "string",
+      "rawReturnType": "string",
+      "returnsBytes": false,
+      "summary": "",
+      "returnsSummary": "",
+      "path": [
+        "i-convert",
+        "text",
+        "any-to-sha1"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "From",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "from",
+          "summary": "",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "option",
+          "type": "object",
+          "default": "null",
+          "required": false,
+          "cliName": "option",
+          "summary": "",
+          "qualifiedType": "object",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": ""
+        }
+      ]
+    },
+    {
+      "source": "IConvert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "IConvert",
+        "Text"
+      ],
+      "method": "AnyToSHA256",
+      "methodFullName": "UAPI.IConvert.Text.AnyToSHA256",
+      "returnType": "string",
+      "rawReturnType": "string",
+      "returnsBytes": false,
+      "summary": "",
+      "returnsSummary": "",
+      "path": [
+        "i-convert",
+        "text",
+        "any-to-sha256"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "From",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "from",
+          "summary": "",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "option",
+          "type": "object",
+          "default": "null",
+          "required": false,
+          "cliName": "option",
+          "summary": "",
+          "qualifiedType": "object",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": ""
+        }
+      ]
+    },
+    {
+      "source": "IConvert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "IConvert",
+        "Text"
+      ],
+      "method": "AnyToSHA512",
+      "methodFullName": "UAPI.IConvert.Text.AnyToSHA512",
+      "returnType": "string",
+      "rawReturnType": "string",
+      "returnsBytes": false,
+      "summary": "",
+      "returnsSummary": "",
+      "path": [
+        "i-convert",
+        "text",
+        "any-to-sha512"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "From",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "from",
+          "summary": "",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "option",
+          "type": "object",
+          "default": "null",
+          "required": false,
+          "cliName": "option",
+          "summary": "",
+          "qualifiedType": "object",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": ""
+        }
+      ]
+    },
+    {
+      "source": "IConvert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "IConvert"
+      ],
+      "method": "WebToMarkdown",
+      "methodFullName": "UAPI.IConvert.WebToMarkdown",
+      "returnType": "string",
+      "rawReturnType": "string",
+      "returnsBytes": false,
+      "summary": "网页转 Markdown（提交任务并等待结果）",
+      "returnsSummary": "转换后的 Markdown 文本",
+      "path": [
+        "i-convert",
+        "web-to-markdown"
+      ],
+      "params": [
+        {
+          "name": "url",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "url",
+          "summary": "需要转换的网页 URL",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "IConvert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "IConvert"
+      ],
+      "method": "UnixToTimedate",
+      "methodFullName": "UAPI.IConvert.UnixToTimedate",
+      "returnType": "UAPI.Type.UnixTimeConvertType",
+      "rawReturnType": "UnixTimeConvertType",
+      "returnsBytes": false,
+      "summary": "Unix 时间戳转日期时间 (GET)",
+      "returnsSummary": "UnixTimeConvertType 对象",
+      "path": [
+        "i-convert",
+        "unix-to-timedate"
+      ],
+      "params": [
+        {
+          "name": "time",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "time",
+          "summary": "Unix 时间戳（10位或13位）或标准日期字符串（如 2023-10-27 10:30:00）",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "IConvert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "IConvert"
+      ],
+      "method": "FormatJson",
+      "methodFullName": "UAPI.IConvert.FormatJson",
+      "returnType": "UAPI.Type.JsonConvertType",
+      "rawReturnType": "JsonConvertType",
+      "returnsBytes": false,
+      "summary": "JSON 格式化 (POST)",
+      "returnsSummary": "格式化后的 JsonConvertType 对象",
+      "path": [
+        "i-convert",
+        "format-json"
+      ],
+      "params": [
+        {
+          "name": "json",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "json",
+          "summary": "需要格式化的原始 JSON 字符串",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

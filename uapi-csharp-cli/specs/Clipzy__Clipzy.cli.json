@@ -1,0 +1,143 @@
+{
+  "source": "Clipzy/Clipzy.cs",
+  "commandCount": 3,
+  "commands": [
+    {
+      "source": "Clipzy/Clipzy.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Clipzy"
+      ],
+      "method": "GetClipzyData",
+      "methodFullName": "UAPI.Clipzy.GetClipzyData",
+      "returnType": "UAPI.Type.ClipzyGetResponse",
+      "rawReturnType": "ClipzyGetResponse",
+      "returnsBytes": false,
+      "summary": "获取 Clipzy 剪贴板中的加密数据 提供第一步获得的 ID，返回存储在服务器上的加密数据。需要在客户端中自行解密。",
+      "returnsSummary": "Type.ClipzyGetResponse 对象，包含加密后的 compressedData",
+      "path": [
+        "clipzy",
+        "data"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "id",
+          "summary": "片段的唯一 ID",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Clipzy/Clipzy.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Clipzy"
+      ],
+      "method": "GetClipzyRaw",
+      "methodFullName": "UAPI.Clipzy.GetClipzyRaw",
+      "returnType": "string",
+      "rawReturnType": "string",
+      "returnsBytes": false,
+      "summary": "获取 Clipzy 剪贴板中的原始解密文本 提供 ID 和 Base64 编码的 AES 密钥，服务器直接解密并返回纯文本内容。",
+      "returnsSummary": "解密后的纯文本内容",
+      "path": [
+        "clipzy",
+        "raw"
+      ],
+      "params": [
+        {
+          "name": "id",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "id",
+          "summary": "片段的唯一 ID",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "key",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "key",
+          "summary": "用于解密的 Base64 编码的 AES 密钥",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Clipzy/Clipzy.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Clipzy"
+      ],
+      "method": "PostClipzyStore",
+      "methodFullName": "UAPI.Clipzy.PostClipzyStore",
+      "returnType": "UAPI.Type.ClipzyStoreResponse",
+      "rawReturnType": "ClipzyStoreResponse",
+      "returnsBytes": false,
+      "summary": "上传加密数据到 Clipzy 剪贴板 客户端需要先在本地准备好加密后的数据，上传成功后得到一个唯一 ID。",
+      "returnsSummary": "Type.ClipzyStoreResponse 对象，包含生成的唯一 ID",
+      "path": [
+        "clipzy",
+        "store"
+      ],
+      "params": [
+        {
+          "name": "compressedData",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "compressed-data",
+          "summary": "经过加密和 LZString 压缩后的 Base64 字符串",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "ttl",
+          "type": "int",
+          "default": "3600",
+          "required": false,
+          "cliName": "ttl",
+          "summary": "片段的留存时间（秒）。正数表示秒数（最大约 30 天），-1 表示永久存储。默认为 3600。",
+          "qualifiedType": "int",
+          "qualifiedDefault": "3600"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

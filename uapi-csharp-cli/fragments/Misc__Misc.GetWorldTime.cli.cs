@@ -1,0 +1,27 @@
+using System.CommandLine;
+
+namespace UAPI.CliGenerated
+{
+    public static class Cli_Misc_Misc_GetWorldTime
+    {
+        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
+            Option<string> authenticationOption)
+        {
+            var cmd_misc_world_time_1 = CliCommandTree.GetOrAdd(root, new[] { "misc", "world-time" });
+            cmd_misc_world_time_1.Description = "请求获取全球时区的时间";
+            var opt_misc_world_time_1_region = new Option<string>("--region")
+            {
+                Required = true,
+                Description = "指定要查询的地区时间, 格式为 七大洲之一/地区或直接输入地区 例: Asia/Shanghai, America/Newyork, Tokyo"
+            };
+            cmd_misc_world_time_1.Options.Add(opt_misc_world_time_1_region);
+            cmd_misc_world_time_1.SetAction(async parseResult =>
+            {
+                var region = parseResult.GetValue(opt_misc_world_time_1_region);
+                var Authentication = parseResult.GetValue(authenticationOption);
+                var result = await Misc.GetWorldTime(region, Authentication);
+                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+            });
+        }
+    }
+}

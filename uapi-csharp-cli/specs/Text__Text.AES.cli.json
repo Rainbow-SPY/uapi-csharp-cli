@@ -1,0 +1,230 @@
+{
+  "source": "Text/Text.AES.cs",
+  "commandCount": 4,
+  "commands": [
+    {
+      "source": "Text/Text.AES.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "AES"
+      ],
+      "method": "Encrypt",
+      "methodFullName": "UAPI.Text.AES.Encrypt",
+      "returnType": "UAPI.Type.AESEncryptType",
+      "rawReturnType": "Type.AESEncryptType",
+      "returnsBytes": false,
+      "summary": "使用 AES 加密文本",
+      "returnsSummary": "Type.AESEncryptType对象",
+      "path": [
+        "text",
+        "aes",
+        "encrypt"
+      ],
+      "params": [
+        {
+          "name": "_key",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "key",
+          "summary": "密钥，长度必须为16、24或 32 字节，对应AES-128/192/256",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要加密的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Text/Text.AES.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "AES"
+      ],
+      "method": "ReturnEncryptedText",
+      "methodFullName": "UAPI.Text.AES.ReturnEncryptedText",
+      "returnType": "string",
+      "rawReturnType": "string",
+      "returnsBytes": false,
+      "summary": "使用 AES 加密文本, 直接返回加密后的文本, 可等待",
+      "returnsSummary": "加密后的文本",
+      "path": [
+        "text",
+        "aes",
+        "encrypted-text"
+      ],
+      "params": [
+        {
+          "name": "_key",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "key",
+          "summary": "密钥，长度必须为16、24或 32 字节，对应AES-128/192/256",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要加密的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Text/Text.AES.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "AES"
+      ],
+      "method": "Decrypt",
+      "methodFullName": "UAPI.Text.AES.Decrypt",
+      "returnType": "UAPI.Type.AESDecryptType",
+      "rawReturnType": "Type.AESDecryptType",
+      "returnsBytes": false,
+      "summary": "使用 AES 解密文本",
+      "returnsSummary": "Type.AESDecryptType对象",
+      "path": [
+        "text",
+        "aes",
+        "decrypt"
+      ],
+      "params": [
+        {
+          "name": "_key",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "key",
+          "summary": "密钥，长度必须为16、24或 32 字节，对应AES-128/192/256",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要解密的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "IV",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "iv",
+          "summary": "16字节的IV/Nonce，必须为16个字符",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Text/Text.AES.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "AES"
+      ],
+      "method": "ReturnDecryptedText",
+      "methodFullName": "UAPI.Text.AES.ReturnDecryptedText",
+      "returnType": "string",
+      "rawReturnType": "string",
+      "returnsBytes": false,
+      "summary": "使用 AES 解密文本, 直接返回解密后的文本, 可等待",
+      "returnsSummary": "解密后的文本",
+      "path": [
+        "text",
+        "aes",
+        "decrypted-text"
+      ],
+      "params": [
+        {
+          "name": "_key",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "key",
+          "summary": "密钥，长度必须为16、24或 32 字节，对应AES-128/192/256",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要解密的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "IV",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "iv",
+          "summary": "16字节的IV/Nonce，必须为16个字符",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

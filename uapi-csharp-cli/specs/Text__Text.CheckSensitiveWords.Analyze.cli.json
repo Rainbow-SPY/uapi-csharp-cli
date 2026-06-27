@@ -1,0 +1,47 @@
+{
+  "source": "Text/Text.CheckSensitiveWords.Analyze.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Text/Text.CheckSensitiveWords.Analyze.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "SensitiveWords"
+      ],
+      "method": "Analyze",
+      "methodFullName": "UAPI.Text.SensitiveWords.Analyze",
+      "returnType": "UAPI.Type.SensitiveAnalyzeType",
+      "rawReturnType": "SensitiveAnalyzeType",
+      "returnsBytes": false,
+      "summary": "分析审查敏感词并返回对象",
+      "returnsSummary": "SensitiveAnalyzeType 对象",
+      "path": [
+        "text",
+        "sensitive-words",
+        "analyze"
+      ],
+      "params": [
+        {
+          "name": "text",
+          "type": "string[]",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "分析的敏感词",
+          "qualifiedType": "string[]",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "AuthenticationAPITokenKey",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

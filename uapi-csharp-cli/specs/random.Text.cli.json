@@ -1,0 +1,55 @@
+{
+  "source": "random.Text.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "random.Text.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Random"
+      ],
+      "method": "GetString",
+      "methodFullName": "UAPI.Random.GetString",
+      "returnType": "UAPI.Type.RandomStringType",
+      "rawReturnType": "RandomStringType",
+      "returnsBytes": false,
+      "summary": "生成随机不同格式的字符串",
+      "returnsSummary": "RandomStringType对象",
+      "path": [
+        "random",
+        "string"
+      ],
+      "params": [
+        {
+          "name": "length",
+          "type": "int",
+          "default": null,
+          "required": true,
+          "cliName": "length",
+          "summary": "长度",
+          "qualifiedType": "int",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "stringType",
+          "type": "RandomStringType.StringType",
+          "default": null,
+          "required": true,
+          "cliName": "string-type",
+          "summary": "构成字符串的方式",
+          "qualifiedType": "UAPI.Type.RandomStringType.StringType",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

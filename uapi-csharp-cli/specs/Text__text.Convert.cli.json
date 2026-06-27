@@ -1,0 +1,748 @@
+{
+  "source": "Text/text.Convert.cs",
+  "commandCount": 12,
+  "commands": [
+    {
+      "source": "Text/text.Convert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "Convert"
+      ],
+      "method": "Converter",
+      "methodFullName": "UAPI.Text.Convert.Converter",
+      "returnType": "UAPI.Type.ConvertType",
+      "rawReturnType": "Type.ConvertType",
+      "returnsBytes": false,
+      "summary": "不同文本格式之间转换",
+      "returnsSummary": "Type.ConvertType对象",
+      "path": [
+        "text",
+        "convert",
+        "er"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要转换的源文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "From",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "from",
+          "summary": "源格式",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "To",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "to",
+          "summary": "目标格式",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "option",
+          "type": "object",
+          "default": "null",
+          "required": false,
+          "cliName": "option",
+          "summary": "预留, 未投入使用",
+          "qualifiedType": "object",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Text/text.Convert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "Convert"
+      ],
+      "method": "AnyToText",
+      "methodFullName": "UAPI.Text.Convert.AnyToText",
+      "returnType": "UAPI.Type.ConvertType",
+      "rawReturnType": "Type.ConvertType",
+      "returnsBytes": false,
+      "summary": "将任意格式的数据转换为文本",
+      "returnsSummary": "转换后的格式的文本",
+      "path": [
+        "text",
+        "convert",
+        "any-to-text"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要转换的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "From",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "from",
+          "summary": "指定要转换的文本的原格式",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "option",
+          "type": "object",
+          "default": "null",
+          "required": false,
+          "cliName": "option",
+          "summary": "预留, 未投入使用",
+          "qualifiedType": "object",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Text/text.Convert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "Convert"
+      ],
+      "method": "AnyToBase64",
+      "methodFullName": "UAPI.Text.Convert.AnyToBase64",
+      "returnType": "UAPI.Type.ConvertType",
+      "rawReturnType": "Type.ConvertType",
+      "returnsBytes": false,
+      "summary": "将任意格式的数据转换为 Base64",
+      "returnsSummary": "转换后的格式的文本",
+      "path": [
+        "text",
+        "convert",
+        "any-to-base64"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要转换的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "From",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "from",
+          "summary": "指定要转换的文本的原格式",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "option",
+          "type": "object",
+          "default": "null",
+          "required": false,
+          "cliName": "option",
+          "summary": "预留, 未投入使用",
+          "qualifiedType": "object",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Text/text.Convert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "Convert"
+      ],
+      "method": "AnyToHex",
+      "methodFullName": "UAPI.Text.Convert.AnyToHex",
+      "returnType": "UAPI.Type.ConvertType",
+      "rawReturnType": "Type.ConvertType",
+      "returnsBytes": false,
+      "summary": "将任意格式的数据转换为十六进制 (不带 - , 小写字母+数字)",
+      "returnsSummary": "转换后的格式的文本",
+      "path": [
+        "text",
+        "convert",
+        "any-to-hex"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要转换的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "From",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "from",
+          "summary": "指定要转换的文本的原格式",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "option",
+          "type": "object",
+          "default": "null",
+          "required": false,
+          "cliName": "option",
+          "summary": "预留, 未投入使用",
+          "qualifiedType": "object",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Text/text.Convert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "Convert"
+      ],
+      "method": "AnyToURL",
+      "methodFullName": "UAPI.Text.Convert.AnyToURL",
+      "returnType": "UAPI.Type.ConvertType",
+      "rawReturnType": "Type.ConvertType",
+      "returnsBytes": false,
+      "summary": "将任意格式的数据转换为 URL 编码",
+      "returnsSummary": "转换后的格式的文本",
+      "path": [
+        "text",
+        "convert",
+        "any-to-url"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要转换的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "From",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "from",
+          "summary": "指定要转换的文本的原格式",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "option",
+          "type": "object",
+          "default": "null",
+          "required": false,
+          "cliName": "option",
+          "summary": "预留, 未投入使用",
+          "qualifiedType": "object",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Text/text.Convert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "Convert"
+      ],
+      "method": "AnyToUnicode",
+      "methodFullName": "UAPI.Text.Convert.AnyToUnicode",
+      "returnType": "UAPI.Type.ConvertType",
+      "rawReturnType": "Type.ConvertType",
+      "returnsBytes": false,
+      "summary": "将任意格式的数据转换为 Unicode 转义字符",
+      "returnsSummary": "转换后的格式的文本",
+      "path": [
+        "text",
+        "convert",
+        "any-to-unicode"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要转换的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "From",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "from",
+          "summary": "指定要转换的文本的原格式",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "option",
+          "type": "object",
+          "default": "null",
+          "required": false,
+          "cliName": "option",
+          "summary": "预留, 未投入使用",
+          "qualifiedType": "object",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Text/text.Convert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "Convert"
+      ],
+      "method": "AnyToBinaryBytes",
+      "methodFullName": "UAPI.Text.Convert.AnyToBinaryBytes",
+      "returnType": "UAPI.Type.ConvertType",
+      "rawReturnType": "Type.ConvertType",
+      "returnsBytes": false,
+      "summary": "将任意格式的数据转换为二进制字节数据, 返回字节数组",
+      "returnsSummary": "转换后的格式的文本",
+      "path": [
+        "text",
+        "convert",
+        "any-to-binary-bytes"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要转换的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "From",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "from",
+          "summary": "指定要转换的文本的原格式",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "option",
+          "type": "object",
+          "default": "null",
+          "required": false,
+          "cliName": "option",
+          "summary": "预留, 未投入使用",
+          "qualifiedType": "object",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Text/text.Convert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "Convert"
+      ],
+      "method": "AnyToBinaryString",
+      "methodFullName": "UAPI.Text.Convert.AnyToBinaryString",
+      "returnType": "UAPI.Type.ConvertType",
+      "rawReturnType": "Type.ConvertType",
+      "returnsBytes": false,
+      "summary": "将任意格式的数据转换为二进制字节数据, 返回字符串",
+      "returnsSummary": "转换后的格式的文本",
+      "path": [
+        "text",
+        "convert",
+        "any-to-binary-string"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要转换的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "From",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "from",
+          "summary": "指定要转换的文本的原格式",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "option",
+          "type": "object",
+          "default": "null",
+          "required": false,
+          "cliName": "option",
+          "summary": "预留, 未投入使用",
+          "qualifiedType": "object",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Text/text.Convert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "Convert"
+      ],
+      "method": "AnyToMD5",
+      "methodFullName": "UAPI.Text.Convert.AnyToMD5",
+      "returnType": "UAPI.Type.ConvertType",
+      "rawReturnType": "Type.ConvertType",
+      "returnsBytes": false,
+      "summary": "将任意格式的数据转换为 MD5 哈希值",
+      "returnsSummary": "转换后的格式的文本",
+      "path": [
+        "text",
+        "convert",
+        "any-to-md5"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要转换的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "From",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "from",
+          "summary": "指定要转换的文本的原格式",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "option",
+          "type": "object",
+          "default": "null",
+          "required": false,
+          "cliName": "option",
+          "summary": "预留, 未投入使用",
+          "qualifiedType": "object",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Text/text.Convert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "Convert"
+      ],
+      "method": "AnyToSHA1",
+      "methodFullName": "UAPI.Text.Convert.AnyToSHA1",
+      "returnType": "UAPI.Type.ConvertType",
+      "rawReturnType": "Type.ConvertType",
+      "returnsBytes": false,
+      "summary": "将任意格式的数据转换为 SHA1 哈希值",
+      "returnsSummary": "转换后的格式的文本",
+      "path": [
+        "text",
+        "convert",
+        "any-to-sha1"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要转换的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "From",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "from",
+          "summary": "指定要转换的文本的原格式",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "option",
+          "type": "object",
+          "default": "null",
+          "required": false,
+          "cliName": "option",
+          "summary": "预留, 未投入使用",
+          "qualifiedType": "object",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Text/text.Convert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "Convert"
+      ],
+      "method": "AnyToSHA256",
+      "methodFullName": "UAPI.Text.Convert.AnyToSHA256",
+      "returnType": "UAPI.Type.ConvertType",
+      "rawReturnType": "Type.ConvertType",
+      "returnsBytes": false,
+      "summary": "将任意格式的数据转换为 SHA256 哈希值",
+      "returnsSummary": "转换后的格式的文本",
+      "path": [
+        "text",
+        "convert",
+        "any-to-sha256"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要转换的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "From",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "from",
+          "summary": "指定要转换的文本的原格式",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "option",
+          "type": "object",
+          "default": "null",
+          "required": false,
+          "cliName": "option",
+          "summary": "预留, 未投入使用",
+          "qualifiedType": "object",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Text/text.Convert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "Convert"
+      ],
+      "method": "AnyToSHA512",
+      "methodFullName": "UAPI.Text.Convert.AnyToSHA512",
+      "returnType": "UAPI.Type.ConvertType",
+      "rawReturnType": "Type.ConvertType",
+      "returnsBytes": false,
+      "summary": "将任意格式的数据转换为 SHA512 哈希值",
+      "returnsSummary": "转换后的格式的文本",
+      "path": [
+        "text",
+        "convert",
+        "any-to-sha512"
+      ],
+      "params": [
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要转换的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "From",
+          "type": "Format",
+          "default": null,
+          "required": true,
+          "cliName": "from",
+          "summary": "指定要转换的文本的原格式",
+          "qualifiedType": "UAPI.Text.Convert.Format",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "option",
+          "type": "object",
+          "default": "null",
+          "required": false,
+          "cliName": "option",
+          "summary": "预留, 未投入使用",
+          "qualifiedType": "object",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

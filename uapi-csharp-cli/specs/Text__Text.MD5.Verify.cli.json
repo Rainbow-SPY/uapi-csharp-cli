@@ -1,0 +1,104 @@
+{
+  "source": "Text/Text.MD5.Verify.cs",
+  "commandCount": 2,
+  "commands": [
+    {
+      "source": "Text/Text.MD5.Verify.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text"
+      ],
+      "method": "VerifyMD5",
+      "methodFullName": "UAPI.Text.VerifyMD5",
+      "returnType": "UAPI.Type.VerifyMD5",
+      "rawReturnType": "VerifyMD5",
+      "returnsBytes": false,
+      "summary": "验证文本的哈希值是否符合预期",
+      "returnsSummary": "VerifyMD5对象",
+      "path": [
+        "text",
+        "verify-md5"
+      ],
+      "params": [
+        {
+          "name": "_hash",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "hash",
+          "summary": "指定要验证的文本哈希值",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要验证的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Text/Text.MD5.Verify.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text"
+      ],
+      "method": "IsMD5VerifySuccessful",
+      "methodFullName": "UAPI.Text.IsMD5VerifySuccessful",
+      "returnType": "bool",
+      "rawReturnType": "bool",
+      "returnsBytes": false,
+      "summary": "MD5是否验证成功",
+      "returnsSummary": "bool",
+      "path": [
+        "text",
+        "is-md5-verify-successful"
+      ],
+      "params": [
+        {
+          "name": "_hash",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "hash",
+          "summary": "指定要验证的文本哈希值",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "_text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要验证的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

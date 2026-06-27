@@ -1,0 +1,94 @@
+{
+  "source": "Search.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Search.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Search"
+      ],
+      "method": "PostSearch",
+      "methodFullName": "UAPI.Search.PostSearch",
+      "returnType": "UAPI.Type.SearchType",
+      "rawReturnType": "SearchType",
+      "returnsBytes": false,
+      "summary": "智能搜索 (POST)",
+      "returnsSummary": "SearchType 对象",
+      "path": [
+        "search"
+      ],
+      "params": [
+        {
+          "name": "query",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "query",
+          "summary": "搜索查询关键词，支持中英文",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "site",
+          "type": "string",
+          "default": "\"\"",
+          "required": false,
+          "cliName": "site",
+          "summary": "限制搜索特定网站，不需要 `site:` 前缀",
+          "qualifiedType": "string",
+          "qualifiedDefault": "\"\""
+        },
+        {
+          "name": "filetype",
+          "type": "string",
+          "default": "\"\"",
+          "required": false,
+          "cliName": "filetype",
+          "summary": "限制文件类型（如 pdf、doc、txt）",
+          "qualifiedType": "string",
+          "qualifiedDefault": "\"\""
+        },
+        {
+          "name": "fetchFull",
+          "type": "bool",
+          "default": "false",
+          "required": false,
+          "cliName": "fetch-full",
+          "summary": "是否获取页面完整正文（会影响响应时间）",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "false"
+        },
+        {
+          "name": "sort",
+          "type": "SearchType.SearchSort",
+          "default": "SearchType.SearchSort.relevance",
+          "required": false,
+          "cliName": "sort",
+          "summary": "排序方式",
+          "qualifiedType": "UAPI.Type.SearchType.SearchSort",
+          "qualifiedDefault": "SearchType.SearchSort.relevance"
+        },
+        {
+          "name": "timeRange",
+          "type": "SearchType.SearchTimeRange?",
+          "default": "null",
+          "required": false,
+          "cliName": "time-range",
+          "summary": "时间范围过滤",
+          "qualifiedType": "UAPI.Type.SearchType.SearchTimeRange?",
+          "qualifiedDefault": "null"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

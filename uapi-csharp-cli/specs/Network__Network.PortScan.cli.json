@@ -1,0 +1,65 @@
+{
+  "source": "Network/Network.PortScan.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Network/Network.PortScan.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Network"
+      ],
+      "method": "ScanPort",
+      "methodFullName": "UAPI.Network.ScanPort",
+      "returnType": "UAPI.Type.PortScanType",
+      "rawReturnType": "PortScanType",
+      "returnsBytes": false,
+      "summary": "使用指定的协议扫描指定主机的指定端口",
+      "returnsSummary": "PortScanType 对象",
+      "path": [
+        "network",
+        "scan-port"
+      ],
+      "params": [
+        {
+          "name": "host",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "host",
+          "summary": "扫描的主机",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "port",
+          "type": "int",
+          "default": null,
+          "required": true,
+          "cliName": "port",
+          "summary": "扫描的端口",
+          "qualifiedType": "int",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "protocol",
+          "type": "string",
+          "default": "\"tcp\"",
+          "required": false,
+          "cliName": "protocol",
+          "summary": "扫描的协议",
+          "qualifiedType": "string",
+          "qualifiedDefault": "\"tcp\""
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

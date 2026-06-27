@@ -1,0 +1,34 @@
+{
+  "source": "Hotboard.bilibili.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Hotboard.bilibili.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Hotboard"
+      ],
+      "method": "GetBilibiliHotboard",
+      "methodFullName": "UAPI.Hotboard.GetBilibiliHotboard",
+      "returnType": "UAPI.Type.bilibiliType",
+      "rawReturnType": "bilibiliType",
+      "returnsBytes": false,
+      "summary": "获取bilibili热榜信息",
+      "returnsSummary": "bilibiliType 对象",
+      "path": [
+        "hotboard",
+        "bilibili-hotboard"
+      ],
+      "params": [ ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": ""
+        }
+      ]
+    }
+  ]
+}

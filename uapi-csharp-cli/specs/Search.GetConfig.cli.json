@@ -1,0 +1,34 @@
+{
+  "source": "Search.GetConfig.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Search.GetConfig.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Search"
+      ],
+      "method": "GetConfig",
+      "methodFullName": "UAPI.Search.GetConfig",
+      "returnType": "UAPI.Type.SearchConfigType",
+      "rawReturnType": "SearchConfigType",
+      "returnsBytes": false,
+      "summary": "获取搜索引擎配置 (GET)",
+      "returnsSummary": "SearchConfigType 对象",
+      "path": [
+        "search",
+        "config"
+      ],
+      "params": [ ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

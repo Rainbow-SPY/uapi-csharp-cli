@@ -1,0 +1,84 @@
+{
+  "source": "WebParse/WebParse.ToMarkdown.cs",
+  "commandCount": 2,
+  "commands": [
+    {
+      "source": "WebParse/WebParse.ToMarkdown.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "WebParse"
+      ],
+      "method": "PostWebToMarkdownAsync",
+      "methodFullName": "UAPI.WebParse.PostWebToMarkdownAsync",
+      "returnType": "UAPI.Type.WebParseToMarkdownType",
+      "rawReturnType": "WebParseToMarkdownType",
+      "returnsBytes": false,
+      "summary": "提交网页转 Markdown 任务 (POST)",
+      "returnsSummary": "WebParseToMarkdownType 对象",
+      "path": [
+        "web-parse",
+        "web-to-markdown-async"
+      ],
+      "params": [
+        {
+          "name": "url",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "url",
+          "summary": "需要转换的网页 URL",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "WebParse/WebParse.ToMarkdown.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "WebParse"
+      ],
+      "method": "GetWebToMarkdownResult",
+      "methodFullName": "UAPI.WebParse.GetWebToMarkdownResult",
+      "returnType": "UAPI.Type.WebParseToMarkdownType",
+      "rawReturnType": "WebParseToMarkdownType",
+      "returnsBytes": false,
+      "summary": "查询网页转 Markdown 任务结果 (GET)",
+      "returnsSummary": "WebParseToMarkdownType 对象",
+      "path": [
+        "web-parse",
+        "web-to-markdown-result"
+      ],
+      "params": [
+        {
+          "name": "taskId",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "task-id",
+          "summary": "任务 ID（由提交接口返回）",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

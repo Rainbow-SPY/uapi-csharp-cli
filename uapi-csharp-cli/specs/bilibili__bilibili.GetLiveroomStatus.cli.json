@@ -1,0 +1,88 @@
+{
+  "source": "bilibili/bilibili.GetLiveroomStatus.cs",
+  "commandCount": 2,
+  "commands": [
+    {
+      "source": "bilibili/bilibili.GetLiveroomStatus.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "bilibili",
+        "GetLiveroomStatus"
+      ],
+      "method": "AsID",
+      "methodFullName": "UAPI.bilibili.GetLiveroomStatus.AsID",
+      "returnType": "UAPI.Type.LiveroomType",
+      "rawReturnType": "LiveroomType",
+      "returnsBytes": false,
+      "summary": "使用用户 UID 作为形参请求B站直播间数据",
+      "returnsSummary": "LiveroomType 对象",
+      "path": [
+        "bilibili",
+        "liveroom-status",
+        "as-id"
+      ],
+      "params": [
+        {
+          "name": "mid",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "mid",
+          "summary": "用户的 UID",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token"
+        }
+      ]
+    },
+    {
+      "source": "bilibili/bilibili.GetLiveroomStatus.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "bilibili",
+        "GetLiveroomStatus"
+      ],
+      "method": "AsLiveroomID",
+      "methodFullName": "UAPI.bilibili.GetLiveroomStatus.AsLiveroomID",
+      "returnType": "UAPI.Type.LiveroomType",
+      "rawReturnType": "LiveroomType",
+      "returnsBytes": false,
+      "summary": "使用直播间ID作为形参请求B站直播间的数据",
+      "returnsSummary": "LiveroomType 对象",
+      "path": [
+        "bilibili",
+        "liveroom-status",
+        "as-liveroom-id"
+      ],
+      "params": [
+        {
+          "name": "room_id",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "room-id",
+          "summary": "直播间ID",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token"
+        }
+      ]
+    }
+  ]
+}

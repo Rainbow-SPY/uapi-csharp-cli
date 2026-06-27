@@ -1,0 +1,84 @@
+{
+  "source": "Text/Text.Base64.cs",
+  "commandCount": 2,
+  "commands": [
+    {
+      "source": "Text/Text.Base64.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text"
+      ],
+      "method": "EncryptBase64",
+      "methodFullName": "UAPI.Text.EncryptBase64",
+      "returnType": "UAPI.Type.EncryptType",
+      "rawReturnType": "EncryptType",
+      "returnsBytes": false,
+      "summary": "获取加密后的 Base 64 编码文本",
+      "returnsSummary": "DecryptedType对象",
+      "path": [
+        "text",
+        "encrypt-base64"
+      ],
+      "params": [
+        {
+          "name": "texts",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "texts",
+          "summary": "",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "AuthenticationAPITokenKey",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Ke"
+        }
+      ]
+    },
+    {
+      "source": "Text/Text.Base64.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text"
+      ],
+      "method": "DecryptBase64",
+      "methodFullName": "UAPI.Text.DecryptBase64",
+      "returnType": "UAPI.Type.DecryptedType",
+      "rawReturnType": "DecryptedType",
+      "returnsBytes": false,
+      "summary": "获取解密后的 Base 64 编码文本",
+      "returnsSummary": "DecryptedType对象",
+      "path": [
+        "text",
+        "decrypt-base64"
+      ],
+      "params": [
+        {
+          "name": "texts",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "texts",
+          "summary": "指定要解密的 Bas64",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "AuthenticationAPITokenKey",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Ke"
+        }
+      ]
+    }
+  ]
+}

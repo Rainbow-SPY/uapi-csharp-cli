@@ -1,0 +1,34 @@
+{
+  "source": "Network/Network.PingMyIP.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Network/Network.PingMyIP.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Network"
+      ],
+      "method": "PingMyIP",
+      "methodFullName": "UAPI.Network.PingMyIP",
+      "returnType": "UAPI.Type.PingMyIPType",
+      "rawReturnType": "PingMyIPType",
+      "returnsBytes": false,
+      "summary": "Ping 我的 IP, 返回检测到的IP地址 注意! IPv6 Ping失败为已知问题, 请耐心等待修复",
+      "returnsSummary": "PingMyIPType 对象",
+      "path": [
+        "network",
+        "ping-my-ip"
+      ],
+      "params": [ ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "AuthenticationAPITokenKey",
+          "type": "string",
+          "default": null,
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "source": "Network/Network.WeixinDomain.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Network/Network.WeixinDomain.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Network"
+      ],
+      "method": "CheckDomainInWeixin",
+      "methodFullName": "UAPI.Network.CheckDomainInWeixin",
+      "returnType": "UAPI.Type.WeixinDomainType",
+      "rawReturnType": "WeixinDomainType",
+      "returnsBytes": false,
+      "summary": "检查指定的主机在微信网页中的访问情况",
+      "returnsSummary": "WeixinDomainType 对象",
+      "path": [
+        "network",
+        "domain-in-weixin"
+      ],
+      "params": [
+        {
+          "name": "domain",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "domain",
+          "summary": "指定的主机",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": null,
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

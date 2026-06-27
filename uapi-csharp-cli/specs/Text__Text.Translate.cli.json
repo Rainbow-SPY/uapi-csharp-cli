@@ -1,0 +1,55 @@
+{
+  "source": "Text/Text.Translate.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Text/Text.Translate.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text"
+      ],
+      "method": "Translate",
+      "methodFullName": "UAPI.Text.Translate",
+      "returnType": "UAPI.TranslateType",
+      "rawReturnType": "TranslateType",
+      "returnsBytes": false,
+      "summary": "翻译指定的文本",
+      "returnsSummary": "TranslateType 对象",
+      "path": [
+        "text",
+        "translate"
+      ],
+      "params": [
+        {
+          "name": "Language",
+          "type": "SupportLanguages",
+          "default": null,
+          "required": true,
+          "cliName": "language",
+          "summary": "指定要翻译的语言代码 (ISO 639-1)",
+          "qualifiedType": "UAPI.SupportLanguages",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "Text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要翻译的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "AuthenticationAPITokenKey",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

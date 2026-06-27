@@ -1,0 +1,85 @@
+{
+  "source": "Image/Image.nsfw.cs",
+  "commandCount": 2,
+  "commands": [
+    {
+      "source": "Image/Image.nsfw.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Image"
+      ],
+      "method": "CheckImageNSFW",
+      "methodFullName": "UAPI.Image.CheckImageNSFW",
+      "returnType": "UAPI.Type.NSFWType",
+      "rawReturnType": "NSFWType",
+      "returnsBytes": false,
+      "summary": "图像敏感度检查",
+      "returnsSummary": "NSFWType对象",
+      "path": [
+        "image",
+        "nsfw"
+      ],
+      "params": [
+        {
+          "name": "image",
+          "type": "byte[]",
+          "default": null,
+          "required": true,
+          "cliName": "image",
+          "summary": "图像的二进制文件",
+          "qualifiedType": "byte[]",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Image/Image.nsfw.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Image"
+      ],
+      "method": "CheckImageNSFW",
+      "methodFullName": "UAPI.Image.CheckImageNSFW",
+      "returnType": "UAPI.Type.NSFWType",
+      "rawReturnType": "NSFWType",
+      "returnsBytes": false,
+      "summary": "图像敏感度检查",
+      "returnsSummary": "NSFWType对象",
+      "path": [
+        "image",
+        "nsfw",
+        "by-url"
+      ],
+      "params": [
+        {
+          "name": "url",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "url",
+          "summary": "图像的URL地址",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

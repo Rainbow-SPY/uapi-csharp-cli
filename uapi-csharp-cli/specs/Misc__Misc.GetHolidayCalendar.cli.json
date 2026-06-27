@@ -1,0 +1,105 @@
+{
+  "source": "Misc/Misc.GetHolidayCalendar.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Misc/Misc.GetHolidayCalendar.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Misc"
+      ],
+      "method": "GetHolidayCalendar",
+      "methodFullName": "UAPI.Misc.GetHolidayCalendar",
+      "returnType": "UAPI.Type.HolidayCalendarType",
+      "rawReturnType": "HolidayCalendarType",
+      "returnsBytes": false,
+      "summary": "查询指定日期、月份或年份的万年历与节假日信息",
+      "returnsSummary": "HolidayCalendarType 对象",
+      "path": [
+        "misc",
+        "holiday-calendar"
+      ],
+      "params": [
+        {
+          "name": "date",
+          "type": "string",
+          "default": "\"\"",
+          "required": false,
+          "cliName": "date",
+          "summary": "按天查询时填写这个参数，例如查某一天",
+          "qualifiedType": "string",
+          "qualifiedDefault": "\"\""
+        },
+        {
+          "name": "month",
+          "type": "string",
+          "default": "\"\"",
+          "required": false,
+          "cliName": "month",
+          "summary": "按月查询时填写这个参数，例如查某个月",
+          "qualifiedType": "string",
+          "qualifiedDefault": "\"\""
+        },
+        {
+          "name": "year",
+          "type": "string",
+          "default": "\"\"",
+          "required": false,
+          "cliName": "year",
+          "summary": "按年查询时填写这个参数，例如查某一年",
+          "qualifiedType": "string",
+          "qualifiedDefault": "\"\""
+        },
+        {
+          "name": "timezone",
+          "type": "string",
+          "default": "\"Asia/Shanghai\"",
+          "required": false,
+          "cliName": "timezone",
+          "summary": "时区名称，默认 Asia/Shanghai",
+          "qualifiedType": "string",
+          "qualifiedDefault": "\"Asia/Shanghai\""
+        },
+        {
+          "name": "HolidayType",
+          "type": "string",
+          "default": "\"all\"",
+          "required": false,
+          "cliName": "holiday-type",
+          "summary": "节日筛选类型，默认 all",
+          "qualifiedType": "string",
+          "qualifiedDefault": "\"all\""
+        },
+        {
+          "name": "include_nearby",
+          "type": "bool",
+          "default": "false",
+          "required": false,
+          "cliName": "include-nearby",
+          "summary": "是否返回前后最近节日，仅 date 模式生效，默认 false。month/year 模式会忽略此参数",
+          "qualifiedType": "bool",
+          "qualifiedDefault": "false"
+        },
+        {
+          "name": "nearby_limit",
+          "type": "int",
+          "default": "7",
+          "required": false,
+          "cliName": "nearby-limit",
+          "summary": "返回最近节日数量限制，默认 7，最大 30。仅 date 模式 + include_nearby=true 生效",
+          "qualifiedType": "int",
+          "qualifiedDefault": "7"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token"
+        }
+      ]
+    }
+  ]
+}

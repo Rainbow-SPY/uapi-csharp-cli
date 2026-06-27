@@ -1,0 +1,45 @@
+{
+  "source": "bilibili/bilibili.GetUserData.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "bilibili/bilibili.GetUserData.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "bilibili"
+      ],
+      "method": "GetUserData",
+      "methodFullName": "UAPI.bilibili.GetUserData",
+      "returnType": "UAPI.Type.bilibiliUserType",
+      "rawReturnType": "bilibiliUserType",
+      "returnsBytes": false,
+      "summary": "获取bilibili用户的相关公开数据",
+      "returnsSummary": "bilibiliUserType 对象",
+      "path": [
+        "bilibili",
+        "user-data"
+      ],
+      "params": [
+        {
+          "name": "uid",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "uid",
+          "summary": "bilibili UUID",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token"
+        }
+      ]
+    }
+  ]
+}

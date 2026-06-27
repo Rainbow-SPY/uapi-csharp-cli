@@ -1,0 +1,85 @@
+{
+  "source": "Image/Image.Convert.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Image/Image.Convert.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Image"
+      ],
+      "method": "PostSVGConvertToBitImage",
+      "methodFullName": "UAPI.Image.PostSVGConvertToBitImage",
+      "returnType": "byte[]",
+      "rawReturnType": "byte[]",
+      "returnsBytes": true,
+      "summary": "将 SVG 矢量图转换为位图或矢量图 (POST)",
+      "returnsSummary": "转换后的图片二进制数据",
+      "path": [
+        "image",
+        "svg-convert-to-bit-image"
+      ],
+      "params": [
+        {
+          "name": "svg",
+          "type": "byte[]",
+          "default": null,
+          "required": true,
+          "cliName": "svg",
+          "summary": "SVG 文件的二进制数据",
+          "qualifiedType": "byte[]",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "format",
+          "type": "SVGFormat",
+          "default": "SVGFormat.png",
+          "required": false,
+          "cliName": "format",
+          "summary": "输出图片格式 (默认 png)",
+          "qualifiedType": "UAPI.Type.SVGConvertType.SVGFormat",
+          "qualifiedDefault": "UAPI.Type.SVGConvertType.SVGFormat.png"
+        },
+        {
+          "name": "width",
+          "type": "int?",
+          "default": "null",
+          "required": false,
+          "cliName": "width",
+          "summary": "输出宽度 (像素)，不传则保持 SVG 原始宽高比",
+          "qualifiedType": "int?",
+          "qualifiedDefault": "null"
+        },
+        {
+          "name": "height",
+          "type": "int?",
+          "default": "null",
+          "required": false,
+          "cliName": "height",
+          "summary": "输出高度 (像素)，不传则保持 SVG 原始宽高比",
+          "qualifiedType": "int?",
+          "qualifiedDefault": "null"
+        },
+        {
+          "name": "quality",
+          "type": "int",
+          "default": "90",
+          "required": false,
+          "cliName": "quality",
+          "summary": "输出质量 (1-100，默认 90)，仅 JPEG 格式有效",
+          "qualifiedType": "int",
+          "qualifiedDefault": "90"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

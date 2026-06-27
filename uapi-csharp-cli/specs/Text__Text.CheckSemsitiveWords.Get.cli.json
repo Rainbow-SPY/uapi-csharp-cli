@@ -1,0 +1,47 @@
+{
+  "source": "Text/Text.CheckSemsitiveWords.Get.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Text/Text.CheckSemsitiveWords.Get.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text",
+        "SensitiveWords"
+      ],
+      "method": "GetCheck",
+      "methodFullName": "UAPI.Text.SensitiveWords.GetCheck",
+      "returnType": "UAPI.Type.SensitiveAnalyzeType",
+      "rawReturnType": "SensitiveAnalyzeType",
+      "returnsBytes": false,
+      "summary": "分析敏感词 (GET), 仅支持单个字符串, 要使用字符串数组请使用 SensitiveWords.Analyze",
+      "returnsSummary": "SensitiveAnalyzeType 对象",
+      "path": [
+        "text",
+        "sensitive-words",
+        "check"
+      ],
+      "params": [
+        {
+          "name": "text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要识别的敏感词",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "AuthenticationAPITokenKey",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

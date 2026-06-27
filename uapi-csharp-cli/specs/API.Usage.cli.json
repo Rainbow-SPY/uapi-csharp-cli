@@ -1,0 +1,34 @@
+{
+  "source": "API.Usage.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "API.Usage.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "API"
+      ],
+      "method": "GetUsage",
+      "methodFullName": "UAPI.API.GetUsage",
+      "returnType": "UAPI.Type.UsageResponse",
+      "rawReturnType": "UsageResponse",
+      "returnsBytes": false,
+      "summary": "获取 API 使用统计",
+      "returnsSummary": "Type.UsageResponse 对象",
+      "path": [
+        "api",
+        "usage"
+      ],
+      "params": [ ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "source": "QQ.GetGroupData.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "QQ.GetGroupData.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "QQ"
+      ],
+      "method": "GetGroupData",
+      "methodFullName": "UAPI.QQ.GetGroupData",
+      "returnType": "UAPI.Type.GroupType",
+      "rawReturnType": "GroupType",
+      "returnsBytes": false,
+      "summary": "获取QQ群公开摘要",
+      "returnsSummary": "GroupType 对象",
+      "path": [
+        "qq",
+        "group-data"
+      ],
+      "params": [
+        {
+          "name": "group_id",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "group-id",
+          "summary": "QQ群组ID",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "AuthenticationAPITokenKey",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token"
+        }
+      ]
+    }
+  ]
+}

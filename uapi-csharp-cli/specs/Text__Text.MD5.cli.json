@@ -1,0 +1,104 @@
+{
+  "source": "Text/Text.MD5.cs",
+  "commandCount": 2,
+  "commands": [
+    {
+      "source": "Text/Text.MD5.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text"
+      ],
+      "method": "CreateMD5",
+      "methodFullName": "UAPI.Text.CreateMD5",
+      "returnType": "UAPI.Type.MD5Type",
+      "rawReturnType": "MD5Type",
+      "returnsBytes": false,
+      "summary": "获取指定文本的MD5",
+      "returnsSummary": "MD5Type对象",
+      "path": [
+        "text",
+        "md5"
+      ],
+      "params": [
+        {
+          "name": "texts",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "texts",
+          "summary": "指定要计算MD5的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "requestType",
+          "type": "Interface.SendRequestType",
+          "default": "Interface.SendRequestType.POST",
+          "required": false,
+          "cliName": "request-type",
+          "summary": "请求方式, Interface.SendRequestType.POST/Interface.SendRequestType.GET, 默认为 Interface.SendRequestType.POST",
+          "qualifiedType": "UAPI.Interface.SendRequestType",
+          "qualifiedDefault": "UAPI.Interface.SendRequestType.POST"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "AuthenticationAPITokenKey",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    },
+    {
+      "source": "Text/Text.MD5.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text"
+      ],
+      "method": "ReturnCreatedMD5",
+      "methodFullName": "UAPI.Text.ReturnCreatedMD5",
+      "returnType": "string",
+      "rawReturnType": "string",
+      "returnsBytes": false,
+      "summary": "获取指定文本的MD5, 直接返回 string, 可等待",
+      "returnsSummary": "计算后的MD5 MD5Type.MD5",
+      "path": [
+        "text",
+        "created-md5"
+      ],
+      "params": [
+        {
+          "name": "text",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "text",
+          "summary": "指定要计算MD5的文本",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "requestType",
+          "type": "Interface.SendRequestType",
+          "default": "Interface.SendRequestType.POST",
+          "required": false,
+          "cliName": "request-type",
+          "summary": "请求方式",
+          "qualifiedType": "UAPI.Interface.SendRequestType",
+          "qualifiedDefault": "UAPI.Interface.SendRequestType.POST"
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "AuthenticationAPITokenKey",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

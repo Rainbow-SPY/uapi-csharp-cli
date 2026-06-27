@@ -1,0 +1,55 @@
+{
+  "source": "Text/Text.AnswerBook.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "Text/Text.AnswerBook.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "Text"
+      ],
+      "method": "AskAnswerBook",
+      "methodFullName": "UAPI.Text.AskAnswerBook",
+      "returnType": "UAPI.Type.AnswerType",
+      "rawReturnType": "AnswerType",
+      "returnsBytes": false,
+      "summary": "提问并获得随机的神秘答案",
+      "returnsSummary": "AnswerType对象",
+      "path": [
+        "text",
+        "ask-answer-book"
+      ],
+      "params": [
+        {
+          "name": "_question",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "question",
+          "summary": "指定要提出的问题",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        },
+        {
+          "name": "requestType",
+          "type": "SendRequestType",
+          "default": null,
+          "required": true,
+          "cliName": "request-type",
+          "summary": "请求方式, SendRequestType.GET or SendRequestType.POST",
+          "qualifiedType": "UAPI.Interface.SendRequestType",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}

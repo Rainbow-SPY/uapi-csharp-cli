@@ -1,0 +1,45 @@
+{
+  "source": "WebParse/WebParse.ExtractImages.cs",
+  "commandCount": 1,
+  "commands": [
+    {
+      "source": "WebParse/WebParse.ExtractImages.cs",
+      "namespace": "UAPI",
+      "classes": [
+        "WebParse"
+      ],
+      "method": "GetWebPageImages",
+      "methodFullName": "UAPI.WebParse.GetWebPageImages",
+      "returnType": "UAPI.Type.WebParseExtractImagesType",
+      "rawReturnType": "WebParseExtractImagesType",
+      "returnsBytes": false,
+      "summary": "提取网页图片 (GET)",
+      "returnsSummary": "WebParseExtractImagesType 对象",
+      "path": [
+        "web-parse",
+        "web-page-images"
+      ],
+      "params": [
+        {
+          "name": "url",
+          "type": "string",
+          "default": null,
+          "required": true,
+          "cliName": "url",
+          "summary": "网页 URL",
+          "qualifiedType": "string",
+          "qualifiedDefault": null
+        }
+      ],
+      "usesGlobalAuthentication": true,
+      "globalAuthenticationParams": [
+        {
+          "sdkParameterName": "Authentication",
+          "type": "string",
+          "default": "\"\"",
+          "summary": "API Token Key"
+        }
+      ]
+    }
+  ]
+}
