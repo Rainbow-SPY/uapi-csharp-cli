@@ -5,8 +5,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_Image_Image_Convert
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_image_svg_convert_to_bit_image_1 =
                 CliCommandTree.GetOrAdd(root, new[] { "image", "svg-convert-to-bit-image" });
@@ -37,7 +37,7 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "输出质量 (1-100，默认 90)，仅 JPEG 格式有效", DefaultValueFactory = _ => 90
             };
             cmd_image_svg_convert_to_bit_image_1.Options.Add(opt_image_svg_convert_to_bit_image_1_quality);
-            cmd_image_svg_convert_to_bit_image_1.SetAction(async parseResult =>
+            cmd_image_svg_convert_to_bit_image_1.SetAction(parseResult =>
             {
                 var svgPath = parseResult.GetValue(opt_image_svg_convert_to_bit_image_1_svg);
                 var svg = File.ReadAllBytes(svgPath);
@@ -46,8 +46,11 @@ namespace UAPI.CliGenerated
                 var height = parseResult.GetValue(opt_image_svg_convert_to_bit_image_1_height);
                 var quality = parseResult.GetValue(opt_image_svg_convert_to_bit_image_1_quality);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Image.PostSVGConvertToBitImage(svg, format, width, height, quality, Authentication);
-                CliOutput.WriteBytes(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Image.PostSVGConvertToBitImage(svg, format, width, height, quality, Authentication)
+                    .GetAwaiter().GetResult();
+                CliOutput.WriteBytes(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }

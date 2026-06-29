@@ -4,8 +4,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_WebParse_WebParse_GetMetaData
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_web_parse_web_page_metadata_1 =
                 CliCommandTree.GetOrAdd(root, new[] { "web-parse", "web-page-metadata" });
@@ -15,12 +15,14 @@ namespace UAPI.CliGenerated
                 Required = true, Description = "网页 URL"
             };
             cmd_web_parse_web_page_metadata_1.Options.Add(opt_web_parse_web_page_metadata_1_url);
-            cmd_web_parse_web_page_metadata_1.SetAction(async parseResult =>
+            cmd_web_parse_web_page_metadata_1.SetAction(parseResult =>
             {
                 var url = parseResult.GetValue(opt_web_parse_web_page_metadata_1_url);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await WebParse.GetWebPageMetadata(url, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = WebParse.GetWebPageMetadata(url, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }

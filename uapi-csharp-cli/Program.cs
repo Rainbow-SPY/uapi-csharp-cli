@@ -32,13 +32,26 @@ internal static class Program
             Recursive = true
         };
 
+        var selectOption = new Option<string>("--select")
+        {
+            Description = "选择属性路径，例如 Headers.RequestID"
+        };
 
+        root.Options.Add(resultOption);
+        root.Options.Add(selectOption);
         root.Options.Add(outOption);
         root.Options.Add(appendOption);
         root.Options.Add(authenticationOption);
-        root.Options.Add(resultOption);
 
-        GeneratedCliAll.AddCommands(root, outOption, appendOption, authenticationOption);
+        GeneratedCliAll.AddCommands(
+            root,
+            outOption,
+            appendOption,
+            authenticationOption,
+            resultOption,
+            selectOption
+        );
+
 
         return root.Parse(args).Invoke();
     }

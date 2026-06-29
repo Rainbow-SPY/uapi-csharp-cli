@@ -4,8 +4,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_Weather_GetWeather
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_weather_data_json_1 = CliCommandTree.GetOrAdd(root, new[] { "weather", "data-json" });
             cmd_weather_data_json_1.Description = "获取天气信息";
@@ -40,7 +40,7 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "分钟级降水预报 (仅国内城市)，每5分钟一个数据点，共24个", DefaultValueFactory = _ => false
             };
             cmd_weather_data_json_1.Options.Add(opt_weather_data_json_1_minutely);
-            cmd_weather_data_json_1.SetAction(async parseResult =>
+            cmd_weather_data_json_1.SetAction(parseResult =>
             {
                 var city = parseResult.GetValue(opt_weather_data_json_1_city);
                 var extended = parseResult.GetValue(opt_weather_data_json_1_extended);
@@ -49,9 +49,12 @@ namespace UAPI.CliGenerated
                 var hourly = parseResult.GetValue(opt_weather_data_json_1_hourly);
                 var minutely = parseResult.GetValue(opt_weather_data_json_1_minutely);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Weather.GetWeatherDataJson(city, extended, indices, forecast, hourly, minutely,
-                    Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Weather
+                    .GetWeatherDataJson(city, extended, indices, forecast, hourly, minutely, Authentication)
+                    .GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_weather_data_json_by_adcode_2 =
@@ -88,7 +91,7 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "分钟级降水预报 (仅国内城市)，每5分钟一个数据点，共24个", DefaultValueFactory = _ => false
             };
             cmd_weather_data_json_by_adcode_2.Options.Add(opt_weather_data_json_by_adcode_2_minutely);
-            cmd_weather_data_json_by_adcode_2.SetAction(async parseResult =>
+            cmd_weather_data_json_by_adcode_2.SetAction(parseResult =>
             {
                 var adcode = parseResult.GetValue(opt_weather_data_json_by_adcode_2_adcode);
                 var extended = parseResult.GetValue(opt_weather_data_json_by_adcode_2_extended);
@@ -97,9 +100,12 @@ namespace UAPI.CliGenerated
                 var hourly = parseResult.GetValue(opt_weather_data_json_by_adcode_2_hourly);
                 var minutely = parseResult.GetValue(opt_weather_data_json_by_adcode_2_minutely);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Weather.GetWeatherDataJson(adcode, extended, indices, forecast, hourly, minutely,
-                    Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Weather
+                    .GetWeatherDataJson(adcode, extended, indices, forecast, hourly, minutely, Authentication)
+                    .GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }

@@ -4,8 +4,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_Search
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_search_1 = CliCommandTree.GetOrAdd(root, new[] { "search" });
             cmd_search_1.Description = "智能搜索 (POST)";
@@ -31,7 +31,8 @@ namespace UAPI.CliGenerated
             cmd_search_1.Options.Add(opt_search_1_fetchFull);
             var opt_search_1_sort = new Option<Type.SearchType.SearchSort>("--sort")
             {
-                Required = false, Description = "排序方式", DefaultValueFactory = _ => Type.SearchType.SearchSort.relevance
+                Required = false, Description = "排序方式",
+                DefaultValueFactory = _ => Type.SearchType.SearchSort.relevance
             };
             cmd_search_1.Options.Add(opt_search_1_sort);
             var opt_search_1_timeRange = new Option<Type.SearchType.SearchTimeRange?>("--time-range")
@@ -39,7 +40,7 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "时间范围过滤", DefaultValueFactory = _ => null
             };
             cmd_search_1.Options.Add(opt_search_1_timeRange);
-            cmd_search_1.SetAction(async parseResult =>
+            cmd_search_1.SetAction(parseResult =>
             {
                 var query = parseResult.GetValue(opt_search_1_query);
                 var site = parseResult.GetValue(opt_search_1_site);
@@ -48,8 +49,11 @@ namespace UAPI.CliGenerated
                 var sort = parseResult.GetValue(opt_search_1_sort);
                 var timeRange = parseResult.GetValue(opt_search_1_timeRange);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Search.PostSearch(query, site, filetype, fetchFull, sort, timeRange, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Search.PostSearch(query, site, filetype, fetchFull, sort, timeRange, Authentication)
+                    .GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }

@@ -4,8 +4,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_Minecraft_SearchMod
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_minecraft_search_mods_1 = CliCommandTree.GetOrAdd(root, new[] { "minecraft", "search-mods" });
             cmd_minecraft_search_mods_1.Description = "搜索 MC Mod/插件";
@@ -35,7 +35,7 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "是否补全下载直链与作者名，默认 true；传 false 可降低延迟。", DefaultValueFactory = _ => true
             };
             cmd_minecraft_search_mods_1.Options.Add(opt_minecraft_search_mods_1_entich);
-            cmd_minecraft_search_mods_1.SetAction(async parseResult =>
+            cmd_minecraft_search_mods_1.SetAction(parseResult =>
             {
                 var query = parseResult.GetValue(opt_minecraft_search_mods_1_query);
                 var source = parseResult.GetValue(opt_minecraft_search_mods_1_source);
@@ -43,8 +43,11 @@ namespace UAPI.CliGenerated
                 var limit = parseResult.GetValue(opt_minecraft_search_mods_1_limit);
                 var entich = parseResult.GetValue(opt_minecraft_search_mods_1_entich);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Minecraft.SearchMods(query, source, type, limit, entich, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Minecraft.SearchMods(query, source, type, limit, entich, Authentication).GetAwaiter()
+                    .GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }

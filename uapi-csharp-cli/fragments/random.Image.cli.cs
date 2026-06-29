@@ -4,8 +4,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_random_Image
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_random_image_1 = CliCommandTree.GetOrAdd(root, new[] { "random", "image" });
             cmd_random_image_1.Description = "获取随机图片, 302重定向到图像";
@@ -20,13 +20,15 @@ namespace UAPI.CliGenerated
                 DefaultValueFactory = _ => Type.WallpaperType.None
             };
             cmd_random_image_1.Options.Add(opt_random_image_1_type);
-            cmd_random_image_1.SetAction(async parseResult =>
+            cmd_random_image_1.SetAction(parseResult =>
             {
                 var category = parseResult.GetValue(opt_random_image_1_category);
                 var type = parseResult.GetValue(opt_random_image_1_type);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Random.GetImage(category, type, Authentication);
-                CliOutput.WriteBytes(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Random.GetImage(category, type, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteBytes(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }

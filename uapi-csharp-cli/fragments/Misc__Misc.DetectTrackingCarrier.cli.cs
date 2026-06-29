@@ -4,8 +4,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_Misc_Misc_DetectTrackingCarrier
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_misc_detect_tracking_carrier_1 =
                 CliCommandTree.GetOrAdd(root, new[] { "misc", "detect-tracking-carrier" });
@@ -15,12 +15,14 @@ namespace UAPI.CliGenerated
                 Required = true, Description = "快递单号"
             };
             cmd_misc_detect_tracking_carrier_1.Options.Add(opt_misc_detect_tracking_carrier_1_tracking_number);
-            cmd_misc_detect_tracking_carrier_1.SetAction(async parseResult =>
+            cmd_misc_detect_tracking_carrier_1.SetAction(parseResult =>
             {
                 var tracking_number = parseResult.GetValue(opt_misc_detect_tracking_carrier_1_tracking_number);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Misc.DetectTrackingCarrier(tracking_number, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Misc.DetectTrackingCarrier(tracking_number, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }

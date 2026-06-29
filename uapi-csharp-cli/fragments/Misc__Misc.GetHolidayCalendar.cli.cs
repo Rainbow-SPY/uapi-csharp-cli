@@ -4,8 +4,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_Misc_Misc_GetHolidayCalendar
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_misc_holiday_calendar_1 = CliCommandTree.GetOrAdd(root, new[] { "misc", "holiday-calendar" });
             cmd_misc_holiday_calendar_1.Description = "查询指定日期、月份或年份的万年历与节假日信息";
@@ -46,7 +46,7 @@ namespace UAPI.CliGenerated
                 DefaultValueFactory = _ => 7
             };
             cmd_misc_holiday_calendar_1.Options.Add(opt_misc_holiday_calendar_1_nearby_limit);
-            cmd_misc_holiday_calendar_1.SetAction(async parseResult =>
+            cmd_misc_holiday_calendar_1.SetAction(parseResult =>
             {
                 var date = parseResult.GetValue(opt_misc_holiday_calendar_1_date);
                 var month = parseResult.GetValue(opt_misc_holiday_calendar_1_month);
@@ -56,9 +56,11 @@ namespace UAPI.CliGenerated
                 var include_nearby = parseResult.GetValue(opt_misc_holiday_calendar_1_include_nearby);
                 var nearby_limit = parseResult.GetValue(opt_misc_holiday_calendar_1_nearby_limit);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Misc.GetHolidayCalendar(date, month, year, timezone, HolidayType, include_nearby,
-                    nearby_limit, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Misc.GetHolidayCalendar(date, month, year, timezone, HolidayType, include_nearby,
+                    nearby_limit, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }

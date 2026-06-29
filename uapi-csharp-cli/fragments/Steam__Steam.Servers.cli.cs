@@ -4,8 +4,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_Steam_Steam_Servers
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_steam_find_servers_1 = CliCommandTree.GetOrAdd(root, new[] { "steam", "find-servers" });
             cmd_steam_find_servers_1.Description = "查询 Steam 游戏服务器";
@@ -24,14 +24,16 @@ namespace UAPI.CliGenerated
                 Required = true, Description = "根据关键词返回的服务器数量"
             };
             cmd_steam_find_servers_1.Options.Add(opt_steam_find_servers_1_count);
-            cmd_steam_find_servers_1.SetAction(async parseResult =>
+            cmd_steam_find_servers_1.SetAction(parseResult =>
             {
                 var appid = parseResult.GetValue(opt_steam_find_servers_1_appid);
                 var query = parseResult.GetValue(opt_steam_find_servers_1_query);
                 var count = parseResult.GetValue(opt_steam_find_servers_1_count);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Steam.FindServers(appid, query, count, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Steam.FindServers(appid, query, count, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }

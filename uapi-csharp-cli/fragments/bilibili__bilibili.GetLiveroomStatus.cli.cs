@@ -4,8 +4,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_bilibili_bilibili_GetLiveroomStatus
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_bilibili_liveroom_status_as_id_1 =
                 CliCommandTree.GetOrAdd(root, new[] { "bilibili", "liveroom-status", "as-id" });
@@ -15,12 +15,14 @@ namespace UAPI.CliGenerated
                 Required = true, Description = "用户的 UID"
             };
             cmd_bilibili_liveroom_status_as_id_1.Options.Add(opt_bilibili_liveroom_status_as_id_1_mid);
-            cmd_bilibili_liveroom_status_as_id_1.SetAction(async parseResult =>
+            cmd_bilibili_liveroom_status_as_id_1.SetAction(parseResult =>
             {
                 var mid = parseResult.GetValue(opt_bilibili_liveroom_status_as_id_1_mid);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await bilibili.GetLiveroomStatus.AsID(mid, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = bilibili.GetLiveroomStatus.AsID(mid, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_bilibili_liveroom_status_as_liveroom_id_2 =
@@ -32,12 +34,15 @@ namespace UAPI.CliGenerated
             };
             cmd_bilibili_liveroom_status_as_liveroom_id_2.Options.Add(
                 opt_bilibili_liveroom_status_as_liveroom_id_2_room_id);
-            cmd_bilibili_liveroom_status_as_liveroom_id_2.SetAction(async parseResult =>
+            cmd_bilibili_liveroom_status_as_liveroom_id_2.SetAction(parseResult =>
             {
                 var room_id = parseResult.GetValue(opt_bilibili_liveroom_status_as_liveroom_id_2_room_id);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await bilibili.GetLiveroomStatus.AsLiveroomID(room_id, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = bilibili.GetLiveroomStatus.AsLiveroomID(room_id, Authentication).GetAwaiter()
+                    .GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }

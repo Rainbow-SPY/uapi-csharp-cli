@@ -5,8 +5,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_Image_Image_DecodeForOtherDevices
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_image_decode_1 = CliCommandTree.GetOrAdd(root, new[] { "image", "decode" });
             cmd_image_decode_1.Description = "解码并缩放图片 (POST)，通过图片二进制数据";
@@ -58,7 +58,7 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "填充背景色 (默认 black)，仅 fit=contain 时生效", DefaultValueFactory = _ => "black"
             };
             cmd_image_decode_1.Options.Add(opt_image_decode_1_background);
-            cmd_image_decode_1.SetAction(async parseResult =>
+            cmd_image_decode_1.SetAction(parseResult =>
             {
                 var imagePath = parseResult.GetValue(opt_image_decode_1_image);
                 var image = File.ReadAllBytes(imagePath);
@@ -71,9 +71,11 @@ namespace UAPI.CliGenerated
                 var fit = parseResult.GetValue(opt_image_decode_1_fit);
                 var background = parseResult.GetValue(opt_image_decode_1_background);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Image.PostImageDecode(image, format, colorMode, width, height, maxWidth, maxHeight,
-                    fit, background, Authentication);
-                CliOutput.WriteBytes(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Image.PostImageDecode(image, format, colorMode, width, height, maxWidth, maxHeight,
+                    fit, background, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteBytes(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_image_decode_by_image_url_2 =
@@ -129,7 +131,7 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "填充背景色 (默认 black)", DefaultValueFactory = _ => "black"
             };
             cmd_image_decode_by_image_url_2.Options.Add(opt_image_decode_by_image_url_2_background);
-            cmd_image_decode_by_image_url_2.SetAction(async parseResult =>
+            cmd_image_decode_by_image_url_2.SetAction(parseResult =>
             {
                 var imageUrl = parseResult.GetValue(opt_image_decode_by_image_url_2_imageUrl);
                 var format = parseResult.GetValue(opt_image_decode_by_image_url_2_format);
@@ -141,9 +143,11 @@ namespace UAPI.CliGenerated
                 var fit = parseResult.GetValue(opt_image_decode_by_image_url_2_fit);
                 var background = parseResult.GetValue(opt_image_decode_by_image_url_2_background);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Image.PostImageDecode(imageUrl, format, colorMode, width, height, maxWidth,
-                    maxHeight, fit, background, Authentication);
-                CliOutput.WriteBytes(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Image.PostImageDecode(imageUrl, format, colorMode, width, height, maxWidth, maxHeight,
+                    fit, background, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteBytes(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }

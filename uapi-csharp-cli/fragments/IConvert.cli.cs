@@ -5,8 +5,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_IConvert
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_i_convert_image_svg_convert_to_bit_image_1 =
                 CliCommandTree.GetOrAdd(root, new[] { "i-convert", "image", "svg-convert-to-bit-image" });
@@ -41,7 +41,7 @@ namespace UAPI.CliGenerated
             };
             cmd_i_convert_image_svg_convert_to_bit_image_1.Options.Add(
                 opt_i_convert_image_svg_convert_to_bit_image_1_quality);
-            cmd_i_convert_image_svg_convert_to_bit_image_1.SetAction(async parseResult =>
+            cmd_i_convert_image_svg_convert_to_bit_image_1.SetAction(parseResult =>
             {
                 var svgPath = parseResult.GetValue(opt_i_convert_image_svg_convert_to_bit_image_1_svg);
                 var svg = File.ReadAllBytes(svgPath);
@@ -50,9 +50,12 @@ namespace UAPI.CliGenerated
                 var height = parseResult.GetValue(opt_i_convert_image_svg_convert_to_bit_image_1_height);
                 var quality = parseResult.GetValue(opt_i_convert_image_svg_convert_to_bit_image_1_quality);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result =
-                    await IConvert.Image.PostSVGConvertToBitImage(svg, format, width, height, quality, Authentication);
-                CliOutput.WriteBytes(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = IConvert.Image
+                    .PostSVGConvertToBitImage(svg, format, width, height, quality, Authentication).GetAwaiter()
+                    .GetResult();
+                CliOutput.WriteBytes(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_i_convert_text_converter_2 =
@@ -77,15 +80,18 @@ namespace UAPI.CliGenerated
                 Required = false, DefaultValueFactory = _ => null
             };
             cmd_i_convert_text_converter_2.Options.Add(opt_i_convert_text_converter_2_option);
-            cmd_i_convert_text_converter_2.SetAction(async parseResult =>
+            cmd_i_convert_text_converter_2.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_i_convert_text_converter_2_text);
                 var From = parseResult.GetValue(opt_i_convert_text_converter_2_From);
                 var To = parseResult.GetValue(opt_i_convert_text_converter_2_To);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 object option = parseResult.GetValue(opt_i_convert_text_converter_2_option);
-                var result = await IConvert.Text.Converter(text, From, To, Authentication, option);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = IConvert.Text.Converter(text, From, To, Authentication, option).GetAwaiter()
+                    .GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_i_convert_text_any_to_text_3 =
@@ -105,14 +111,16 @@ namespace UAPI.CliGenerated
                 Required = false, DefaultValueFactory = _ => null
             };
             cmd_i_convert_text_any_to_text_3.Options.Add(opt_i_convert_text_any_to_text_3_option);
-            cmd_i_convert_text_any_to_text_3.SetAction(async parseResult =>
+            cmd_i_convert_text_any_to_text_3.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_i_convert_text_any_to_text_3_text);
                 var From = parseResult.GetValue(opt_i_convert_text_any_to_text_3_From);
                 object option = parseResult.GetValue(opt_i_convert_text_any_to_text_3_option);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await IConvert.Text.AnyToText(text, From, option, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = IConvert.Text.AnyToText(text, From, option, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_i_convert_text_any_to_base64_4 =
@@ -132,14 +140,17 @@ namespace UAPI.CliGenerated
                 Required = false, DefaultValueFactory = _ => null
             };
             cmd_i_convert_text_any_to_base64_4.Options.Add(opt_i_convert_text_any_to_base64_4_option);
-            cmd_i_convert_text_any_to_base64_4.SetAction(async parseResult =>
+            cmd_i_convert_text_any_to_base64_4.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_i_convert_text_any_to_base64_4_text);
                 var From = parseResult.GetValue(opt_i_convert_text_any_to_base64_4_From);
                 object option = parseResult.GetValue(opt_i_convert_text_any_to_base64_4_option);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await IConvert.Text.AnyToBase64(text, From, option, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = IConvert.Text.AnyToBase64(text, From, option, Authentication).GetAwaiter()
+                    .GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_i_convert_text_any_to_hex_5 =
@@ -159,14 +170,16 @@ namespace UAPI.CliGenerated
                 Required = false, DefaultValueFactory = _ => null
             };
             cmd_i_convert_text_any_to_hex_5.Options.Add(opt_i_convert_text_any_to_hex_5_option);
-            cmd_i_convert_text_any_to_hex_5.SetAction(async parseResult =>
+            cmd_i_convert_text_any_to_hex_5.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_i_convert_text_any_to_hex_5_text);
                 var From = parseResult.GetValue(opt_i_convert_text_any_to_hex_5_From);
                 object option = parseResult.GetValue(opt_i_convert_text_any_to_hex_5_option);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await IConvert.Text.AnyToHex(text, From, option, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = IConvert.Text.AnyToHex(text, From, option, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_i_convert_text_any_to_url_6 =
@@ -186,14 +199,16 @@ namespace UAPI.CliGenerated
                 Required = false, DefaultValueFactory = _ => null
             };
             cmd_i_convert_text_any_to_url_6.Options.Add(opt_i_convert_text_any_to_url_6_option);
-            cmd_i_convert_text_any_to_url_6.SetAction(async parseResult =>
+            cmd_i_convert_text_any_to_url_6.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_i_convert_text_any_to_url_6_text);
                 var From = parseResult.GetValue(opt_i_convert_text_any_to_url_6_From);
                 object option = parseResult.GetValue(opt_i_convert_text_any_to_url_6_option);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await IConvert.Text.AnyToURL(text, From, option, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = IConvert.Text.AnyToURL(text, From, option, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_i_convert_text_any_to_unicode_7 =
@@ -213,14 +228,17 @@ namespace UAPI.CliGenerated
                 Required = false, DefaultValueFactory = _ => null
             };
             cmd_i_convert_text_any_to_unicode_7.Options.Add(opt_i_convert_text_any_to_unicode_7_option);
-            cmd_i_convert_text_any_to_unicode_7.SetAction(async parseResult =>
+            cmd_i_convert_text_any_to_unicode_7.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_i_convert_text_any_to_unicode_7_text);
                 var From = parseResult.GetValue(opt_i_convert_text_any_to_unicode_7_From);
                 object option = parseResult.GetValue(opt_i_convert_text_any_to_unicode_7_option);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await IConvert.Text.AnyToUnicode(text, From, option, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = IConvert.Text.AnyToUnicode(text, From, option, Authentication).GetAwaiter()
+                    .GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_i_convert_text_any_to_binary_bytes_8 =
@@ -240,14 +258,17 @@ namespace UAPI.CliGenerated
                 Required = false, DefaultValueFactory = _ => null
             };
             cmd_i_convert_text_any_to_binary_bytes_8.Options.Add(opt_i_convert_text_any_to_binary_bytes_8_option);
-            cmd_i_convert_text_any_to_binary_bytes_8.SetAction(async parseResult =>
+            cmd_i_convert_text_any_to_binary_bytes_8.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_i_convert_text_any_to_binary_bytes_8_text);
                 var From = parseResult.GetValue(opt_i_convert_text_any_to_binary_bytes_8_From);
                 object option = parseResult.GetValue(opt_i_convert_text_any_to_binary_bytes_8_option);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await IConvert.Text.AnyToBinaryBytes(text, From, option, Authentication);
-                CliOutput.WriteBytes(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = IConvert.Text.AnyToBinaryBytes(text, From, option, Authentication).GetAwaiter()
+                    .GetResult();
+                CliOutput.WriteBytes(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_i_convert_text_any_to_binary_string_9 =
@@ -267,14 +288,17 @@ namespace UAPI.CliGenerated
                 Required = false, DefaultValueFactory = _ => null
             };
             cmd_i_convert_text_any_to_binary_string_9.Options.Add(opt_i_convert_text_any_to_binary_string_9_option);
-            cmd_i_convert_text_any_to_binary_string_9.SetAction(async parseResult =>
+            cmd_i_convert_text_any_to_binary_string_9.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_i_convert_text_any_to_binary_string_9_text);
                 var From = parseResult.GetValue(opt_i_convert_text_any_to_binary_string_9_From);
                 object option = parseResult.GetValue(opt_i_convert_text_any_to_binary_string_9_option);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await IConvert.Text.AnyToBinaryString(text, From, option, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = IConvert.Text.AnyToBinaryString(text, From, option, Authentication).GetAwaiter()
+                    .GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_i_convert_text_any_to_md5_10 =
@@ -294,14 +318,16 @@ namespace UAPI.CliGenerated
                 Required = false, DefaultValueFactory = _ => null
             };
             cmd_i_convert_text_any_to_md5_10.Options.Add(opt_i_convert_text_any_to_md5_10_option);
-            cmd_i_convert_text_any_to_md5_10.SetAction(async parseResult =>
+            cmd_i_convert_text_any_to_md5_10.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_i_convert_text_any_to_md5_10_text);
                 var From = parseResult.GetValue(opt_i_convert_text_any_to_md5_10_From);
                 object option = parseResult.GetValue(opt_i_convert_text_any_to_md5_10_option);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await IConvert.Text.AnyToMD5(text, From, option, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = IConvert.Text.AnyToMD5(text, From, option, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_i_convert_text_any_to_sha1_11 =
@@ -321,14 +347,16 @@ namespace UAPI.CliGenerated
                 Required = false, DefaultValueFactory = _ => null
             };
             cmd_i_convert_text_any_to_sha1_11.Options.Add(opt_i_convert_text_any_to_sha1_11_option);
-            cmd_i_convert_text_any_to_sha1_11.SetAction(async parseResult =>
+            cmd_i_convert_text_any_to_sha1_11.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_i_convert_text_any_to_sha1_11_text);
                 var From = parseResult.GetValue(opt_i_convert_text_any_to_sha1_11_From);
                 object option = parseResult.GetValue(opt_i_convert_text_any_to_sha1_11_option);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await IConvert.Text.AnyToSHA1(text, From, option, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = IConvert.Text.AnyToSHA1(text, From, option, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_i_convert_text_any_to_sha256_12 =
@@ -348,14 +376,17 @@ namespace UAPI.CliGenerated
                 Required = false, DefaultValueFactory = _ => null
             };
             cmd_i_convert_text_any_to_sha256_12.Options.Add(opt_i_convert_text_any_to_sha256_12_option);
-            cmd_i_convert_text_any_to_sha256_12.SetAction(async parseResult =>
+            cmd_i_convert_text_any_to_sha256_12.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_i_convert_text_any_to_sha256_12_text);
                 var From = parseResult.GetValue(opt_i_convert_text_any_to_sha256_12_From);
                 object option = parseResult.GetValue(opt_i_convert_text_any_to_sha256_12_option);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await IConvert.Text.AnyToSHA256(text, From, option, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = IConvert.Text.AnyToSHA256(text, From, option, Authentication).GetAwaiter()
+                    .GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_i_convert_text_any_to_sha512_13 =
@@ -375,14 +406,17 @@ namespace UAPI.CliGenerated
                 Required = false, DefaultValueFactory = _ => null
             };
             cmd_i_convert_text_any_to_sha512_13.Options.Add(opt_i_convert_text_any_to_sha512_13_option);
-            cmd_i_convert_text_any_to_sha512_13.SetAction(async parseResult =>
+            cmd_i_convert_text_any_to_sha512_13.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_i_convert_text_any_to_sha512_13_text);
                 var From = parseResult.GetValue(opt_i_convert_text_any_to_sha512_13_From);
                 object option = parseResult.GetValue(opt_i_convert_text_any_to_sha512_13_option);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await IConvert.Text.AnyToSHA512(text, From, option, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = IConvert.Text.AnyToSHA512(text, From, option, Authentication).GetAwaiter()
+                    .GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_i_convert_web_to_markdown_14 =
@@ -393,12 +427,14 @@ namespace UAPI.CliGenerated
                 Required = true, Description = "需要转换的网页 URL"
             };
             cmd_i_convert_web_to_markdown_14.Options.Add(opt_i_convert_web_to_markdown_14_url);
-            cmd_i_convert_web_to_markdown_14.SetAction(async parseResult =>
+            cmd_i_convert_web_to_markdown_14.SetAction(parseResult =>
             {
                 var url = parseResult.GetValue(opt_i_convert_web_to_markdown_14_url);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await IConvert.WebToMarkdown(url, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = IConvert.WebToMarkdown(url, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_i_convert_unix_to_timedate_15 =
@@ -409,12 +445,14 @@ namespace UAPI.CliGenerated
                 Required = true, Description = "Unix 时间戳（10位或13位）或标准日期字符串（如 2023-10-27 10:30:00）"
             };
             cmd_i_convert_unix_to_timedate_15.Options.Add(opt_i_convert_unix_to_timedate_15_time);
-            cmd_i_convert_unix_to_timedate_15.SetAction(async parseResult =>
+            cmd_i_convert_unix_to_timedate_15.SetAction(parseResult =>
             {
                 var time = parseResult.GetValue(opt_i_convert_unix_to_timedate_15_time);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await IConvert.UnixToTimedate(time, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = IConvert.UnixToTimedate(time, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_i_convert_format_json_16 = CliCommandTree.GetOrAdd(root, new[] { "i-convert", "format-json" });
@@ -424,12 +462,14 @@ namespace UAPI.CliGenerated
                 Required = true, Description = "需要格式化的原始 JSON 字符串"
             };
             cmd_i_convert_format_json_16.Options.Add(opt_i_convert_format_json_16_json);
-            cmd_i_convert_format_json_16.SetAction(async parseResult =>
+            cmd_i_convert_format_json_16.SetAction(parseResult =>
             {
                 var json = parseResult.GetValue(opt_i_convert_format_json_16_json);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await IConvert.FormatJson(json, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = IConvert.FormatJson(json, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }

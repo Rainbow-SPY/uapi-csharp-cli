@@ -4,8 +4,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_Steam_Steam_GetUserData
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_steam_user_data_1 = CliCommandTree.GetOrAdd(root, new[] { "steam", "user-data" });
             cmd_steam_user_data_1.Description = "新版请求Steam Web API Json的方法";
@@ -19,13 +19,15 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "Steam Web API Key", DefaultValueFactory = _ => null
             };
             cmd_steam_user_data_1.Options.Add(opt_steam_user_data_1_key);
-            cmd_steam_user_data_1.SetAction(async parseResult =>
+            cmd_steam_user_data_1.SetAction(parseResult =>
             {
                 var SteamID = parseResult.GetValue(opt_steam_user_data_1_SteamID);
                 var key = parseResult.GetValue(opt_steam_user_data_1_key);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Steam.GetUserData(SteamID, key, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Steam.GetUserData(SteamID, key, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }

@@ -5,8 +5,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_Image_Image_Compress
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_image_compress_1 = CliCommandTree.GetOrAdd(root, new[] { "image", "compress" });
             cmd_image_compress_1.Description = "图片无损压缩 (POST)，通过图片二进制数据";
@@ -22,14 +22,16 @@ namespace UAPI.CliGenerated
                 DefaultValueFactory = _ => 3
             };
             cmd_image_compress_1.Options.Add(opt_image_compress_1_level);
-            cmd_image_compress_1.SetAction(async parseResult =>
+            cmd_image_compress_1.SetAction(parseResult =>
             {
                 var imagePath = parseResult.GetValue(opt_image_compress_1_image);
                 var image = File.ReadAllBytes(imagePath);
                 var level = parseResult.GetValue(opt_image_compress_1_level);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Image.PostImageCompress(image, level, Authentication);
-                CliOutput.WriteBytes(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Image.PostImageCompress(image, level, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteBytes(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }

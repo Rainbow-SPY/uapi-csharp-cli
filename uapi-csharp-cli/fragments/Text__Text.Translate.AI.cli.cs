@@ -4,8 +4,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_Text_Text_Translate_AI
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_text_ai_translate_1 = CliCommandTree.GetOrAdd(root, new[] { "text", "ai-translate" });
             var opt_text_ai_translate_1_texts = new Option<string>("--texts")
@@ -43,7 +43,7 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "是否保留原文格式，包括换行、缩进等", DefaultValueFactory = _ => false
             };
             cmd_text_ai_translate_1.Options.Add(opt_text_ai_translate_1_preserve_Format);
-            cmd_text_ai_translate_1.SetAction(async parseResult =>
+            cmd_text_ai_translate_1.SetAction(parseResult =>
             {
                 var texts = parseResult.GetValue(opt_text_ai_translate_1_texts);
                 var Language = parseResult.GetValue(opt_text_ai_translate_1_Language);
@@ -52,9 +52,11 @@ namespace UAPI.CliGenerated
                 var Context = parseResult.GetValue(opt_text_ai_translate_1_Context);
                 var preserve_Format = parseResult.GetValue(opt_text_ai_translate_1_preserve_Format);
                 var AuthenticationAPITokenKey = parseResult.GetValue(authenticationOption);
-                var result = await Text.AITranslate(texts, Language, source_Language, style, Context, preserve_Format,
-                    AuthenticationAPITokenKey);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Text.AITranslate(texts, Language, source_Language, style, Context, preserve_Format,
+                    AuthenticationAPITokenKey).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }

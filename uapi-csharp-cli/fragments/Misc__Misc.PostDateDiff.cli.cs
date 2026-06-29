@@ -4,8 +4,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_Misc_Misc_PostDateDiff
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_misc_date_diff_1 = CliCommandTree.GetOrAdd(root, new[] { "misc", "date-diff" });
             cmd_misc_date_diff_1.Description = "计算两个时间/日期之间的差值";
@@ -24,13 +24,15 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "时间格式, 默认为 YYYY-MM-DD", DefaultValueFactory = _ => "YYYY-MM-DD"
             };
             cmd_misc_date_diff_1.Options.Add(opt_misc_date_diff_1_format);
-            cmd_misc_date_diff_1.SetAction(async parseResult =>
+            cmd_misc_date_diff_1.SetAction(parseResult =>
             {
                 var start_date = parseResult.GetValue(opt_misc_date_diff_1_start_date);
                 var end_date = parseResult.GetValue(opt_misc_date_diff_1_end_date);
                 var format = parseResult.GetValue(opt_misc_date_diff_1_format);
-                var result = await Misc.PostDateDiff(start_date, end_date, format);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Misc.PostDateDiff(start_date, end_date, format).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }

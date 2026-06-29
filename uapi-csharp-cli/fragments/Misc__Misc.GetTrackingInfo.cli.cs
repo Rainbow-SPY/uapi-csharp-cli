@@ -4,8 +4,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_Misc_Misc_GetTrackingInfo
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_misc_tracking_info_1 = CliCommandTree.GetOrAdd(root, new[] { "misc", "tracking-info" });
             cmd_misc_tracking_info_1.Description = "查询快递物流信息";
@@ -25,14 +25,17 @@ namespace UAPI.CliGenerated
                 DefaultValueFactory = _ => ""
             };
             cmd_misc_tracking_info_1.Options.Add(opt_misc_tracking_info_1_phone);
-            cmd_misc_tracking_info_1.SetAction(async parseResult =>
+            cmd_misc_tracking_info_1.SetAction(parseResult =>
             {
                 var tracking_number = parseResult.GetValue(opt_misc_tracking_info_1_tracking_number);
                 var carrier_code = parseResult.GetValue(opt_misc_tracking_info_1_carrier_code);
                 var phone = parseResult.GetValue(opt_misc_tracking_info_1_phone);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Misc.GetTrackingInfo(tracking_number, carrier_code, phone, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Misc.GetTrackingInfo(tracking_number, carrier_code, phone, Authentication)
+                    .GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }

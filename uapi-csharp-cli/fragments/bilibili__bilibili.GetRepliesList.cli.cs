@@ -4,8 +4,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_bilibili_bilibili_GetRepliesList
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_bilibili_replies_list_1 = CliCommandTree.GetOrAdd(root, new[] { "bilibili", "replies-list" });
             cmd_bilibili_replies_list_1.Description = "获取 bilibili 视频评论区";
@@ -31,15 +31,17 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "要获取的页码，从1开始。默认为 1。", DefaultValueFactory = _ => 1
             };
             cmd_bilibili_replies_list_1.Options.Add(opt_bilibili_replies_list_1_pn);
-            cmd_bilibili_replies_list_1.SetAction(async parseResult =>
+            cmd_bilibili_replies_list_1.SetAction(parseResult =>
             {
                 var oid = parseResult.GetValue(opt_bilibili_replies_list_1_oid);
                 var sort = parseResult.GetValue(opt_bilibili_replies_list_1_sort);
                 var ps = parseResult.GetValue(opt_bilibili_replies_list_1_ps);
                 var pn = parseResult.GetValue(opt_bilibili_replies_list_1_pn);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await bilibili.GetRepliesList(oid, sort, ps, pn, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = bilibili.GetRepliesList(oid, sort, ps, pn, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }

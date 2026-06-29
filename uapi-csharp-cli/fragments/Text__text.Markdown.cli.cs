@@ -4,8 +4,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_Text_text_Markdown
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_text_markdown_to_html_ed_json_1 =
                 CliCommandTree.GetOrAdd(root, new[] { "text", "markdown", "to-html", "ed-json" });
@@ -20,13 +20,16 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "是否开启安全模式，过滤掉用户输入中的风险脚本。默认是 true。", DefaultValueFactory = _ => true
             };
             cmd_text_markdown_to_html_ed_json_1.Options.Add(opt_text_markdown_to_html_ed_json_1_sanitize);
-            cmd_text_markdown_to_html_ed_json_1.SetAction(async parseResult =>
+            cmd_text_markdown_to_html_ed_json_1.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_text_markdown_to_html_ed_json_1_text);
                 var sanitize = parseResult.GetValue(opt_text_markdown_to_html_ed_json_1_sanitize);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Text.Markdown.ToHTML.ReturnedJson(text, sanitize, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Text.Markdown.ToHTML.ReturnedJson(text, sanitize, Authentication).GetAwaiter()
+                    .GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_text_markdown_to_html_ed_html_code_2 =
@@ -42,13 +45,16 @@ namespace UAPI.CliGenerated
                 Required = false, DefaultValueFactory = _ => true
             };
             cmd_text_markdown_to_html_ed_html_code_2.Options.Add(opt_text_markdown_to_html_ed_html_code_2_sanitize);
-            cmd_text_markdown_to_html_ed_html_code_2.SetAction(async parseResult =>
+            cmd_text_markdown_to_html_ed_html_code_2.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_text_markdown_to_html_ed_html_code_2_text);
                 var sanitize = parseResult.GetValue(opt_text_markdown_to_html_ed_html_code_2_sanitize);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Text.Markdown.ToHTML.ReturnedHTMLCode(text, sanitize, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Text.Markdown.ToHTML.ReturnedHTMLCode(text, sanitize, Authentication).GetAwaiter()
+                    .GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_text_markdown_to_pdf_3 = CliCommandTree.GetOrAdd(root, new[] { "text", "markdown", "to-pdf" });
@@ -68,14 +74,16 @@ namespace UAPI.CliGenerated
                 Required = false, DefaultValueFactory = _ => Type.MarkdownType.Size.A4
             };
             cmd_text_markdown_to_pdf_3.Options.Add(opt_text_markdown_to_pdf_3_size);
-            cmd_text_markdown_to_pdf_3.SetAction(async parseResult =>
+            cmd_text_markdown_to_pdf_3.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_text_markdown_to_pdf_3_text);
                 var theme = parseResult.GetValue(opt_text_markdown_to_pdf_3_theme);
                 var size = parseResult.GetValue(opt_text_markdown_to_pdf_3_size);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Text.Markdown.ToPDF(text, theme, size, Authentication);
-                CliOutput.WriteBytes(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Text.Markdown.ToPDF(text, theme, size, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteBytes(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }

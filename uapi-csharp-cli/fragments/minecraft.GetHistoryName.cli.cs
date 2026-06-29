@@ -4,8 +4,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_minecraft_GetHistoryName
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_minecraft_history_name_1 = CliCommandTree.GetOrAdd(root, new[] { "minecraft", "history-name" });
             cmd_minecraft_history_name_1.Description = "查询Minecraft玩家的历史昵称";
@@ -19,13 +19,15 @@ namespace UAPI.CliGenerated
                 Required = true, Description = "指定以何种方式查询"
             };
             cmd_minecraft_history_name_1.Options.Add(opt_minecraft_history_name_1_searchType);
-            cmd_minecraft_history_name_1.SetAction(async parseResult =>
+            cmd_minecraft_history_name_1.SetAction(parseResult =>
             {
                 var param = parseResult.GetValue(opt_minecraft_history_name_1_param);
                 var searchType = parseResult.GetValue(opt_minecraft_history_name_1_searchType);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Minecraft.GetHistoryName(param, searchType, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Minecraft.GetHistoryName(param, searchType, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }

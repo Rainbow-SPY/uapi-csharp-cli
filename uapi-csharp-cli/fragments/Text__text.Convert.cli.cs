@@ -4,8 +4,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_Text_text_Convert
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_text_convert_er_1 = CliCommandTree.GetOrAdd(root, new[] { "text", "convert", "er" });
             cmd_text_convert_er_1.Description = "不同文本格式之间转换";
@@ -29,15 +29,18 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "预留, 未投入使用", DefaultValueFactory = _ => null
             };
             cmd_text_convert_er_1.Options.Add(opt_text_convert_er_1_option);
-            cmd_text_convert_er_1.SetAction(async parseResult =>
+            cmd_text_convert_er_1.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_text_convert_er_1_text);
                 var From = parseResult.GetValue(opt_text_convert_er_1_From);
                 var To = parseResult.GetValue(opt_text_convert_er_1_To);
                 object option = parseResult.GetValue(opt_text_convert_er_1_option);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Text.Convert.Converter(text, From, To, option, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Text.Convert.Converter(text, From, To, option, Authentication).GetAwaiter()
+                    .GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_text_convert_any_to_text_2 =
@@ -58,14 +61,16 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "预留, 未投入使用", DefaultValueFactory = _ => null
             };
             cmd_text_convert_any_to_text_2.Options.Add(opt_text_convert_any_to_text_2_option);
-            cmd_text_convert_any_to_text_2.SetAction(async parseResult =>
+            cmd_text_convert_any_to_text_2.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_text_convert_any_to_text_2_text);
                 var From = parseResult.GetValue(opt_text_convert_any_to_text_2_From);
                 object option = parseResult.GetValue(opt_text_convert_any_to_text_2_option);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Text.Convert.AnyToText(text, From, option, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Text.Convert.AnyToText(text, From, option, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_text_convert_any_to_base64_3 =
@@ -86,14 +91,16 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "预留, 未投入使用", DefaultValueFactory = _ => null
             };
             cmd_text_convert_any_to_base64_3.Options.Add(opt_text_convert_any_to_base64_3_option);
-            cmd_text_convert_any_to_base64_3.SetAction(async parseResult =>
+            cmd_text_convert_any_to_base64_3.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_text_convert_any_to_base64_3_text);
                 var From = parseResult.GetValue(opt_text_convert_any_to_base64_3_From);
                 object option = parseResult.GetValue(opt_text_convert_any_to_base64_3_option);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Text.Convert.AnyToBase64(text, From, option, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Text.Convert.AnyToBase64(text, From, option, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_text_convert_any_to_hex_4 =
@@ -114,14 +121,16 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "预留, 未投入使用", DefaultValueFactory = _ => null
             };
             cmd_text_convert_any_to_hex_4.Options.Add(opt_text_convert_any_to_hex_4_option);
-            cmd_text_convert_any_to_hex_4.SetAction(async parseResult =>
+            cmd_text_convert_any_to_hex_4.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_text_convert_any_to_hex_4_text);
                 var From = parseResult.GetValue(opt_text_convert_any_to_hex_4_From);
                 object option = parseResult.GetValue(opt_text_convert_any_to_hex_4_option);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Text.Convert.AnyToHex(text, From, option, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Text.Convert.AnyToHex(text, From, option, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_text_convert_any_to_url_5 =
@@ -142,14 +151,16 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "预留, 未投入使用", DefaultValueFactory = _ => null
             };
             cmd_text_convert_any_to_url_5.Options.Add(opt_text_convert_any_to_url_5_option);
-            cmd_text_convert_any_to_url_5.SetAction(async parseResult =>
+            cmd_text_convert_any_to_url_5.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_text_convert_any_to_url_5_text);
                 var From = parseResult.GetValue(opt_text_convert_any_to_url_5_From);
                 object option = parseResult.GetValue(opt_text_convert_any_to_url_5_option);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Text.Convert.AnyToURL(text, From, option, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Text.Convert.AnyToURL(text, From, option, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_text_convert_any_to_unicode_6 =
@@ -170,14 +181,17 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "预留, 未投入使用", DefaultValueFactory = _ => null
             };
             cmd_text_convert_any_to_unicode_6.Options.Add(opt_text_convert_any_to_unicode_6_option);
-            cmd_text_convert_any_to_unicode_6.SetAction(async parseResult =>
+            cmd_text_convert_any_to_unicode_6.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_text_convert_any_to_unicode_6_text);
                 var From = parseResult.GetValue(opt_text_convert_any_to_unicode_6_From);
                 object option = parseResult.GetValue(opt_text_convert_any_to_unicode_6_option);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Text.Convert.AnyToUnicode(text, From, option, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Text.Convert.AnyToUnicode(text, From, option, Authentication).GetAwaiter()
+                    .GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_text_convert_any_to_binary_bytes_7 =
@@ -198,14 +212,17 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "预留, 未投入使用", DefaultValueFactory = _ => null
             };
             cmd_text_convert_any_to_binary_bytes_7.Options.Add(opt_text_convert_any_to_binary_bytes_7_option);
-            cmd_text_convert_any_to_binary_bytes_7.SetAction(async parseResult =>
+            cmd_text_convert_any_to_binary_bytes_7.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_text_convert_any_to_binary_bytes_7_text);
                 var From = parseResult.GetValue(opt_text_convert_any_to_binary_bytes_7_From);
                 object option = parseResult.GetValue(opt_text_convert_any_to_binary_bytes_7_option);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Text.Convert.AnyToBinaryBytes(text, From, option, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Text.Convert.AnyToBinaryBytes(text, From, option, Authentication).GetAwaiter()
+                    .GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_text_convert_any_to_binary_string_8 =
@@ -226,14 +243,17 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "预留, 未投入使用", DefaultValueFactory = _ => null
             };
             cmd_text_convert_any_to_binary_string_8.Options.Add(opt_text_convert_any_to_binary_string_8_option);
-            cmd_text_convert_any_to_binary_string_8.SetAction(async parseResult =>
+            cmd_text_convert_any_to_binary_string_8.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_text_convert_any_to_binary_string_8_text);
                 var From = parseResult.GetValue(opt_text_convert_any_to_binary_string_8_From);
                 object option = parseResult.GetValue(opt_text_convert_any_to_binary_string_8_option);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Text.Convert.AnyToBinaryString(text, From, option, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Text.Convert.AnyToBinaryString(text, From, option, Authentication).GetAwaiter()
+                    .GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_text_convert_any_to_md5_9 =
@@ -254,14 +274,16 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "预留, 未投入使用", DefaultValueFactory = _ => null
             };
             cmd_text_convert_any_to_md5_9.Options.Add(opt_text_convert_any_to_md5_9_option);
-            cmd_text_convert_any_to_md5_9.SetAction(async parseResult =>
+            cmd_text_convert_any_to_md5_9.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_text_convert_any_to_md5_9_text);
                 var From = parseResult.GetValue(opt_text_convert_any_to_md5_9_From);
                 object option = parseResult.GetValue(opt_text_convert_any_to_md5_9_option);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Text.Convert.AnyToMD5(text, From, option, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Text.Convert.AnyToMD5(text, From, option, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_text_convert_any_to_sha1_10 =
@@ -282,14 +304,16 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "预留, 未投入使用", DefaultValueFactory = _ => null
             };
             cmd_text_convert_any_to_sha1_10.Options.Add(opt_text_convert_any_to_sha1_10_option);
-            cmd_text_convert_any_to_sha1_10.SetAction(async parseResult =>
+            cmd_text_convert_any_to_sha1_10.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_text_convert_any_to_sha1_10_text);
                 var From = parseResult.GetValue(opt_text_convert_any_to_sha1_10_From);
                 object option = parseResult.GetValue(opt_text_convert_any_to_sha1_10_option);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Text.Convert.AnyToSHA1(text, From, option, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Text.Convert.AnyToSHA1(text, From, option, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_text_convert_any_to_sha256_11 =
@@ -310,14 +334,16 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "预留, 未投入使用", DefaultValueFactory = _ => null
             };
             cmd_text_convert_any_to_sha256_11.Options.Add(opt_text_convert_any_to_sha256_11_option);
-            cmd_text_convert_any_to_sha256_11.SetAction(async parseResult =>
+            cmd_text_convert_any_to_sha256_11.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_text_convert_any_to_sha256_11_text);
                 var From = parseResult.GetValue(opt_text_convert_any_to_sha256_11_From);
                 object option = parseResult.GetValue(opt_text_convert_any_to_sha256_11_option);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Text.Convert.AnyToSHA256(text, From, option, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Text.Convert.AnyToSHA256(text, From, option, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_text_convert_any_to_sha512_12 =
@@ -338,14 +364,16 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "预留, 未投入使用", DefaultValueFactory = _ => null
             };
             cmd_text_convert_any_to_sha512_12.Options.Add(opt_text_convert_any_to_sha512_12_option);
-            cmd_text_convert_any_to_sha512_12.SetAction(async parseResult =>
+            cmd_text_convert_any_to_sha512_12.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_text_convert_any_to_sha512_12_text);
                 var From = parseResult.GetValue(opt_text_convert_any_to_sha512_12_From);
                 object option = parseResult.GetValue(opt_text_convert_any_to_sha512_12_option);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Text.Convert.AnyToSHA512(text, From, option, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Text.Convert.AnyToSHA512(text, From, option, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }

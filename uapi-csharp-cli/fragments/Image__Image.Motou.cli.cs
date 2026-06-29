@@ -5,8 +5,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_Image_Image_Motou
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_image_motou_image_1 = CliCommandTree.GetOrAdd(root, new[] { "image", "motou-image" });
             cmd_image_motou_image_1.Description = "获取摸摸头表情包处理后的图像 (GET)";
@@ -21,13 +21,15 @@ namespace UAPI.CliGenerated
                     Required = true, Description = "指定图片生成的背景颜色"
                 };
             cmd_image_motou_image_1.Options.Add(opt_image_motou_image_1_backgroundColor);
-            cmd_image_motou_image_1.SetAction(async parseResult =>
+            cmd_image_motou_image_1.SetAction(parseResult =>
             {
                 var qq = parseResult.GetValue(opt_image_motou_image_1_qq);
                 var backgroundColor = parseResult.GetValue(opt_image_motou_image_1_backgroundColor);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Image.GetMotouImage(qq, backgroundColor, Authentication);
-                CliOutput.WriteBytes(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Image.GetMotouImage(qq, backgroundColor, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteBytes(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_image_motou_image_by_image_url_background_color_2 = CliCommandTree.GetOrAdd(root,
@@ -46,14 +48,17 @@ namespace UAPI.CliGenerated
                 };
             cmd_image_motou_image_by_image_url_background_color_2.Options.Add(
                 opt_image_motou_image_by_image_url_background_color_2_backgroundColor);
-            cmd_image_motou_image_by_image_url_background_color_2.SetAction(async parseResult =>
+            cmd_image_motou_image_by_image_url_background_color_2.SetAction(parseResult =>
             {
                 var imageUrl = parseResult.GetValue(opt_image_motou_image_by_image_url_background_color_2_imageUrl);
                 var backgroundColor =
                     parseResult.GetValue(opt_image_motou_image_by_image_url_background_color_2_backgroundColor);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Image.PostMotouImage(imageUrl, backgroundColor, Authentication);
-                CliOutput.WriteBytes(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Image.PostMotouImage(imageUrl, backgroundColor, Authentication).GetAwaiter()
+                    .GetResult();
+                CliOutput.WriteBytes(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_image_motou_image_by_image_background_color_3 = CliCommandTree.GetOrAdd(root,
@@ -72,15 +77,17 @@ namespace UAPI.CliGenerated
                 };
             cmd_image_motou_image_by_image_background_color_3.Options.Add(
                 opt_image_motou_image_by_image_background_color_3_backgroundColor);
-            cmd_image_motou_image_by_image_background_color_3.SetAction(async parseResult =>
+            cmd_image_motou_image_by_image_background_color_3.SetAction(parseResult =>
             {
                 var imagePath = parseResult.GetValue(opt_image_motou_image_by_image_background_color_3_image);
                 var image = File.ReadAllBytes(imagePath);
                 var backgroundColor =
                     parseResult.GetValue(opt_image_motou_image_by_image_background_color_3_backgroundColor);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Image.PostMotouImage(image, backgroundColor, Authentication);
-                CliOutput.WriteBytes(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Image.PostMotouImage(image, backgroundColor, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteBytes(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }

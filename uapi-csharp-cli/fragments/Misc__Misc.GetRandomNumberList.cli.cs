@@ -4,8 +4,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_Misc_Misc_GetRandomNumberList
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_misc_random_number_list_1 = CliCommandTree.GetOrAdd(root, new[] { "misc", "random-number-list" });
             cmd_misc_random_number_list_1.Description = "获取一组随机数字";
@@ -39,7 +39,7 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "如果 allow_decimal=true，这里可以指定小数的位数。", DefaultValueFactory = _ => 0
             };
             cmd_misc_random_number_list_1.Options.Add(opt_misc_random_number_list_1_decimal_places);
-            cmd_misc_random_number_list_1.SetAction(async parseResult =>
+            cmd_misc_random_number_list_1.SetAction(parseResult =>
             {
                 var min = parseResult.GetValue(opt_misc_random_number_list_1_min);
                 var max = parseResult.GetValue(opt_misc_random_number_list_1_max);
@@ -48,9 +48,12 @@ namespace UAPI.CliGenerated
                 var allow_decimal = parseResult.GetValue(opt_misc_random_number_list_1_allow_decimal);
                 var decimal_places = parseResult.GetValue(opt_misc_random_number_list_1_decimal_places);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Misc.GetRandomNumberList(min, max, count, allow_repeat, allow_decimal,
-                    decimal_places, Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Misc
+                    .GetRandomNumberList(min, max, count, allow_repeat, allow_decimal, decimal_places, Authentication)
+                    .GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_random_number_list_2 = CliCommandTree.GetOrAdd(root, new[] { "random", "number-list" });
@@ -84,7 +87,7 @@ namespace UAPI.CliGenerated
                 Required = false, DefaultValueFactory = _ => 0
             };
             cmd_random_number_list_2.Options.Add(opt_random_number_list_2_decimal_places);
-            cmd_random_number_list_2.SetAction(async parseResult =>
+            cmd_random_number_list_2.SetAction(parseResult =>
             {
                 var min = parseResult.GetValue(opt_random_number_list_2_min);
                 var max = parseResult.GetValue(opt_random_number_list_2_max);
@@ -93,9 +96,12 @@ namespace UAPI.CliGenerated
                 var allow_decimal = parseResult.GetValue(opt_random_number_list_2_allow_decimal);
                 var decimal_places = parseResult.GetValue(opt_random_number_list_2_decimal_places);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Random.GetNumberList(min, max, count, allow_repeat, allow_decimal, decimal_places,
-                    Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Random
+                    .GetNumberList(min, max, count, allow_repeat, allow_decimal, decimal_places, Authentication)
+                    .GetAwaiter().GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }

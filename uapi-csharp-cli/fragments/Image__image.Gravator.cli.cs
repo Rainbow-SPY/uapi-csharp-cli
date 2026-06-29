@@ -4,8 +4,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_Image_image_Gravator
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_image_gravator_image_1 = CliCommandTree.GetOrAdd(root, new[] { "image", "gravator-image" });
             cmd_image_gravator_image_1.Description = "获取Gravatar头像";
@@ -35,7 +35,7 @@ namespace UAPI.CliGenerated
                 Required = false, Description = "头像分级", DefaultValueFactory = _ => Type.GravatorType.rType.None
             };
             cmd_image_gravator_image_1.Options.Add(opt_image_gravator_image_1_r);
-            cmd_image_gravator_image_1.SetAction(async parseResult =>
+            cmd_image_gravator_image_1.SetAction(parseResult =>
             {
                 var email = parseResult.GetValue(opt_image_gravator_image_1_email);
                 var hash = parseResult.GetValue(opt_image_gravator_image_1_hash);
@@ -43,8 +43,10 @@ namespace UAPI.CliGenerated
                 var d = parseResult.GetValue(opt_image_gravator_image_1_d);
                 var r = parseResult.GetValue(opt_image_gravator_image_1_r);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Image.GetGravatorImage(email, hash, s, d, r, Authentication);
-                CliOutput.WriteBytes(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Image.GetGravatorImage(email, hash, s, d, r, Authentication).GetAwaiter().GetResult();
+                CliOutput.WriteBytes(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }

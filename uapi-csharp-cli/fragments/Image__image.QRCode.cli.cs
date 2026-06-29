@@ -4,8 +4,8 @@ namespace UAPI.CliGenerated
 {
     public static class Cli_Image_image_QRCode
     {
-        public static void AddCommands(RootCommand root, Option<string> outOption, Option<bool> appendOption,
-            Option<string> authenticationOption)
+        public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
+            Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
             var cmd_image_qr_code_bytes_1 = CliCommandTree.GetOrAdd(root, new[] { "image", "qr-code", "bytes" });
             var opt_image_qr_code_bytes_1_text = new Option<string>("--text")
@@ -33,7 +33,7 @@ namespace UAPI.CliGenerated
                 Required = false, DefaultValueFactory = _ => "#FFFFFF"
             };
             cmd_image_qr_code_bytes_1.Options.Add(opt_image_qr_code_bytes_1_BackgroundColor);
-            cmd_image_qr_code_bytes_1.SetAction(async parseResult =>
+            cmd_image_qr_code_bytes_1.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_image_qr_code_bytes_1_text);
                 var size = parseResult.GetValue(opt_image_qr_code_bytes_1_size);
@@ -41,9 +41,12 @@ namespace UAPI.CliGenerated
                 var FrontColor = parseResult.GetValue(opt_image_qr_code_bytes_1_FrontColor);
                 var BackgroundColor = parseResult.GetValue(opt_image_qr_code_bytes_1_BackgroundColor);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Image.QRCode.GetBytes(text, size, transparent, FrontColor, BackgroundColor,
-                    Authentication);
-                CliOutput.WriteBytes(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Image.QRCode
+                    .GetBytes(text, size, transparent, FrontColor, BackgroundColor, Authentication).GetAwaiter()
+                    .GetResult();
+                CliOutput.WriteBytes(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
 
             var cmd_image_qr_code_json_2 = CliCommandTree.GetOrAdd(root, new[] { "image", "qr-code", "json" });
@@ -82,7 +85,7 @@ namespace UAPI.CliGenerated
                 DefaultValueFactory = _ => "#FFFFFF"
             };
             cmd_image_qr_code_json_2.Options.Add(opt_image_qr_code_json_2_BackgroundColor);
-            cmd_image_qr_code_json_2.SetAction(async parseResult =>
+            cmd_image_qr_code_json_2.SetAction(parseResult =>
             {
                 var text = parseResult.GetValue(opt_image_qr_code_json_2_text);
                 var size = parseResult.GetValue(opt_image_qr_code_json_2_size);
@@ -91,9 +94,12 @@ namespace UAPI.CliGenerated
                 var FrontColor = parseResult.GetValue(opt_image_qr_code_json_2_FrontColor);
                 var BackgroundColor = parseResult.GetValue(opt_image_qr_code_json_2_BackgroundColor);
                 var Authentication = parseResult.GetValue(authenticationOption);
-                var result = await Image.QRCode.GetJson(text, size, format, transparent, FrontColor, BackgroundColor,
-                    Authentication);
-                CliOutput.WriteObject(result, parseResult.GetValue(outOption), parseResult.GetValue(appendOption));
+                var result = Image.QRCode
+                    .GetJson(text, size, format, transparent, FrontColor, BackgroundColor, Authentication).GetAwaiter()
+                    .GetResult();
+                CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
+                    parseResult.GetValue(resultOption), parseResult.GetValue(selectOption));
+                return 0;
             });
         }
     }
