@@ -7,10 +7,10 @@ namespace UAPI.CliGenerated
         public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
             Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
-            var cmd_misc_programmer_history_today_1 =
+            var o =
                 CliCommandTree.GetOrAdd(root, new[] { "misc", "programmer-history-today" });
-            cmd_misc_programmer_history_today_1.Description = "获取程序员历史上的今天的事件";
-            cmd_misc_programmer_history_today_1.SetAction(parseResult =>
+            o.Description = "获取程序员历史上的今天的事件";
+            o.SetAction(parseResult =>
             {
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Misc.GetProgrammerHistoryToday(Authentication).GetAwaiter().GetResult();

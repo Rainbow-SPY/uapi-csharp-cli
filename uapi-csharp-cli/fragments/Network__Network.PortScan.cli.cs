@@ -7,28 +7,28 @@ namespace UAPI.CliGenerated
         public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
             Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
-            var cmd_network_scan_port_1 = CliCommandTree.GetOrAdd(root, new[] { "network", "scan-port" });
-            cmd_network_scan_port_1.Description = "使用指定的协议扫描指定主机的指定端口";
-            var opt_network_scan_port_1_host = new Option<string>("--host")
+            var o = CliCommandTree.GetOrAdd(root, new[] { "network", "scan-port" });
+            o.Description = "使用指定的协议扫描指定主机的指定端口";
+            var oip = new Option<string>("--host")
             {
                 Required = true, Description = "扫描的主机"
             };
-            cmd_network_scan_port_1.Options.Add(opt_network_scan_port_1_host);
-            var opt_network_scan_port_1_port = new Option<int>("--port")
+            o.Options.Add(oip);
+            var op = new Option<int>("--port")
             {
                 Required = true, Description = "扫描的端口"
             };
-            cmd_network_scan_port_1.Options.Add(opt_network_scan_port_1_port);
-            var opt_network_scan_port_1_protocol = new Option<string>("--protocol")
+            o.Options.Add(op);
+            var ot = new Option<string>("--protocol")
             {
                 Required = false, Description = "扫描的协议", DefaultValueFactory = _ => "tcp"
             };
-            cmd_network_scan_port_1.Options.Add(opt_network_scan_port_1_protocol);
-            cmd_network_scan_port_1.SetAction(parseResult =>
+            o.Options.Add(ot);
+            o.SetAction(parseResult =>
             {
-                var host = parseResult.GetValue(opt_network_scan_port_1_host);
-                var port = parseResult.GetValue(opt_network_scan_port_1_port);
-                var protocol = parseResult.GetValue(opt_network_scan_port_1_protocol);
+                var host = parseResult.GetValue(oip);
+                var port = parseResult.GetValue(op);
+                var protocol = parseResult.GetValue(ot);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Network.ScanPort(host, port, protocol, Authentication).GetAwaiter().GetResult();
                 CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),

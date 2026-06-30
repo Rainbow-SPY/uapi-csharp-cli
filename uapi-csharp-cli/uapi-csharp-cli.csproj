@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <Import Project="..\packages\ILRepack.MSBuild.Task.2.0.13\build\ILRepack.MSBuild.Task.props" Condition="Exists('..\packages\ILRepack.MSBuild.Task.2.0.13\build\ILRepack.MSBuild.Task.props')" />
     <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -75,9 +74,7 @@
         </Reference>
         <Reference Include="System.ValueTuple" />
         <Reference Include="System.Xml" />
-        <Reference Include="UAPI-community-sdk-csharp">
-            <HintPath>..\..\..\$Release\UAPI\Release\UAPI-community-sdk-csharp.dll</HintPath>
-        </Reference>
+        <ProjectReference Include="..\..\UAPI\UAPI\UAPI.csproj" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="fragments\API.HealthPlatformStatus.cli.cs" />
@@ -164,6 +161,7 @@
         <Compile Include="GeneratedCli.Support.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="ReadmeBuilder.cs" />
     </ItemGroup>
     <ItemGroup>
         <Content Include="specs\API.HealthPlatformStatus.cli.json" />
@@ -291,7 +289,7 @@
         <ILRepack
                 OutputType="Exe"
                 MainAssembly="$(TargetFileName)"
-                OutputAssembly="$(AssemblyName).single.exe"
+                OutputAssembly="uapicli.exe"
                 InputAssemblies="@(RepackInput)"
                 WorkingDirectory="$(TargetDir)" />
 

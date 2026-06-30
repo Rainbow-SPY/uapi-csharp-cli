@@ -7,15 +7,17 @@ namespace UAPI.CliGenerated
         public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
             Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
-            var cmd_misc_covert_timestamp_1 = CliCommandTree.GetOrAdd(root, new[] { "misc", "covert-timestamp" });
-            var opt_misc_covert_timestamp_1_ts = new Option<string>("--ts")
+            var o = CliCommandTree.GetOrAdd(root, new[] { "misc", "covert-timestamp-to-date" });
+            o.Description = "将Unix时间戳转换为人类可读日期时间的旧版接口。";
+            var o_ts = new Option<string>("--ts")
             {
-                Required = true
+                Required = true,
+                Description = "Unix 时间戳"
             };
-            cmd_misc_covert_timestamp_1.Options.Add(opt_misc_covert_timestamp_1_ts);
-            cmd_misc_covert_timestamp_1.SetAction(parseResult =>
+            o.Options.Add(o_ts);
+            o.SetAction(parseResult =>
             {
-                var ts = parseResult.GetValue(opt_misc_covert_timestamp_1_ts);
+                var ts = parseResult.GetValue(o_ts);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Misc.CovertTimestamp(ts, Authentication).GetAwaiter().GetResult();
                 CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),

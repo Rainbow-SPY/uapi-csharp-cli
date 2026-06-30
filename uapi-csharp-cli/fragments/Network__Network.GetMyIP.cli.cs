@@ -7,16 +7,16 @@ namespace UAPI.CliGenerated
         public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
             Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
-            var cmd_network_my_ip_1 = CliCommandTree.GetOrAdd(root, new[] { "network", "my-ip" });
-            cmd_network_my_ip_1.Description = "获取本机的IP地址";
-            var opt_network_my_ip_1_commercial = new Option<bool>("--commercial")
+            var o = CliCommandTree.GetOrAdd(root, new[] { "network", "my-ip" });
+            o.Description = "获取本机的IP地址";
+            var o_pro = new Option<bool>("--pro")
             {
                 Required = false, Description = "指定是否使用商业级的数据源, 默认为 false", DefaultValueFactory = _ => false
             };
-            cmd_network_my_ip_1.Options.Add(opt_network_my_ip_1_commercial);
-            cmd_network_my_ip_1.SetAction(parseResult =>
+            o.Options.Add(o_pro);
+            o.SetAction(parseResult =>
             {
-                var commercial = parseResult.GetValue(opt_network_my_ip_1_commercial);
+                var commercial = parseResult.GetValue(o_pro);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Network.GetMyIP(commercial, Authentication).GetAwaiter().GetResult();
                 CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),

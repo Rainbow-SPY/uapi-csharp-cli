@@ -51,8 +51,11 @@ internal static class Program
             resultOption,
             selectOption
         );
+        if (args.Length != 1 ||
+            (!args[0].Equals("--generate-readme", StringComparison.OrdinalIgnoreCase) &&
+             !args[0].Equals("generate-readme", StringComparison.OrdinalIgnoreCase))) return root.Parse(args).Invoke();
+        Console.Write(ReadmeGenerator.Generate(root, "uapi"));
+        return 0;
 
-
-        return root.Parse(args).Invoke();
     }
 }

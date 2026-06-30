@@ -8,23 +8,22 @@ namespace UAPI.CliGenerated
         public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
             Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
-            var cmd_image_motou_image_1 = CliCommandTree.GetOrAdd(root, new[] { "image", "motou-image" });
-            cmd_image_motou_image_1.Description = "获取摸摸头表情包处理后的图像 (GET)";
-            var opt_image_motou_image_1_qq = new Option<string>("--qq")
+            var o = CliCommandTree.GetOrAdd(root, new[] { "image", "motou-image", "get" });
+            o.Description = "获取摸摸头表情包处理后的图像 (GET)";
+            var o_qq = new Option<string>("--qq")
             {
                 Required = true, Description = "要摸头的QQ"
             };
-            cmd_image_motou_image_1.Options.Add(opt_image_motou_image_1_qq);
-            var opt_image_motou_image_1_backgroundColor =
-                new Option<Type.MotouType.BackgroundColor>("--background-color")
-                {
-                    Required = true, Description = "指定图片生成的背景颜色"
-                };
-            cmd_image_motou_image_1.Options.Add(opt_image_motou_image_1_backgroundColor);
-            cmd_image_motou_image_1.SetAction(parseResult =>
+            o.Options.Add(o_qq);
+            var o_back = new Option<Type.MotouType.BackgroundColor>("--background-color")
             {
-                var qq = parseResult.GetValue(opt_image_motou_image_1_qq);
-                var backgroundColor = parseResult.GetValue(opt_image_motou_image_1_backgroundColor);
+                Required = true, Description = "指定图片生成的背景颜色"
+            };
+            o.Options.Add(o_back);
+            o.SetAction(parseResult =>
+            {
+                var qq = parseResult.GetValue(o_qq);
+                var backgroundColor = parseResult.GetValue(o_back);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Image.GetMotouImage(qq, backgroundColor, Authentication).GetAwaiter().GetResult();
                 CliOutput.WriteBytes(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
@@ -32,27 +31,23 @@ namespace UAPI.CliGenerated
                 return 0;
             });
 
-            var cmd_image_motou_image_by_image_url_background_color_2 = CliCommandTree.GetOrAdd(root,
-                new[] { "image", "motou-image", "by-image-url-background-color" });
-            cmd_image_motou_image_by_image_url_background_color_2.Description = "上传图片生成摸摸头表情包 (POST)，通过图片URL";
-            var opt_image_motou_image_by_image_url_background_color_2_imageUrl = new Option<string>("--image-url")
+            var o2 = CliCommandTree.GetOrAdd(root, new[] { "image", "motou-image", "post" });
+            o2.Description = "上传图片生成摸摸头表情包 (POST)，通过图片URL";
+            var o2_url = new Option<string>("--image-url")
             {
                 Required = true, Description = "图片URL地址"
             };
-            cmd_image_motou_image_by_image_url_background_color_2.Options.Add(
-                opt_image_motou_image_by_image_url_background_color_2_imageUrl);
-            var opt_image_motou_image_by_image_url_background_color_2_backgroundColor =
-                new Option<Type.MotouType.BackgroundColor>("--background-color")
-                {
-                    Required = true, Description = "指定图片生成的背景颜色"
-                };
-            cmd_image_motou_image_by_image_url_background_color_2.Options.Add(
-                opt_image_motou_image_by_image_url_background_color_2_backgroundColor);
-            cmd_image_motou_image_by_image_url_background_color_2.SetAction(parseResult =>
+            o2.Options.Add(o2_url);
+            var o2_back = new Option<Type.MotouType.BackgroundColor>("--background-color")
             {
-                var imageUrl = parseResult.GetValue(opt_image_motou_image_by_image_url_background_color_2_imageUrl);
+                Required = true, Description = "指定图片生成的背景颜色"
+            };
+            o2.Options.Add(o2_back);
+            o2.SetAction(parseResult =>
+            {
+                var imageUrl = parseResult.GetValue(o2_url);
                 var backgroundColor =
-                    parseResult.GetValue(opt_image_motou_image_by_image_url_background_color_2_backgroundColor);
+                    parseResult.GetValue(o2_back);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Image.PostMotouImage(imageUrl, backgroundColor, Authentication).GetAwaiter()
                     .GetResult();
@@ -61,28 +56,24 @@ namespace UAPI.CliGenerated
                 return 0;
             });
 
-            var cmd_image_motou_image_by_image_background_color_3 = CliCommandTree.GetOrAdd(root,
-                new[] { "image", "motou-image", "by-image-background-color" });
-            cmd_image_motou_image_by_image_background_color_3.Description = "上传图片生成摸摸头表情包 (POST)，通过图片二进制数据";
-            var opt_image_motou_image_by_image_background_color_3_image = new Option<string>("--image")
+            var o3 = CliCommandTree.GetOrAdd(root, new[] { "image", "motou-image", "upload" });
+            o3.Description = "上传图片生成摸摸头表情包 (POST)，通过图片二进制数据";
+            var o3_img = new Option<string>("--image")
             {
                 Required = true, Description = "图片的二进制数据"
             };
-            cmd_image_motou_image_by_image_background_color_3.Options.Add(
-                opt_image_motou_image_by_image_background_color_3_image);
-            var opt_image_motou_image_by_image_background_color_3_backgroundColor =
-                new Option<Type.MotouType.BackgroundColor>("--background-color")
-                {
-                    Required = true, Description = "指定图片生成的背景颜色"
-                };
-            cmd_image_motou_image_by_image_background_color_3.Options.Add(
-                opt_image_motou_image_by_image_background_color_3_backgroundColor);
-            cmd_image_motou_image_by_image_background_color_3.SetAction(parseResult =>
+            o3.Options.Add(o3_img);
+            var o3_back = new Option<Type.MotouType.BackgroundColor>("--background-color")
             {
-                var imagePath = parseResult.GetValue(opt_image_motou_image_by_image_background_color_3_image);
+                Required = true, Description = "指定图片生成的背景颜色"
+            };
+            o3.Options.Add(o3_back);
+            o3.SetAction(parseResult =>
+            {
+                var imagePath = parseResult.GetValue(o3_img);
                 var image = File.ReadAllBytes(imagePath);
                 var backgroundColor =
-                    parseResult.GetValue(opt_image_motou_image_by_image_background_color_3_backgroundColor);
+                    parseResult.GetValue(o3_back);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Image.PostMotouImage(image, backgroundColor, Authentication).GetAwaiter().GetResult();
                 CliOutput.WriteBytes(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),

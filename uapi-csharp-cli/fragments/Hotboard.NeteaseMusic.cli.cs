@@ -7,10 +7,9 @@ namespace UAPI.CliGenerated
         public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
             Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
-            var cmd_hotboard_netease_music_hotboard_1 =
-                CliCommandTree.GetOrAdd(root, new[] { "hotboard", "netease-music-hotboard" });
-            cmd_hotboard_netease_music_hotboard_1.Description = "获取网易云音乐歌曲的热榜";
-            cmd_hotboard_netease_music_hotboard_1.SetAction(parseResult =>
+            var o = CliCommandTree.GetOrAdd(root, new[] { "hotboard", "netease-music" });
+            o.Description = "获取网易云音乐歌曲的热榜";
+            o.SetAction(parseResult =>
             {
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Hotboard.GetNeteaseMusicHotboard(Authentication).GetAwaiter().GetResult();
