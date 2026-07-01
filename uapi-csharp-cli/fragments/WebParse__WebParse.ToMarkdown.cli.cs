@@ -7,17 +7,17 @@ namespace UAPI.CliGenerated
         public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
             Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
-            var cmd_web_parse_web_to_markdown_async_1 =
-                CliCommandTree.GetOrAdd(root, new[] { "web-parse", "web-to-markdown-async" });
-            cmd_web_parse_web_to_markdown_async_1.Description = "提交网页转 Markdown 任务 (POST)";
-            var opt_web_parse_web_to_markdown_async_1_url = new Option<string>("--url")
+            var o =
+                CliCommandTree.GetOrAdd(root, new[] { "web-parse", "web-to-markdown", "post" });
+            o.Description = "提交网页转 Markdown 任务 (POST)";
+            var o_u = new Option<string>("--url")
             {
                 Required = true, Description = "需要转换的网页 URL"
             };
-            cmd_web_parse_web_to_markdown_async_1.Options.Add(opt_web_parse_web_to_markdown_async_1_url);
-            cmd_web_parse_web_to_markdown_async_1.SetAction(parseResult =>
+            o.Options.Add(o_u);
+            o.SetAction(parseResult =>
             {
-                var url = parseResult.GetValue(opt_web_parse_web_to_markdown_async_1_url);
+                var url = parseResult.GetValue(o_u);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = WebParse.PostWebToMarkdownAsync(url, Authentication).GetAwaiter().GetResult();
                 CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
@@ -25,17 +25,17 @@ namespace UAPI.CliGenerated
                 return 0;
             });
 
-            var cmd_web_parse_web_to_markdown_result_2 =
-                CliCommandTree.GetOrAdd(root, new[] { "web-parse", "web-to-markdown-result" });
-            cmd_web_parse_web_to_markdown_result_2.Description = "查询网页转 Markdown 任务结果 (GET)";
-            var opt_web_parse_web_to_markdown_result_2_taskId = new Option<string>("--task-id")
+            var o2 =
+                CliCommandTree.GetOrAdd(root, new[] { "web-parse", "web-to-markdown", "lookup" });
+            o2.Description = "查询网页转 Markdown 任务结果 (GET)";
+            var o2_id = new Option<string>("--task-id")
             {
                 Required = true, Description = "任务 ID（由提交接口返回）"
             };
-            cmd_web_parse_web_to_markdown_result_2.Options.Add(opt_web_parse_web_to_markdown_result_2_taskId);
-            cmd_web_parse_web_to_markdown_result_2.SetAction(parseResult =>
+            o2.Options.Add(o2_id);
+            o2.SetAction(parseResult =>
             {
-                var taskId = parseResult.GetValue(opt_web_parse_web_to_markdown_result_2_taskId);
+                var taskId = parseResult.GetValue(o2_id);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = WebParse.GetWebToMarkdownResult(taskId, Authentication).GetAwaiter().GetResult();
                 CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),

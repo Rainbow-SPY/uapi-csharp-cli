@@ -7,9 +7,9 @@ namespace UAPI.CliGenerated
         public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
             Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
-            var cmd_text_word_meta_data_1 = CliCommandTree.GetOrAdd(root, new[] { "text", "word-meta-data" });
-            cmd_text_word_meta_data_1.Description = "获取单词元信息";
-            cmd_text_word_meta_data_1.SetAction(parseResult =>
+            var o = CliCommandTree.GetOrAdd(root, new[] { "text", "word", "meta-data" });
+            o.Description = "获取单词元信息";
+            o.SetAction(parseResult =>
             {
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Text.GetWordMetaData(Authentication).GetAwaiter().GetResult();

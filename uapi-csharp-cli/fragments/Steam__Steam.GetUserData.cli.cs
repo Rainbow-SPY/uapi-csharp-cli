@@ -7,22 +7,22 @@ namespace UAPI.CliGenerated
         public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
             Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
-            var cmd_steam_user_data_1 = CliCommandTree.GetOrAdd(root, new[] { "steam", "user-data" });
-            cmd_steam_user_data_1.Description = "新版请求Steam Web API Json的方法";
-            var opt_steam_user_data_1_SteamID = new Option<string>("--steam-id")
+            var o = CliCommandTree.GetOrAdd(root, new[] { "steam", "user" });
+            o.Description = "新版请求Steam Web API Json的方法";
+            var o_i = new Option<string>("--id")
             {
                 Required = true, Description = "其中一种的 SteamIDType"
             };
-            cmd_steam_user_data_1.Options.Add(opt_steam_user_data_1_SteamID);
-            var opt_steam_user_data_1_key = new Option<string>("--key")
+            o.Options.Add(o_i);
+            var o_k = new Option<string>("--key")
             {
                 Required = false, Description = "Steam Web API Key", DefaultValueFactory = _ => null
             };
-            cmd_steam_user_data_1.Options.Add(opt_steam_user_data_1_key);
-            cmd_steam_user_data_1.SetAction(parseResult =>
+            o.Options.Add(o_k);
+            o.SetAction(parseResult =>
             {
-                var SteamID = parseResult.GetValue(opt_steam_user_data_1_SteamID);
-                var key = parseResult.GetValue(opt_steam_user_data_1_key);
+                var SteamID = parseResult.GetValue(o_i);
+                var key = parseResult.GetValue(o_k);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Steam.GetUserData(SteamID, key, Authentication).GetAwaiter().GetResult();
                 CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),

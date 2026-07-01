@@ -7,17 +7,17 @@ namespace UAPI.CliGenerated
         public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
             Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
-            var cmd_web_parse_web_page_images_1 =
-                CliCommandTree.GetOrAdd(root, new[] { "web-parse", "web-page-images" });
-            cmd_web_parse_web_page_images_1.Description = "提取网页图片 (GET)";
-            var opt_web_parse_web_page_images_1_url = new Option<string>("--url")
+            var o =
+                CliCommandTree.GetOrAdd(root, new[] { "web-parse", "get-images" });
+            o.Description = "提取网页图片 (GET)";
+            var o_u = new Option<string>("--url")
             {
                 Required = true, Description = "网页 URL"
             };
-            cmd_web_parse_web_page_images_1.Options.Add(opt_web_parse_web_page_images_1_url);
-            cmd_web_parse_web_page_images_1.SetAction(parseResult =>
+            o.Options.Add(o_u);
+            o.SetAction(parseResult =>
             {
-                var url = parseResult.GetValue(opt_web_parse_web_page_images_1_url);
+                var url = parseResult.GetValue(o_u);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = WebParse.GetWebPageImages(url, Authentication).GetAwaiter().GetResult();
                 CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),

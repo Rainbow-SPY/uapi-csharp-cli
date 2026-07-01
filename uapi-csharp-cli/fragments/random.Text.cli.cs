@@ -7,22 +7,22 @@ namespace UAPI.CliGenerated
         public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
             Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
-            var cmd_random_string_1 = CliCommandTree.GetOrAdd(root, new[] { "random", "string" });
-            cmd_random_string_1.Description = "生成随机不同格式的字符串";
-            var opt_random_string_1_length = new Option<int>("--length")
+            var o = CliCommandTree.GetOrAdd(root, new[] { "random", "string" });
+            o.Description = "生成随机不同格式的字符串";
+            var o_l = new Option<int>("--length")
             {
                 Required = true, Description = "长度"
             };
-            cmd_random_string_1.Options.Add(opt_random_string_1_length);
-            var opt_random_string_1_stringType = new Option<Type.RandomStringType.StringType>("--string-type")
+            o.Options.Add(o_l);
+            var o_t = new Option<Type.RandomStringType.StringType>("--type")
             {
                 Required = true, Description = "构成字符串的方式"
             };
-            cmd_random_string_1.Options.Add(opt_random_string_1_stringType);
-            cmd_random_string_1.SetAction(parseResult =>
+            o.Options.Add(o_t);
+            o.SetAction(parseResult =>
             {
-                var length = parseResult.GetValue(opt_random_string_1_length);
-                var stringType = parseResult.GetValue(opt_random_string_1_stringType);
+                var length = parseResult.GetValue(o_l);
+                var stringType = parseResult.GetValue(o_t);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Random.GetString(length, stringType, Authentication).GetAwaiter().GetResult();
                 CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),

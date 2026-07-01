@@ -7,22 +7,22 @@ namespace UAPI.CliGenerated
         public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
             Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
-            var cmd_text_aes_encrypt_1 = CliCommandTree.GetOrAdd(root, new[] { "text", "aes", "encrypt" });
-            cmd_text_aes_encrypt_1.Description = "使用 AES 加密文本";
-            var opt_text_aes_encrypt_1_key = new Option<string>("--key")
+            var o = CliCommandTree.GetOrAdd(root, new[] { "text", "aes", "encrypt", "result" });
+            o.Description = "使用 AES 加密文本";
+            var o_k = new Option<string>("--key")
             {
                 Required = true, Description = "密钥，长度必须为16、24或 32 字节，对应AES-128/192/256"
             };
-            cmd_text_aes_encrypt_1.Options.Add(opt_text_aes_encrypt_1_key);
-            var opt_text_aes_encrypt_1_text = new Option<string>("--text")
+            o.Options.Add(o_k);
+            var o_t = new Option<string>("--text")
             {
                 Required = true, Description = "指定要加密的文本"
             };
-            cmd_text_aes_encrypt_1.Options.Add(opt_text_aes_encrypt_1_text);
-            cmd_text_aes_encrypt_1.SetAction(parseResult =>
+            o.Options.Add(o_t);
+            o.SetAction(parseResult =>
             {
-                var key = parseResult.GetValue(opt_text_aes_encrypt_1_key);
-                var text = parseResult.GetValue(opt_text_aes_encrypt_1_text);
+                var key = parseResult.GetValue(o_k);
+                var text = parseResult.GetValue(o_t);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Text.AES.Encrypt(key, text, Authentication).GetAwaiter().GetResult();
                 CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
@@ -30,23 +30,23 @@ namespace UAPI.CliGenerated
                 return 0;
             });
 
-            var cmd_text_aes_encrypted_text_2 =
-                CliCommandTree.GetOrAdd(root, new[] { "text", "aes", "encrypted-text" });
-            cmd_text_aes_encrypted_text_2.Description = "使用 AES 加密文本, 直接返回加密后的文本, 可等待";
-            var opt_text_aes_encrypted_text_2_key = new Option<string>("--key")
+            var o2 =
+                CliCommandTree.GetOrAdd(root, new[] { "text", "aes", "encrypted", "text" });
+            o2.Description = "使用 AES 加密文本, 直接返回加密后的文本, 可等待";
+            var o2_k = new Option<string>("--key")
             {
                 Required = true, Description = "密钥，长度必须为16、24或 32 字节，对应AES-128/192/256"
             };
-            cmd_text_aes_encrypted_text_2.Options.Add(opt_text_aes_encrypted_text_2_key);
-            var opt_text_aes_encrypted_text_2_text = new Option<string>("--text")
+            o2.Options.Add(o2_k);
+            var o2_t = new Option<string>("--text")
             {
                 Required = true, Description = "指定要加密的文本"
             };
-            cmd_text_aes_encrypted_text_2.Options.Add(opt_text_aes_encrypted_text_2_text);
-            cmd_text_aes_encrypted_text_2.SetAction(parseResult =>
+            o2.Options.Add(o2_t);
+            o2.SetAction(parseResult =>
             {
-                var key = parseResult.GetValue(opt_text_aes_encrypted_text_2_key);
-                var text = parseResult.GetValue(opt_text_aes_encrypted_text_2_text);
+                var key = parseResult.GetValue(o2_k);
+                var text = parseResult.GetValue(o2_t);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Text.AES.ReturnEncryptedText(key, text, Authentication).GetAwaiter().GetResult();
                 CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
@@ -54,28 +54,28 @@ namespace UAPI.CliGenerated
                 return 0;
             });
 
-            var cmd_text_aes_decrypt_3 = CliCommandTree.GetOrAdd(root, new[] { "text", "aes", "decrypt" });
-            cmd_text_aes_decrypt_3.Description = "使用 AES 解密文本";
-            var opt_text_aes_decrypt_3_key = new Option<string>("--key")
+            var o3 = CliCommandTree.GetOrAdd(root, new[] { "text", "aes", "decrypt", "result" });
+            o3.Description = "使用 AES 解密文本";
+            var o3_k = new Option<string>("--key")
             {
                 Required = true, Description = "密钥，长度必须为16、24或 32 字节，对应AES-128/192/256"
             };
-            cmd_text_aes_decrypt_3.Options.Add(opt_text_aes_decrypt_3_key);
-            var opt_text_aes_decrypt_3_text = new Option<string>("--text")
+            o3.Options.Add(o3_k);
+            var o3_t = new Option<string>("--text")
             {
                 Required = true, Description = "指定要解密的文本"
             };
-            cmd_text_aes_decrypt_3.Options.Add(opt_text_aes_decrypt_3_text);
-            var opt_text_aes_decrypt_3_IV = new Option<string>("--iv")
+            o3.Options.Add(o3_t);
+            var o3_i = new Option<string>("--iv")
             {
                 Required = true, Description = "16字节的IV/Nonce，必须为16个字符"
             };
-            cmd_text_aes_decrypt_3.Options.Add(opt_text_aes_decrypt_3_IV);
-            cmd_text_aes_decrypt_3.SetAction(parseResult =>
+            o3.Options.Add(o3_i);
+            o3.SetAction(parseResult =>
             {
-                var key = parseResult.GetValue(opt_text_aes_decrypt_3_key);
-                var text = parseResult.GetValue(opt_text_aes_decrypt_3_text);
-                var IV = parseResult.GetValue(opt_text_aes_decrypt_3_IV);
+                var key = parseResult.GetValue(o3_k);
+                var text = parseResult.GetValue(o3_t);
+                var IV = parseResult.GetValue(o3_i);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Text.AES.Decrypt(key, text, IV, Authentication).GetAwaiter().GetResult();
                 CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
@@ -83,29 +83,29 @@ namespace UAPI.CliGenerated
                 return 0;
             });
 
-            var cmd_text_aes_decrypted_text_4 =
-                CliCommandTree.GetOrAdd(root, new[] { "text", "aes", "decrypted-text" });
-            cmd_text_aes_decrypted_text_4.Description = "使用 AES 解密文本, 直接返回解密后的文本, 可等待";
-            var opt_text_aes_decrypted_text_4_key = new Option<string>("--key")
+            var o4 =
+                CliCommandTree.GetOrAdd(root, new[] { "text", "aes", "decrypted", "text" });
+            o4.Description = "使用 AES 解密文本, 直接返回解密后的文本, 可等待";
+            var o4_k = new Option<string>("--key")
             {
                 Required = true, Description = "密钥，长度必须为16、24或 32 字节，对应AES-128/192/256"
             };
-            cmd_text_aes_decrypted_text_4.Options.Add(opt_text_aes_decrypted_text_4_key);
-            var opt_text_aes_decrypted_text_4_text = new Option<string>("--text")
+            o4.Options.Add(o4_k);
+            var o4_t = new Option<string>("--text")
             {
                 Required = true, Description = "指定要解密的文本"
             };
-            cmd_text_aes_decrypted_text_4.Options.Add(opt_text_aes_decrypted_text_4_text);
-            var opt_text_aes_decrypted_text_4_IV = new Option<string>("--iv")
+            o4.Options.Add(o4_t);
+            var o4_i = new Option<string>("--iv")
             {
                 Required = true, Description = "16字节的IV/Nonce，必须为16个字符"
             };
-            cmd_text_aes_decrypted_text_4.Options.Add(opt_text_aes_decrypted_text_4_IV);
-            cmd_text_aes_decrypted_text_4.SetAction(parseResult =>
+            o4.Options.Add(o4_i);
+            o4.SetAction(parseResult =>
             {
-                var key = parseResult.GetValue(opt_text_aes_decrypted_text_4_key);
-                var text = parseResult.GetValue(opt_text_aes_decrypted_text_4_text);
-                var IV = parseResult.GetValue(opt_text_aes_decrypted_text_4_IV);
+                var key = parseResult.GetValue(o4_k);
+                var text = parseResult.GetValue(o4_t);
+                var IV = parseResult.GetValue(o4_i);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Text.AES.ReturnDecryptedText(key, text, IV, Authentication).GetAwaiter().GetResult();
                 CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),

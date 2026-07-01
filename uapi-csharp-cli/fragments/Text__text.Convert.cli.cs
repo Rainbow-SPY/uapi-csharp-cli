@@ -7,34 +7,34 @@ namespace UAPI.CliGenerated
         public static void AddCommands(RootCommand root, Option<string> outputOption, Option<bool> appendOption,
             Option<string> authenticationOption, Option<string> resultOption, Option<string> selectOption)
         {
-            var cmd_text_convert_er_1 = CliCommandTree.GetOrAdd(root, new[] { "text", "convert", "er" });
-            cmd_text_convert_er_1.Description = "不同文本格式之间转换";
-            var opt_text_convert_er_1_text = new Option<string>("--text")
+            var o = CliCommandTree.GetOrAdd(root, new[] { "text", "convert", "converter" });
+            o.Description = "不同文本格式之间转换";
+            var o_t = new Option<string>("--text")
             {
                 Required = true, Description = "指定要转换的源文本"
             };
-            cmd_text_convert_er_1.Options.Add(opt_text_convert_er_1_text);
-            var opt_text_convert_er_1_From = new Option<Text.Convert.Format>("--from")
+            o.Options.Add(o_t);
+            var o_f = new Option<Text.Convert.Format>("--from")
             {
                 Required = true, Description = "源格式"
             };
-            cmd_text_convert_er_1.Options.Add(opt_text_convert_er_1_From);
-            var opt_text_convert_er_1_To = new Option<Text.Convert.Format>("--to")
+            o.Options.Add(o_f);
+            var o_to = new Option<Text.Convert.Format>("--to")
             {
                 Required = true, Description = "目标格式"
             };
-            cmd_text_convert_er_1.Options.Add(opt_text_convert_er_1_To);
-            var opt_text_convert_er_1_option = new Option<string>("--option")
+            o.Options.Add(o_to);
+            var o_o = new Option<string>("--option")
             {
                 Required = false, Description = "预留, 未投入使用", DefaultValueFactory = _ => null
             };
-            cmd_text_convert_er_1.Options.Add(opt_text_convert_er_1_option);
-            cmd_text_convert_er_1.SetAction(parseResult =>
+            o.Options.Add(o_o);
+            o.SetAction(parseResult =>
             {
-                var text = parseResult.GetValue(opt_text_convert_er_1_text);
-                var From = parseResult.GetValue(opt_text_convert_er_1_From);
-                var To = parseResult.GetValue(opt_text_convert_er_1_To);
-                object option = parseResult.GetValue(opt_text_convert_er_1_option);
+                var text = parseResult.GetValue(o_t);
+                var From = parseResult.GetValue(o_f);
+                var To = parseResult.GetValue(o_to);
+                object option = parseResult.GetValue(o_o);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Text.Convert.Converter(text, From, To, option, Authentication).GetAwaiter()
                     .GetResult();
@@ -43,29 +43,29 @@ namespace UAPI.CliGenerated
                 return 0;
             });
 
-            var cmd_text_convert_any_to_text_2 =
+            var o2 =
                 CliCommandTree.GetOrAdd(root, new[] { "text", "convert", "any-to-text" });
-            cmd_text_convert_any_to_text_2.Description = "将任意格式的数据转换为文本";
-            var opt_text_convert_any_to_text_2_text = new Option<string>("--text")
+            o2.Description = "将任意格式的数据转换为文本";
+            var o2_t = new Option<string>("--text")
             {
                 Required = true, Description = "指定要转换的文本"
             };
-            cmd_text_convert_any_to_text_2.Options.Add(opt_text_convert_any_to_text_2_text);
-            var opt_text_convert_any_to_text_2_From = new Option<Text.Convert.Format>("--from")
+            o2.Options.Add(o2_t);
+            var o2_f = new Option<Text.Convert.Format>("--from")
             {
                 Required = true, Description = "指定要转换的文本的原格式"
             };
-            cmd_text_convert_any_to_text_2.Options.Add(opt_text_convert_any_to_text_2_From);
-            var opt_text_convert_any_to_text_2_option = new Option<string>("--option")
+            o2.Options.Add(o2_f);
+            var o2_o = new Option<string>("--option")
             {
                 Required = false, Description = "预留, 未投入使用", DefaultValueFactory = _ => null
             };
-            cmd_text_convert_any_to_text_2.Options.Add(opt_text_convert_any_to_text_2_option);
-            cmd_text_convert_any_to_text_2.SetAction(parseResult =>
+            o2.Options.Add(o2_o);
+            o2.SetAction(parseResult =>
             {
-                var text = parseResult.GetValue(opt_text_convert_any_to_text_2_text);
-                var From = parseResult.GetValue(opt_text_convert_any_to_text_2_From);
-                object option = parseResult.GetValue(opt_text_convert_any_to_text_2_option);
+                var text = parseResult.GetValue(o2_t);
+                var From = parseResult.GetValue(o2_f);
+                object option = parseResult.GetValue(o2_o);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Text.Convert.AnyToText(text, From, option, Authentication).GetAwaiter().GetResult();
                 CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
@@ -73,29 +73,29 @@ namespace UAPI.CliGenerated
                 return 0;
             });
 
-            var cmd_text_convert_any_to_base64_3 =
+            var o3 =
                 CliCommandTree.GetOrAdd(root, new[] { "text", "convert", "any-to-base64" });
-            cmd_text_convert_any_to_base64_3.Description = "将任意格式的数据转换为 Base64";
-            var opt_text_convert_any_to_base64_3_text = new Option<string>("--text")
+            o3.Description = "将任意格式的数据转换为 Base64";
+            var o3_t = new Option<string>("--text")
             {
                 Required = true, Description = "指定要转换的文本"
             };
-            cmd_text_convert_any_to_base64_3.Options.Add(opt_text_convert_any_to_base64_3_text);
-            var opt_text_convert_any_to_base64_3_From = new Option<Text.Convert.Format>("--from")
+            o3.Options.Add(o3_t);
+            var o3_f = new Option<Text.Convert.Format>("--from")
             {
                 Required = true, Description = "指定要转换的文本的原格式"
             };
-            cmd_text_convert_any_to_base64_3.Options.Add(opt_text_convert_any_to_base64_3_From);
-            var opt_text_convert_any_to_base64_3_option = new Option<string>("--option")
+            o3.Options.Add(o3_f);
+            var o3_o = new Option<string>("--option")
             {
                 Required = false, Description = "预留, 未投入使用", DefaultValueFactory = _ => null
             };
-            cmd_text_convert_any_to_base64_3.Options.Add(opt_text_convert_any_to_base64_3_option);
-            cmd_text_convert_any_to_base64_3.SetAction(parseResult =>
+            o3.Options.Add(o3_o);
+            o3.SetAction(parseResult =>
             {
-                var text = parseResult.GetValue(opt_text_convert_any_to_base64_3_text);
-                var From = parseResult.GetValue(opt_text_convert_any_to_base64_3_From);
-                object option = parseResult.GetValue(opt_text_convert_any_to_base64_3_option);
+                var text = parseResult.GetValue(o3_t);
+                var From = parseResult.GetValue(o3_f);
+                object option = parseResult.GetValue(o3_o);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Text.Convert.AnyToBase64(text, From, option, Authentication).GetAwaiter().GetResult();
                 CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
@@ -103,29 +103,29 @@ namespace UAPI.CliGenerated
                 return 0;
             });
 
-            var cmd_text_convert_any_to_hex_4 =
+            var o4 =
                 CliCommandTree.GetOrAdd(root, new[] { "text", "convert", "any-to-hex" });
-            cmd_text_convert_any_to_hex_4.Description = "将任意格式的数据转换为十六进制 (不带 - , 小写字母+数字)";
-            var opt_text_convert_any_to_hex_4_text = new Option<string>("--text")
+            o4.Description = "将任意格式的数据转换为十六进制 (不带 - , 小写字母+数字)";
+            var o4_t = new Option<string>("--text")
             {
                 Required = true, Description = "指定要转换的文本"
             };
-            cmd_text_convert_any_to_hex_4.Options.Add(opt_text_convert_any_to_hex_4_text);
-            var opt_text_convert_any_to_hex_4_From = new Option<Text.Convert.Format>("--from")
+            o4.Options.Add(o4_t);
+            var o4_f = new Option<Text.Convert.Format>("--from")
             {
                 Required = true, Description = "指定要转换的文本的原格式"
             };
-            cmd_text_convert_any_to_hex_4.Options.Add(opt_text_convert_any_to_hex_4_From);
-            var opt_text_convert_any_to_hex_4_option = new Option<string>("--option")
+            o4.Options.Add(o4_f);
+            var o4_o = new Option<string>("--option")
             {
                 Required = false, Description = "预留, 未投入使用", DefaultValueFactory = _ => null
             };
-            cmd_text_convert_any_to_hex_4.Options.Add(opt_text_convert_any_to_hex_4_option);
-            cmd_text_convert_any_to_hex_4.SetAction(parseResult =>
+            o4.Options.Add(o4_o);
+            o4.SetAction(parseResult =>
             {
-                var text = parseResult.GetValue(opt_text_convert_any_to_hex_4_text);
-                var From = parseResult.GetValue(opt_text_convert_any_to_hex_4_From);
-                object option = parseResult.GetValue(opt_text_convert_any_to_hex_4_option);
+                var text = parseResult.GetValue(o4_t);
+                var From = parseResult.GetValue(o4_f);
+                object option = parseResult.GetValue(o4_o);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Text.Convert.AnyToHex(text, From, option, Authentication).GetAwaiter().GetResult();
                 CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
@@ -133,29 +133,29 @@ namespace UAPI.CliGenerated
                 return 0;
             });
 
-            var cmd_text_convert_any_to_url_5 =
+            var o5 =
                 CliCommandTree.GetOrAdd(root, new[] { "text", "convert", "any-to-url" });
-            cmd_text_convert_any_to_url_5.Description = "将任意格式的数据转换为 URL 编码";
-            var opt_text_convert_any_to_url_5_text = new Option<string>("--text")
+            o5.Description = "将任意格式的数据转换为 URL 编码";
+            var o5_t = new Option<string>("--text")
             {
                 Required = true, Description = "指定要转换的文本"
             };
-            cmd_text_convert_any_to_url_5.Options.Add(opt_text_convert_any_to_url_5_text);
-            var opt_text_convert_any_to_url_5_From = new Option<Text.Convert.Format>("--from")
+            o5.Options.Add(o5_t);
+            var o5_f = new Option<Text.Convert.Format>("--from")
             {
                 Required = true, Description = "指定要转换的文本的原格式"
             };
-            cmd_text_convert_any_to_url_5.Options.Add(opt_text_convert_any_to_url_5_From);
-            var opt_text_convert_any_to_url_5_option = new Option<string>("--option")
+            o5.Options.Add(o5_f);
+            var o5_o = new Option<string>("--option")
             {
                 Required = false, Description = "预留, 未投入使用", DefaultValueFactory = _ => null
             };
-            cmd_text_convert_any_to_url_5.Options.Add(opt_text_convert_any_to_url_5_option);
-            cmd_text_convert_any_to_url_5.SetAction(parseResult =>
+            o5.Options.Add(o5_o);
+            o5.SetAction(parseResult =>
             {
-                var text = parseResult.GetValue(opt_text_convert_any_to_url_5_text);
-                var From = parseResult.GetValue(opt_text_convert_any_to_url_5_From);
-                object option = parseResult.GetValue(opt_text_convert_any_to_url_5_option);
+                var text = parseResult.GetValue(o5_t);
+                var From = parseResult.GetValue(o5_f);
+                object option = parseResult.GetValue(o5_o);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Text.Convert.AnyToURL(text, From, option, Authentication).GetAwaiter().GetResult();
                 CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
@@ -163,29 +163,29 @@ namespace UAPI.CliGenerated
                 return 0;
             });
 
-            var cmd_text_convert_any_to_unicode_6 =
+            var o6 =
                 CliCommandTree.GetOrAdd(root, new[] { "text", "convert", "any-to-unicode" });
-            cmd_text_convert_any_to_unicode_6.Description = "将任意格式的数据转换为 Unicode 转义字符";
-            var opt_text_convert_any_to_unicode_6_text = new Option<string>("--text")
+            o6.Description = "将任意格式的数据转换为 Unicode 转义字符";
+            var o6_t = new Option<string>("--text")
             {
                 Required = true, Description = "指定要转换的文本"
             };
-            cmd_text_convert_any_to_unicode_6.Options.Add(opt_text_convert_any_to_unicode_6_text);
-            var opt_text_convert_any_to_unicode_6_From = new Option<Text.Convert.Format>("--from")
+            o6.Options.Add(o6_t);
+            var o6_f = new Option<Text.Convert.Format>("--from")
             {
                 Required = true, Description = "指定要转换的文本的原格式"
             };
-            cmd_text_convert_any_to_unicode_6.Options.Add(opt_text_convert_any_to_unicode_6_From);
-            var opt_text_convert_any_to_unicode_6_option = new Option<string>("--option")
+            o6.Options.Add(o6_f);
+            var o6_o = new Option<string>("--option")
             {
                 Required = false, Description = "预留, 未投入使用", DefaultValueFactory = _ => null
             };
-            cmd_text_convert_any_to_unicode_6.Options.Add(opt_text_convert_any_to_unicode_6_option);
-            cmd_text_convert_any_to_unicode_6.SetAction(parseResult =>
+            o6.Options.Add(o6_o);
+            o6.SetAction(parseResult =>
             {
-                var text = parseResult.GetValue(opt_text_convert_any_to_unicode_6_text);
-                var From = parseResult.GetValue(opt_text_convert_any_to_unicode_6_From);
-                object option = parseResult.GetValue(opt_text_convert_any_to_unicode_6_option);
+                var text = parseResult.GetValue(o6_t);
+                var From = parseResult.GetValue(o6_f);
+                object option = parseResult.GetValue(o6_o);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Text.Convert.AnyToUnicode(text, From, option, Authentication).GetAwaiter()
                     .GetResult();
@@ -194,29 +194,29 @@ namespace UAPI.CliGenerated
                 return 0;
             });
 
-            var cmd_text_convert_any_to_binary_bytes_7 =
+            var o7 =
                 CliCommandTree.GetOrAdd(root, new[] { "text", "convert", "any-to-binary-bytes" });
-            cmd_text_convert_any_to_binary_bytes_7.Description = "将任意格式的数据转换为二进制字节数据, 返回字节数组";
-            var opt_text_convert_any_to_binary_bytes_7_text = new Option<string>("--text")
+            o7.Description = "将任意格式的数据转换为二进制字节数据, 返回字节数组";
+            var o7_t = new Option<string>("--text")
             {
                 Required = true, Description = "指定要转换的文本"
             };
-            cmd_text_convert_any_to_binary_bytes_7.Options.Add(opt_text_convert_any_to_binary_bytes_7_text);
-            var opt_text_convert_any_to_binary_bytes_7_From = new Option<Text.Convert.Format>("--from")
+            o7.Options.Add(o7_t);
+            var o7_f = new Option<Text.Convert.Format>("--from")
             {
                 Required = true, Description = "指定要转换的文本的原格式"
             };
-            cmd_text_convert_any_to_binary_bytes_7.Options.Add(opt_text_convert_any_to_binary_bytes_7_From);
-            var opt_text_convert_any_to_binary_bytes_7_option = new Option<string>("--option")
+            o7.Options.Add(o7_f);
+            var o7_o = new Option<string>("--option")
             {
                 Required = false, Description = "预留, 未投入使用", DefaultValueFactory = _ => null
             };
-            cmd_text_convert_any_to_binary_bytes_7.Options.Add(opt_text_convert_any_to_binary_bytes_7_option);
-            cmd_text_convert_any_to_binary_bytes_7.SetAction(parseResult =>
+            o7.Options.Add(o7_o);
+            o7.SetAction(parseResult =>
             {
-                var text = parseResult.GetValue(opt_text_convert_any_to_binary_bytes_7_text);
-                var From = parseResult.GetValue(opt_text_convert_any_to_binary_bytes_7_From);
-                object option = parseResult.GetValue(opt_text_convert_any_to_binary_bytes_7_option);
+                var text = parseResult.GetValue(o7_t);
+                var From = parseResult.GetValue(o7_f);
+                object option = parseResult.GetValue(o7_o);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Text.Convert.AnyToBinaryBytes(text, From, option, Authentication).GetAwaiter()
                     .GetResult();
@@ -225,29 +225,29 @@ namespace UAPI.CliGenerated
                 return 0;
             });
 
-            var cmd_text_convert_any_to_binary_string_8 =
+            var o8 =
                 CliCommandTree.GetOrAdd(root, new[] { "text", "convert", "any-to-binary-string" });
-            cmd_text_convert_any_to_binary_string_8.Description = "将任意格式的数据转换为二进制字节数据, 返回字符串";
-            var opt_text_convert_any_to_binary_string_8_text = new Option<string>("--text")
+            o8.Description = "将任意格式的数据转换为二进制字节数据, 返回字符串";
+            var o8_t = new Option<string>("--text")
             {
                 Required = true, Description = "指定要转换的文本"
             };
-            cmd_text_convert_any_to_binary_string_8.Options.Add(opt_text_convert_any_to_binary_string_8_text);
-            var opt_text_convert_any_to_binary_string_8_From = new Option<Text.Convert.Format>("--from")
+            o8.Options.Add(o8_t);
+            var o8_f = new Option<Text.Convert.Format>("--from")
             {
                 Required = true, Description = "指定要转换的文本的原格式"
             };
-            cmd_text_convert_any_to_binary_string_8.Options.Add(opt_text_convert_any_to_binary_string_8_From);
-            var opt_text_convert_any_to_binary_string_8_option = new Option<string>("--option")
+            o8.Options.Add(o8_f);
+            var o8_o = new Option<string>("--option")
             {
                 Required = false, Description = "预留, 未投入使用", DefaultValueFactory = _ => null
             };
-            cmd_text_convert_any_to_binary_string_8.Options.Add(opt_text_convert_any_to_binary_string_8_option);
-            cmd_text_convert_any_to_binary_string_8.SetAction(parseResult =>
+            o8.Options.Add(o8_o);
+            o8.SetAction(parseResult =>
             {
-                var text = parseResult.GetValue(opt_text_convert_any_to_binary_string_8_text);
-                var From = parseResult.GetValue(opt_text_convert_any_to_binary_string_8_From);
-                object option = parseResult.GetValue(opt_text_convert_any_to_binary_string_8_option);
+                var text = parseResult.GetValue(o8_t);
+                var From = parseResult.GetValue(o8_f);
+                object option = parseResult.GetValue(o8_o);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Text.Convert.AnyToBinaryString(text, From, option, Authentication).GetAwaiter()
                     .GetResult();
@@ -256,29 +256,29 @@ namespace UAPI.CliGenerated
                 return 0;
             });
 
-            var cmd_text_convert_any_to_md5_9 =
+            var o9 =
                 CliCommandTree.GetOrAdd(root, new[] { "text", "convert", "any-to-md5" });
-            cmd_text_convert_any_to_md5_9.Description = "将任意格式的数据转换为 MD5 哈希值";
-            var opt_text_convert_any_to_md5_9_text = new Option<string>("--text")
+            o9.Description = "将任意格式的数据转换为 MD5 哈希值";
+            var o9_t = new Option<string>("--text")
             {
                 Required = true, Description = "指定要转换的文本"
             };
-            cmd_text_convert_any_to_md5_9.Options.Add(opt_text_convert_any_to_md5_9_text);
-            var opt_text_convert_any_to_md5_9_From = new Option<Text.Convert.Format>("--from")
+            o9.Options.Add(o9_t);
+            var o9_f = new Option<Text.Convert.Format>("--from")
             {
                 Required = true, Description = "指定要转换的文本的原格式"
             };
-            cmd_text_convert_any_to_md5_9.Options.Add(opt_text_convert_any_to_md5_9_From);
-            var opt_text_convert_any_to_md5_9_option = new Option<string>("--option")
+            o9.Options.Add(o9_f);
+            var o9_o = new Option<string>("--option")
             {
                 Required = false, Description = "预留, 未投入使用", DefaultValueFactory = _ => null
             };
-            cmd_text_convert_any_to_md5_9.Options.Add(opt_text_convert_any_to_md5_9_option);
-            cmd_text_convert_any_to_md5_9.SetAction(parseResult =>
+            o9.Options.Add(o9_o);
+            o9.SetAction(parseResult =>
             {
-                var text = parseResult.GetValue(opt_text_convert_any_to_md5_9_text);
-                var From = parseResult.GetValue(opt_text_convert_any_to_md5_9_From);
-                object option = parseResult.GetValue(opt_text_convert_any_to_md5_9_option);
+                var text = parseResult.GetValue(o9_t);
+                var From = parseResult.GetValue(o9_f);
+                object option = parseResult.GetValue(o9_o);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Text.Convert.AnyToMD5(text, From, option, Authentication).GetAwaiter().GetResult();
                 CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
@@ -286,29 +286,29 @@ namespace UAPI.CliGenerated
                 return 0;
             });
 
-            var cmd_text_convert_any_to_sha1_10 =
+            var o10 =
                 CliCommandTree.GetOrAdd(root, new[] { "text", "convert", "any-to-sha1" });
-            cmd_text_convert_any_to_sha1_10.Description = "将任意格式的数据转换为 SHA1 哈希值";
-            var opt_text_convert_any_to_sha1_10_text = new Option<string>("--text")
+            o10.Description = "将任意格式的数据转换为 SHA1 哈希值";
+            var o10_t = new Option<string>("--text")
             {
                 Required = true, Description = "指定要转换的文本"
             };
-            cmd_text_convert_any_to_sha1_10.Options.Add(opt_text_convert_any_to_sha1_10_text);
-            var opt_text_convert_any_to_sha1_10_From = new Option<Text.Convert.Format>("--from")
+            o10.Options.Add(o10_t);
+            var o10_f = new Option<Text.Convert.Format>("--from")
             {
                 Required = true, Description = "指定要转换的文本的原格式"
             };
-            cmd_text_convert_any_to_sha1_10.Options.Add(opt_text_convert_any_to_sha1_10_From);
-            var opt_text_convert_any_to_sha1_10_option = new Option<string>("--option")
+            o10.Options.Add(o10_f);
+            var o10_o = new Option<string>("--option")
             {
                 Required = false, Description = "预留, 未投入使用", DefaultValueFactory = _ => null
             };
-            cmd_text_convert_any_to_sha1_10.Options.Add(opt_text_convert_any_to_sha1_10_option);
-            cmd_text_convert_any_to_sha1_10.SetAction(parseResult =>
+            o10.Options.Add(o10_o);
+            o10.SetAction(parseResult =>
             {
-                var text = parseResult.GetValue(opt_text_convert_any_to_sha1_10_text);
-                var From = parseResult.GetValue(opt_text_convert_any_to_sha1_10_From);
-                object option = parseResult.GetValue(opt_text_convert_any_to_sha1_10_option);
+                var text = parseResult.GetValue(o10_t);
+                var From = parseResult.GetValue(o10_f);
+                object option = parseResult.GetValue(o10_o);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Text.Convert.AnyToSHA1(text, From, option, Authentication).GetAwaiter().GetResult();
                 CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
@@ -316,29 +316,29 @@ namespace UAPI.CliGenerated
                 return 0;
             });
 
-            var cmd_text_convert_any_to_sha256_11 =
+            var o11 =
                 CliCommandTree.GetOrAdd(root, new[] { "text", "convert", "any-to-sha256" });
-            cmd_text_convert_any_to_sha256_11.Description = "将任意格式的数据转换为 SHA256 哈希值";
-            var opt_text_convert_any_to_sha256_11_text = new Option<string>("--text")
+            o11.Description = "将任意格式的数据转换为 SHA256 哈希值";
+            var o11_t = new Option<string>("--text")
             {
                 Required = true, Description = "指定要转换的文本"
             };
-            cmd_text_convert_any_to_sha256_11.Options.Add(opt_text_convert_any_to_sha256_11_text);
-            var opt_text_convert_any_to_sha256_11_From = new Option<Text.Convert.Format>("--from")
+            o11.Options.Add(o11_t);
+            var o11_f = new Option<Text.Convert.Format>("--from")
             {
                 Required = true, Description = "指定要转换的文本的原格式"
             };
-            cmd_text_convert_any_to_sha256_11.Options.Add(opt_text_convert_any_to_sha256_11_From);
-            var opt_text_convert_any_to_sha256_11_option = new Option<string>("--option")
+            o11.Options.Add(o11_f);
+            var o11_o = new Option<string>("--option")
             {
                 Required = false, Description = "预留, 未投入使用", DefaultValueFactory = _ => null
             };
-            cmd_text_convert_any_to_sha256_11.Options.Add(opt_text_convert_any_to_sha256_11_option);
-            cmd_text_convert_any_to_sha256_11.SetAction(parseResult =>
+            o11.Options.Add(o11_o);
+            o11.SetAction(parseResult =>
             {
-                var text = parseResult.GetValue(opt_text_convert_any_to_sha256_11_text);
-                var From = parseResult.GetValue(opt_text_convert_any_to_sha256_11_From);
-                object option = parseResult.GetValue(opt_text_convert_any_to_sha256_11_option);
+                var text = parseResult.GetValue(o11_t);
+                var From = parseResult.GetValue(o11_f);
+                object option = parseResult.GetValue(o11_o);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Text.Convert.AnyToSHA256(text, From, option, Authentication).GetAwaiter().GetResult();
                 CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
@@ -346,29 +346,29 @@ namespace UAPI.CliGenerated
                 return 0;
             });
 
-            var cmd_text_convert_any_to_sha512_12 =
+            var o12 =
                 CliCommandTree.GetOrAdd(root, new[] { "text", "convert", "any-to-sha512" });
-            cmd_text_convert_any_to_sha512_12.Description = "将任意格式的数据转换为 SHA512 哈希值";
-            var opt_text_convert_any_to_sha512_12_text = new Option<string>("--text")
+            o12.Description = "将任意格式的数据转换为 SHA512 哈希值";
+            var o12_t = new Option<string>("--text")
             {
                 Required = true, Description = "指定要转换的文本"
             };
-            cmd_text_convert_any_to_sha512_12.Options.Add(opt_text_convert_any_to_sha512_12_text);
-            var opt_text_convert_any_to_sha512_12_From = new Option<Text.Convert.Format>("--from")
+            o12.Options.Add(o12_t);
+            var o12_f = new Option<Text.Convert.Format>("--from")
             {
                 Required = true, Description = "指定要转换的文本的原格式"
             };
-            cmd_text_convert_any_to_sha512_12.Options.Add(opt_text_convert_any_to_sha512_12_From);
-            var opt_text_convert_any_to_sha512_12_option = new Option<string>("--option")
+            o12.Options.Add(o12_f);
+            var o12_o = new Option<string>("--option")
             {
                 Required = false, Description = "预留, 未投入使用", DefaultValueFactory = _ => null
             };
-            cmd_text_convert_any_to_sha512_12.Options.Add(opt_text_convert_any_to_sha512_12_option);
-            cmd_text_convert_any_to_sha512_12.SetAction(parseResult =>
+            o12.Options.Add(o12_o);
+            o12.SetAction(parseResult =>
             {
-                var text = parseResult.GetValue(opt_text_convert_any_to_sha512_12_text);
-                var From = parseResult.GetValue(opt_text_convert_any_to_sha512_12_From);
-                object option = parseResult.GetValue(opt_text_convert_any_to_sha512_12_option);
+                var text = parseResult.GetValue(o12_t);
+                var From = parseResult.GetValue(o12_f);
+                object option = parseResult.GetValue(o12_o);
                 var Authentication = parseResult.GetValue(authenticationOption);
                 var result = Text.Convert.AnyToSHA512(text, From, option, Authentication).GetAwaiter().GetResult();
                 CliOutput.WriteObject(result, parseResult.GetValue(outputOption), parseResult.GetValue(appendOption),
